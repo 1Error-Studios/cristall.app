@@ -24,6 +24,10 @@ logger.LoadFilePath(FILES_PATH.log_file);
 
 const createWindow = () => {
     window.TitleSetup('Crystall');
+    window.SetupAdditionalOptions({
+        frame: false,
+        autoHideMenuBar: true
+    });
     window.CreateWindow();
 
     window.DropWindow().loadFile('./web/main.html');

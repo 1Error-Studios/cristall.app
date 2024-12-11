@@ -8,6 +8,8 @@ class Window {
         this.currentWidth = 800;
         this.currentHeight = 600;
 
+        this.additionalOptions = {};
+
         this.title = '';
     }
 
@@ -120,6 +122,23 @@ class Window {
     }
 
     /**
+     * Add more setting to window
+     * 
+     * @param {Object} additionalOptions 
+     */
+    SetupAdditionalOptions(additionalOptions) {
+        if (typeof additionalOptions === 'object' && Array.isArray()) {
+            if (dev_mode) {
+                // log here
+            }
+
+            return;
+        }
+
+        this.additionalOptions = additionalOptions;
+    }
+
+    /**
      * Creating new instance of Electron.BrowserWindow
      * 
      * @returns {null}
@@ -160,7 +179,8 @@ class Window {
         this.window = new BrowserWindow({
             width: this.currentHeight,
             height: this.currentHeight,
-            title: this.title
+            title: this.title,
+            ...this.additionalOptions
         });
 
         if (dev_mode) {
