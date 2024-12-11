@@ -13,3 +13,7 @@ button:focus {
     border: unset;
     outline: unset;
 }
+
+svg {
+    transition: all .33s ease;
+}

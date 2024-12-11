@@ -4,7 +4,7 @@
     padding: 10px;
     justify-content: space-between;
     align-items: flex-start;
-    background: var(--Background-Secondary, #212121);
+    background: var(--bg-secondary);
 }
 
 .title-frame {
@@ -16,7 +16,7 @@
 
 .title-slash {
     -webkit-app-region: none;
-    color: var(--Text-Secondary, #999);
+    color: var(--txt-secondary);
     font-family: 'Outfit-Medium';
     font-size: 16px;
     font-style: normal;
@@ -25,7 +25,7 @@
 
 .title {
     -webkit-app-region: none;
-    color: var(--Text-primary, #FFF);
+    color: var(--txt-primary);
     font-family: 'Outfit-Medium';
     font-size: 16px;
     font-style: normal;
@@ -60,6 +60,14 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+}
+
+.control-island-button-icon:hover > svg {
+    fill: var(--txt-secondary);
+}
+
+.control-island-button-close-icon:hover > svg {
+    fill: var(--txt-secondary);
 }
 
 .control-island-button-close-icon > svg {
