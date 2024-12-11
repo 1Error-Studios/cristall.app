@@ -1,4 +1,5 @@
 .header {
+    -webkit-app-region: drag;
     display: flex;
     padding: 10px;
     justify-content: space-between;
@@ -14,6 +15,7 @@
 }
 
 .title-slash {
+    -webkit-app-region: none;
     color: var(--Text-Secondary, #999);
     font-family: 'Outfit-Medium';
     font-size: 16px;
@@ -22,9 +24,47 @@
 }
 
 .title {
+    -webkit-app-region: none;
     color: var(--Text-primary, #FFF);
     font-family: 'Outfit-Medium';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
+}
+
+.control-island-frame {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.control-island-button {
+    background: none;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/*<--EXTRA PARAMETERS-->*/
+.control-island-button-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.control-island-button-close-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;    
+}
+
+.control-island-button-close-icon > svg {
+    transform: rotate(-45deg);
 }
