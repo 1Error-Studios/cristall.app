@@ -1,12 +1,14 @@
 const { app, BrowserWindow } = require('electron');
 
+const { Window } = require('./core/window/Window.js');
+
+const window = new Window();
+
 const createWindow = () => {
-    const win = new BrowserWindow({
-      width: 800,
-      height: 600
-    });
-    
-    win.loadFile('./web/main.html');
+    window.TitleSetup('Crystall');
+    window.CreateWindow();
+
+    window.DropWindow().loadFile('./web/main.html');
 }
 
 app.whenReady().then(() => {
@@ -16,7 +18,7 @@ app.whenReady().then(() => {
         if (BrowserWindow.getAllWindows().length === 0) {
             createWindow();
         }
-    })
+    });
 });
 
 app.on('window-all-closed', () => {
