@@ -4,7 +4,7 @@
   "description": "Writer app (no cloud)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "electron ."
   },
   "keywords": [],
   "author": "",
