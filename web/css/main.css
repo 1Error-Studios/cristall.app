@@ -36,6 +36,7 @@
     display: flex;
     align-items: flex-start;
     gap: 10px;
+    -webkit-app-region: none;
 }
 
 .control-island-button {
@@ -58,9 +59,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;    
+    flex-shrink: 0;
 }
 
 .control-island-button-close-icon > svg {
-    transform: rotate(-45deg);
+    transform: rotate(-90deg);
 }
