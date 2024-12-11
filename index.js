@@ -1,32 +1,23 @@
 const { app, BrowserWindow } = require('electron');
-const os = require('os');
 
+const { FOLDERS_PATH, FILES_PATH } = require('./core/misc/Structure.js');
 const { Window } = require('./core/window/Window.js');
-const { Log } = require('./core/log/Log.js');
 const { Checker } = require('./core/filesystem/Checker.js');
-
-const FOLDERS_PATH = {
-    'company': `${os.homedir()}/AppData/Roaming/1Error Studios`,
-    'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Crystall`
-}
-
-const FILES_PATH = {
-    'log_file': `${os.homedir()}/AppData/Roaming/1Error Studios/Crystall/log.json`
-}
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(Object.values(FILES_PATH));
 
 const window = new Window();
-const logger = new Log();
-
-logger.LoadFilePath(FILES_PATH.log_file);
 
 const createWindow = () => {
     window.TitleSetup('Crystall');
     window.SetupAdditionalOptions({
         frame: false,
-        autoHideMenuBar: true
+        autoHideMenuBar: true,
+        minHeight: 600,
+        minWidth: 800,
+        maxHeight: 1080,
+        maxWidth: 1920
     });
     window.CreateWindow();
 

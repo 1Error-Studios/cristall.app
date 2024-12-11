@@ -1,5 +1,6 @@
 const { dev_mode } = require('../../meta.json');
 const { BrowserWindow } = require('electron');
+const { Log } = require('../log/Log.js');
 
 class Window {
     constructor() {
@@ -24,7 +25,7 @@ class Window {
     FullWindowSetup(width, height, title) {
         if (typeof width !== "number" || width > 1920 || width < 800) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: width is not number or has incorrect value!');
             }
 
             return;
@@ -32,7 +33,7 @@ class Window {
 
         if (typeof height !== "number" || height > 1080 || height < 600) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: height is not number or has incorrect value!');
             }
 
             return;
@@ -40,7 +41,7 @@ class Window {
 
         if (typeof title !== "string") {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: title is not string!');
             }
 
             return;
@@ -51,7 +52,7 @@ class Window {
         this.title = title;
 
         if (dev_mode) {
-            // log here
+            Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'INFO: successfully compleate setup!');
         }
     }
 
@@ -64,7 +65,7 @@ class Window {
     WidthSetup(width) {
         if (typeof width !== "number" || width > 1920 || width < 800) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.WidthSetup(width)', 'FATAL: width is not number or has incorrect value!');
             }
 
             return;
@@ -73,7 +74,7 @@ class Window {
         this.currentWidth = width;
 
         if (dev_mode) {
-            // log here
+            Log.MakeNewNote('Window.WidthSetup(width)', 'INFO: successfully changed width!');
         }
     }
 
@@ -86,7 +87,7 @@ class Window {
     HeightSetup(height) {
         if (typeof height !== "number" || height > 1080 || height < 600) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.HeightSetup(height)', 'FATAL: height is not number or has incorrect value!');
             }
 
             return;
@@ -95,7 +96,7 @@ class Window {
         this.currentHeight = height;
 
         if (dev_mode) {
-            // log here
+            Log.MakeNewNote('Window.HeightSetup(height)', 'INFO: successfully changed height!');
         }
     }
 
@@ -108,7 +109,7 @@ class Window {
     TitleSetup(title) {
         if (typeof title !== "string") {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.TitleSetup(title)', 'FATAL: title is not string!');
             }
 
             return;
@@ -117,7 +118,7 @@ class Window {
         this.title = title;
 
         if (dev_mode) {
-            // log here
+            Log.MakeNewNote('Window.TitleSetup(title)', 'INFO: successfully changed title!');
         }
     }
 
@@ -129,13 +130,17 @@ class Window {
     SetupAdditionalOptions(additionalOptions) {
         if (typeof additionalOptions === 'object' && Array.isArray()) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'FATAL: additionalOptions is not JS.Object type!');
             }
 
             return;
         }
 
         this.additionalOptions = additionalOptions;
+
+        if (dev_mode) {
+            Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'INFO: applied new additionalOptions to window!');
+        }
     }
 
     /**
@@ -146,7 +151,7 @@ class Window {
     CreateWindow() {
         if (typeof this.currentWidth !== "number" || this.currentWidth > 1920 || this.currentWidth < 800) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: width is not number or has incorrect value!');
             }
 
             return;
@@ -154,7 +159,7 @@ class Window {
 
         if (typeof this.currentHeight !== "number" || this.currentHeight > 1080 || this.currentHeight < 600) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not number or has incorrect value!');
             }
 
             return;
@@ -162,7 +167,7 @@ class Window {
 
         if (typeof this.title !== "string" || this.title.length === 0) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not string!');
             }
 
             return;
@@ -170,7 +175,7 @@ class Window {
 
         if (this.window instanceof BrowserWindow) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.CreateWindow()', 'ERROR: window already exist!');
             }
 
             return;
@@ -184,7 +189,7 @@ class Window {
         });
 
         if (dev_mode) {
-            // log here
+            Log.MakeNewNote('Window.CreateWindow()', 'INFO: successfully created window instance!');
         }
     }
 
@@ -196,7 +201,7 @@ class Window {
     DropWindow() {
         if (!(this.window instanceof BrowserWindow)) {
             if (dev_mode) {
-                // log here
+                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: could not find any winow instances!');
             }
 
             return;

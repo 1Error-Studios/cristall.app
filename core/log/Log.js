@@ -1,44 +1,8 @@
 const fs = require('fs');
 const { dev_mode } = require('../../meta.json');
+const { FILES_PATH } = require('../misc/Structure.js');
 
 class Log {
-    constructor() {
-        this.liveStack = [];
-
-        this.filePath = '';
-    }
-
-    /**
-     * Setup log file location
-     * 
-     * @param {string} filePath 
-     * @returns {null}
-     */
-    LoadFilePath(filePath) {
-        if (typeof filePath !== 'string') {
-            return;
-        }
-
-        if (!fs.existsSync(filePath)) {
-            return;
-        }
-
-        this.filePath = filePath;
-    }
-
-    /**
-     * Load log stack into memory
-     * 
-     * @returns {null}
-     */
-    LoadLiveStackFromFile() {
-        if (this.filePath.length === 0) {
-            return;
-        }
-
-        this.liveStack = JSON.parse(fs.readFileSync(this.filePath));
-    }
-
     /**
      * Create new log collision
      * 
@@ -46,31 +10,25 @@ class Log {
      * @param {string} message 
      * @returns {null}
      */
-    MakeNewNote(title, message) {
-        if (this.filePath.length === 0) {
-            return;
-        }
+    static MakeNewNote(title, message) {
+        const liveStack = JSON.parse(fs.readFileSync(FILES_PATH['log_file']));
 
-        this.liveStack.push({
+        liveStack.push({
             date: Date.now(),
             title,
             message
         });
+
+        fs.writeFileSync(FILES_PATH['log_file'], JSON.stringify(liveStack, null, '\t'));
     }
 
     /**
-     * Clean up log file and live stack
+     * Clean up log file
      * 
      * @returns {null}
      */
-    ClearLog() {
-        if (this.filePath.length === 0) {
-            return;
-        }
-
-        fs.writeFileSync(this.filePath, '');
-
-        this.liveStack = [];
+    static ClearLog() {
+        fs.writeFileSync(FILES_PATH['log_file'], '');
     }
 }
 
