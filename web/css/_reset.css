@@ -87,6 +87,7 @@ input:focus {
 }
 
 button {
+    background: none;
     border: unset;
     outline: unset;
     cursor: pointer;

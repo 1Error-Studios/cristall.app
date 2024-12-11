@@ -53,7 +53,6 @@ body {
 }
 
 .control-island-button {
-    background: none;
     display: flex;
     width: 44px;
     height: 44px;
@@ -95,6 +94,25 @@ body {
     align-self: stretch;
 }
 
+.sidebar-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.sidebar-button {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 /*<--VIEWPORT DESIGN-->*/
 .viewport {
     display: flex;
@@ -107,6 +125,50 @@ body {
 }
 
 /*<--EXTRA PARAMETERS-->*/
+/*sidebar*/
+.folder-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.workspace-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.guides-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.folder-icon > svg > path {
+    transition: all .33s ease;
+}
+
+.workspace-icon > svg > path {
+    transition: all .33s ease;
+}
+
+.guides-icon > svg > path {
+    transition: all .33s ease;
+}
+
+.folder-icon:hover > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.workspace-icon:hover > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.guides-icon:hover > svg > path {
+    stroke: var(--txt-primary);
+}
+
+/*control-island*/
 .control-island-button-icon {
     flex-shrink: 0;
 }
