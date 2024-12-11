@@ -23,22 +23,25 @@ class Window {
         if (typeof width !== "number" || width > 1920 || width < 800) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         if (typeof height !== "number" || height > 1080 || height < 600) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         if (typeof title !== "string") {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         this.currentWidth = width;
@@ -60,8 +63,9 @@ class Window {
         if (typeof width !== "number" || width > 1920 || width < 800) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         this.currentWidth = width;
@@ -81,8 +85,9 @@ class Window {
         if (typeof height !== "number" || height > 1080 || height < 600) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         this.currentHeight = height;
@@ -102,8 +107,9 @@ class Window {
         if (typeof title !== "string") {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         this.title = title;
@@ -122,29 +128,33 @@ class Window {
         if (typeof this.currentWidth !== "number" || this.currentWidth > 1920 || this.currentWidth < 800) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         if (typeof this.currentHeight !== "number" || this.currentHeight > 1080 || this.currentHeight < 600) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         if (typeof this.title !== "string" || this.title.length === 0) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         if (this.window instanceof BrowserWindow) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         this.window = new BrowserWindow({
@@ -167,8 +177,9 @@ class Window {
         if (!(this.window instanceof BrowserWindow)) {
             if (dev_mode) {
                 // log here
-                return;
             }
+
+            return;
         }
 
         return this.window;
