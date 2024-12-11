@@ -1,3 +1,12 @@
+/*<--BASIC DESIGN-->*/
+.cristall-body {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+
+/*<--HEADER DESIGN-->*/
 .header {
     -webkit-app-region: drag;
     display: flex;
@@ -7,14 +16,14 @@
     background: var(--bg-secondary);
 }
 
-.title-frame {
+.breadcrumbs {
     display: flex;
     padding: 10px;
     align-items: flex-start;
     gap: 10px;
 }
 
-.title-slash {
+.breadcrumbs-slash {
     -webkit-app-region: none;
     color: var(--txt-secondary);
     font-family: 'Outfit-Medium';
@@ -23,7 +32,7 @@
     line-height: normal;
 }
 
-.title {
+.breadcrumbs-title {
     -webkit-app-region: none;
     color: var(--txt-primary);
     font-family: 'Outfit-Medium';
@@ -48,6 +57,38 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    transition: all .33s ease;
+}
+
+/*<--SIDEBAR DESIGN-->*/
+.sidebar {
+    display: flex;
+    width: 260px;
+    height: 100%;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--bg-primary);
+}
+
+.sidebar-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+
+/*<--VIEWPORT DESIGN-->*/
+.viewport {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
 }
 
 /*<--EXTRA PARAMETERS-->*/
@@ -56,10 +97,15 @@
 }
 
 .control-island-button-close-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 0;
+}
+
+.control-island-button-icon > svg > path {
+    transition: all .33s ease;
+}
+
+.control-island-button-close-icon > svg > path {
+    transition: all .33s ease;
 }
 
 .control-island-button-icon:hover > svg > path {
@@ -67,9 +113,14 @@
 }
 
 .control-island-button-close-icon:hover > svg > path {
-    stroke: var(--txt-secondary);
+    stroke: var(--cl-red);
 }
 
 .control-island-button-close-icon > svg {
-    transform: rotate(-90deg);
+    transition: all .33s ease;
+}
+
+.control-island-button-close-icon:hover > svg {
+    transform: rotate(90deg);
+    transition: all .33s ease;
 }
