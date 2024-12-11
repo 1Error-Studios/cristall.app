@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--Background-Secondary, #212121);
+}
+
+.title-frame {
+    display: flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.title-slash {
+    color: var(--Text-Secondary, #999);
+    font-family: 'Outfit-Medium';
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.title {
+    color: var(--Text-primary, #FFF);
+    font-family: 'Outfit-Medium';
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
