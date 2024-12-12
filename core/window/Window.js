@@ -182,7 +182,7 @@ class Window {
         }
 
         this.window = new BrowserWindow({
-            width: this.currentHeight,
+            width: this.currentWidth,
             height: this.currentHeight,
             title: this.title,
             ...this.additionalOptions

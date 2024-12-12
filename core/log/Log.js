@@ -28,7 +28,7 @@ class Log {
      * @returns {null}
      */
     static ClearLog() {
-        fs.writeFileSync(FILES_PATH['log_file'], '');
+        fs.writeFileSync(FILES_PATH['log_file'], '[]');
     }
 }
 
