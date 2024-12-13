@@ -174,16 +174,14 @@ body {
     line-height: normal;
 }
 
-.sidebar-workspace-left-button {
+.sidebar-workplace-left-button {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.sidebar-workspace-right-button {
+.sidebar-workplace-right-button {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
