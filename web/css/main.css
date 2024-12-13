@@ -74,7 +74,7 @@ body {
     top: 0;
     left: 0;
     width: 260px;
-    height: 100%;
+    height: calc(100% - 64px);
     padding: 10px;
     flex-direction: column;
     justify-content: space-between;
@@ -127,6 +127,9 @@ body {
 }
 
 .sidebar-file-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     -webkit-user-select: none;
     color: var(--txt-secondary);
     font-family: 'Outfit-Regular';
@@ -134,6 +137,9 @@ body {
     font-style: normal;
     line-height: normal;
     transition: all .33s ease;
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .sidebar-file-name:hover {
