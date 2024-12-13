@@ -147,9 +147,8 @@ body {
 }
 
 .sidebar-workspace-changer {
-    position: absolute;
-    bottom: 0;
     display: flex;
+    width: 100%;
     padding: 6px;
     border-radius: 16px;
     justify-content: space-between;
@@ -163,6 +162,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
+    align-self: stretch;
 }
 
 .sidebar-workspace-title {
@@ -175,17 +175,15 @@ body {
 }
 
 .sidebar-workspace-left-button {
-    height: 18px;
-    width: 18px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .sidebar-workspace-right-button {
-    height: 18px;
-    width: 18px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
