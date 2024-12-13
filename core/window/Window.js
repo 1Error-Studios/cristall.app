@@ -201,7 +201,7 @@ class Window {
     DropWindow() {
         if (!(this.window instanceof BrowserWindow)) {
             if (dev_mode) {
-                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: could not find any winow instances!');
+                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: could not find any window instances!');
             }
 
             return;
