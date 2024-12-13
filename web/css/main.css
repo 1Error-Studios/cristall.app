@@ -174,25 +174,25 @@ body {
     line-height: normal;
 }
 
-.sidebar-workplace-left-button {
+.sidebar-workspace-button {
     display: flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 12px;
     justify-content: center;
     align-items: center;
-}
-
-.sidebar-workplace-right-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: all .33s ease;
 }
 
 .sidebar-workspace-settings-button {
     display: flex;
     padding: 10px;
+    border-radius: 12px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    transition: all .33s ease;
 }
 
 /*<--VIEWPORT DESIGN-->*/
@@ -208,18 +208,32 @@ body {
 
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
-.folder-icon, .workspace-icon, .guides-icon {
+.folder-icon, .workspace-icon, .guides-icon, .settings-icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
 }
 
-.folder-icon > svg > path, .workspace-icon > svg > path, .guides-icon > svg > path {
+.left-arrow-icon, .right-arrow-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.folder-icon > svg > path, .workspace-icon > svg > path, .guides-icon > svg > path, .left-arrow-icon > svg > path, .right-arrow-icon > svg > path, .settings-icon > svg > path {
     transition: all .33s ease;
 }
 
 .sidebar-button:hover {
     background: var(--bg-primary);
+}
+
+.sidebar-workspace-button:hover {
+    background: var(--bg-secondary);
+}
+
+.sidebar-workspace-settings-button:hover {
+    background: var(--bg-secondary);
 }
 
 .sidebar-button:hover > .folder-icon > svg > path {
@@ -232,6 +246,18 @@ body {
 
 .sidebar-button:hover > .guides-icon > svg > path {
     stroke: var(--txt-primary);
+}
+
+.sidebar-workspace-button:hover > .left-arrow-icon > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.sidebar-workspace-button:hover > .right-arrow-icon > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.sidebar-workspace-settings-button:hover > .settings-icon > svg > path {
+    stroke: var(--txt-primary);  
 }
 
 /*control-island*/
