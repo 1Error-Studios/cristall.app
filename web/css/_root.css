@@ -1,14 +1,27 @@
 :root {
     /*Backgrounds*/
     --bg-primary: #1C1C1C;
+    --bg-primary-wt: #E3E3E3;
     --bg-secondary: #212121;
+    --bg-secondary-wt: #DEDEDE;
+    --bg-grouped: #2E2E2E;
+    --bg-grouped-wt: #D1D1D1;
     
-    /*Texts*/
+    /*Texts and Icons*/
     --txt-primary: #FFF;
+    --txt-primary-wt: #000;
     --txt-secondary: #999;
+    --txt-secondary-wt: #666;
 
     /*Colors*/
     --cl-red: #FF3B30;
+    
+    --cl-red-marker: #FE4D4D;
+    --cl-orange-marker: #FF7514;
+    --cl-yellow-marker: #FCDD76;
+    --cl-green-marker: #71BC78;
+    --cl-blue-marker: #7FC7FF;
+    --cl-purple-marker: #A2A2D0;
 }
 
 @font-face {
