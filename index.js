@@ -5,6 +5,7 @@ const { FOLDERS_PATH, FILES_PATH } = require('./core/misc/Structure.js');
 const { Window } = require('./core/window/Window.js');
 const { Checker } = require('./core/filesystem/Checker.js');
 const { Log } = require('./core/log/Log.js');
+const { PluginManager } = require('./core/plugin/PluginManager.js')
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(Object.values(FILES_PATH));
@@ -12,6 +13,11 @@ Checker.CheckFilesExist(Object.values(FILES_PATH));
 Log.ClearLog();
 
 const window = new Window();
+let pluginManager = new PluginManager();
+
+pluginManager.CheckPlugins();
+
+console.log(pluginManager.GetPluginInfo('core.1error_studios.plugin'));
 
 const createWindow = () => {
     window.TitleSetup('Crystall');

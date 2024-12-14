@@ -14,7 +14,7 @@ class Log {
         const liveStack = JSON.parse(fs.readFileSync(FILES_PATH['log_file']));
 
         liveStack.push({
-            date: Date.now(),
+            time: Date.now(),
             title,
             message
         });

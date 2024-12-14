@@ -2,7 +2,8 @@ const os = require('os');
 
 const FOLDERS_PATH = {
     'company': `${os.homedir()}/AppData/Roaming/1Error Studios`,
-    'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Crystall`
+    'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Crystall`,
+    'plugins': `${os.homedir()}/AppData/Roaming/1Error Studios/Crystall/plugins`
 }
 
 const FILES_PATH = {
