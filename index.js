@@ -17,8 +17,6 @@ let pluginManager = new PluginManager();
 
 pluginManager.CheckPlugins();
 
-console.log(pluginManager.GetPluginInfo('core.1error_studios.plugin'));
-
 const createWindow = () => {
     window.TitleSetup('Crystall');
     window.WidthSetup(1200);
@@ -71,4 +69,8 @@ ipcMain.handle('app:maximize', event => {
     } else {
         window.DropWindow().setFullScreen(true);
     }
+});
+
+ipcMain.handle('plugins:upload', event => {
+    return pluginManager.UploadPlugins();
 });

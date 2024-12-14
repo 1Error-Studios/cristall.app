@@ -139,8 +139,16 @@
             </div>
         </div>
 
+        <script src="./js/PluginLoader.js"></script>
+
         <!-- FRONTEND-JS -->
         <script>
+            let pluginLoader = new PluginLoader();
+
+            pluginLoader.LoadPlugins().then(data => {
+                console.log(data);
+            });
+
             document.querySelectorAll('[data-channel]').forEach(element => {
                 element.addEventListener('click', event => {
                     let channel = element.getAttribute('data-channel');
