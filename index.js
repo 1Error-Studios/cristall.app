@@ -74,3 +74,9 @@ ipcMain.handle('app:maximize', event => {
 ipcMain.handle('plugins:upload', event => {
     return pluginManager.UploadPlugins();
 });
+
+ipcMain.handle('log:make-note', (event, args) => {
+    Log.MakeNewNote(args.title, args.message);
+
+    return true;
+});
