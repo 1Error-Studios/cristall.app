@@ -30,6 +30,34 @@ class HTMLLoader {
             TakeNote('HTMLLoader.PluginToHTMLParse(element)', 'INFO: element\'s styles not defined. skipped.');
         }
 
+        if (element['functions'] && Array.isArray(element['functions'])) {
+            element['functions'].forEach(func => {
+                switch(func.type) {
+                    case "event":
+                        readyElement.addEventListener(func.event_name, (event) => {
+                            let executable = pluginLoader.GetScriptLoader().GetScriptContext(func.call.index).api[`${func.call.function_name}`];
+
+                            let args = [];
+
+                            if (func.call.include.includes('event')) {
+                                args.push(event);
+                            }
+
+                            if (func.call.include.includes('api')) {
+                                args.push(API);
+                            }
+
+                            executable(...args);
+                        });
+
+                        break;
+                }
+            });
+        }
+        else {
+            TakeNote('HTMLLoader.PluginToHTMLParse(element)', 'INFO: element\'s functionality not defined. skipped.');
+        }
+
         if (element['content']) {
             switch(element['content']['type']) {
                 case "text":

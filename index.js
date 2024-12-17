@@ -77,6 +77,12 @@ ipcMain.handle('plugins:upload', event => {
     return pluginManager.UploadPlugins();
 });
 
+ipcMain.handle('plugins:load:script', (event, args) => {
+    let filepath = `${FOLDERS_PATH.plugins}/${args.pluginName.toLowerCase()}.plugin/${args.file}`;
+
+    return filepath;
+});
+
 ipcMain.handle('log:make-note', (event, args) => {
     if (dev_mode) {
         Log.MakeNewNote(args.title, args.message);

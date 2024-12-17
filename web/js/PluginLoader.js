@@ -1,6 +1,7 @@
 class PluginLoader {
     constructor() {
         this.plugins = [];
+        this.scriptLoader = null;
     }
 
     LoadPlugins(callback) {
@@ -59,6 +60,15 @@ class PluginLoader {
                                 TakeNote('PluginLoader.ParseAndApplyPlugins()', `MODULE: $[${resource.resource.module_type}] applied ${resource.resource.styles.length} style blocks to sector ${uniqueId}`);
 
                                 break
+                            case "scripts":
+                                if (this.scriptLoader) {
+                                    this.scriptLoader.LoadScripts(resource.resource, fire);
+                                }
+                                else {
+
+                                }
+
+                                break;
                             default:
                                 TakeNote('PluginLoader.ParseAndApplyPlugins()', `INFO: [${plugin.data.name}.${plugin.data.com}] skipped module with type [${resource.resource.module_type}]`);
                         }
@@ -69,5 +79,17 @@ class PluginLoader {
                 }
             }
         });
+    }
+
+    SetScriptLoaderLink(loader) {
+        this.scriptLoader = loader;
+    }
+
+    GetScriptLoader() {
+        return this.scriptLoader;
+    }
+
+    GetPluginData(fire) {
+        return this.plugins.find(item => item.fire === fire).data;
     }
 }
