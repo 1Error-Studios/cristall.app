@@ -1,7 +1,5 @@
 class HTMLLoader {
     static PluginToHTMLParse(element) {
-        console.log(element);
-
         if (!element['html_tag']) {
             TakeNote('HTMLLoader.PluginToHTMLParse(element)', 'FATAL: element has\'nt attribute html_tag');
 
@@ -39,8 +37,6 @@ class HTMLLoader {
                     TakeNote('HTMLLoader.PluginToHTMLParse(element)', `INFO: element\'s content variant @${element['content']['type']} skipped.`);
             }
         }
-
-        console.log(readyElement);
 
         return readyElement;
     }
