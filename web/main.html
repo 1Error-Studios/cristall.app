@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
+        <script src="./lib/jquery-3.7.1.min.js"></script>
+
         <div class="header">
             <div class="breadcrumbs">
                 <p class="breadcrumbs-slash">/</p>
@@ -139,14 +141,22 @@
             </div>
         </div>
 
+        <div data-sector-id="plugins"></div>
+
+        <script src="./js/WebLoger.js"></script>
+        <script src="./js/IDGenerator.js"></script>
+        <script src="./js/PluginHtmlLoader.js"></script>
+        <script src="./js/PluginCSSLoader.js"></script>
         <script src="./js/PluginLoader.js"></script>
 
         <!-- FRONTEND-JS -->
         <script>
             let pluginLoader = new PluginLoader();
 
-            pluginLoader.LoadPlugins().then(data => {
-                console.log(data);
+            pluginLoader.LoadPlugins(() => {
+                pluginLoader.ParseAndApplyPlugins();
+
+                TakeNote("{WEB}.PluginLoader.LoadPlugins(callback).callback()", `SUCCESS: applied ${pluginLoader.plugins.length} plugins.`);
             });
 
             document.querySelectorAll('[data-channel]').forEach(element => {

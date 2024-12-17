@@ -5,7 +5,9 @@ const { FOLDERS_PATH, FILES_PATH } = require('./core/misc/Structure.js');
 const { Window } = require('./core/window/Window.js');
 const { Checker } = require('./core/filesystem/Checker.js');
 const { Log } = require('./core/log/Log.js');
-const { PluginManager } = require('./core/plugin/PluginManager.js')
+const { PluginManager } = require('./core/plugin/PluginManager.js');
+
+const { dev_mode } = require('./meta.json');
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(Object.values(FILES_PATH));
@@ -76,7 +78,7 @@ ipcMain.handle('plugins:upload', event => {
 });
 
 ipcMain.handle('log:make-note', (event, args) => {
-    Log.MakeNewNote(args.title, args.message);
-
-    return true;
+    if (dev_mode) {
+        Log.MakeNewNote(args.title, args.message);
+    }
 });
