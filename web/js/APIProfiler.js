@@ -1,0 +1,3 @@
+const APIProfiler = {
+    'api': API
+}

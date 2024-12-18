@@ -90,6 +90,6 @@ class PluginLoader {
     }
 
     GetPluginData(fire) {
-        return this.plugins.find(item => item.fire === fire).data;
+        return this.plugins.find(item => item.fire === fire);
     }
 }

@@ -39,13 +39,17 @@ class HTMLLoader {
 
                             let args = [];
 
-                            if (func.call.include.includes('event')) {
-                                args.push(event);
-                            }
-
-                            if (func.call.include.includes('api')) {
-                                args.push(API);
-                            }
+                            func.call.include.forEach(include => {
+                                if (include === 'event') {
+                                    args.push(event);
+                                }
+                                else if (include === 'context') {
+                                    args.push(pluginFire);
+                                }
+                                else {
+                                    args.push(APIProfiler[include]);
+                                }
+                            });
 
                             executable(...args);
                         });

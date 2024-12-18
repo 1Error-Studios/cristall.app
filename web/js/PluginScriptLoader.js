@@ -6,7 +6,7 @@ class ScriptLoader {
     LoadScripts(scriptResource, fire) {
         scriptResource.entries.forEach(script => {
             window.electronAPI.invoke('plugins:load:script', {
-                pluginName: `${pluginLoader.GetPluginData(fire).name}.${pluginLoader.GetPluginData(fire).com}`,
+                pluginName: `${pluginLoader.GetPluginData(fire).data.name}.${pluginLoader.GetPluginData(fire).data.com}`,
                 file: script.file
             }).then(data => {
                 let loader = document.createElement('script');
