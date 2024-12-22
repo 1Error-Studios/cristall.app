@@ -78,7 +78,7 @@ ipcMain.handle('plugins:upload', event => {
 });
 
 ipcMain.handle('plugins:load:script', (event, args) => {
-    let filepath = `${FOLDERS_PATH.plugins}/${args.pluginName.toLowerCase()}.plugin/${args.file}`;
+    let filepath = `${FOLDERS_PATH.plugins}/${args.pluginName.toLowerCase().replace(new RegExp(" ", "ig"), "_")}.plugin/${args.file}`;
 
     return filepath;
 });
