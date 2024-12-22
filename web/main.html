@@ -21,11 +21,22 @@
         <script src="./js/APIProfiler.js"></script>
 
         <div class="header">
+            <div class="logo">
+                <p class="logo-cristall-app">Cristall.<span class="logo-red-app">app</span></p>
+            </div>
             <div class="breadcrumbs">
                 <p class="breadcrumbs-slash">/</p>
                 <p class="breadcrumbs-title" id="open-file-name">?</p>
             </div>
             <div class="control-island-frame">
+                <button class="control-island-button">
+                    <div class="settings-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1.66669 10.7334V9.26669C1.66669 8.40003 2.37502 7.68336 3.25002 7.68336C4.75835 7.68336 5.37502 6.6167 4.61669 5.30836C4.18335 4.55836 4.44169 3.58336 5.20002 3.15003L6.64169 2.32503C7.30002 1.93336 8.15002 2.1667 8.54169 2.82503L8.63335 2.98336C9.38335 4.2917 10.6167 4.2917 11.375 2.98336L11.4667 2.82503C11.8584 2.1667 12.7084 1.93336 13.3667 2.32503L14.8084 3.15003C15.5667 3.58336 15.825 4.55836 15.3917 5.30836C14.6334 6.6167 15.25 7.68336 16.7584 7.68336C17.625 7.68336 18.3417 8.39169 18.3417 9.26669V10.7334C18.3417 11.6 17.6334 12.3167 16.7584 12.3167C15.25 12.3167 14.6334 13.3834 15.3917 14.6917C15.825 15.45 15.5667 16.4167 14.8084 16.85L13.3667 17.675C12.7084 18.0667 11.8584 17.8334 11.4667 17.175L11.375 17.0167C10.625 15.7084 9.39169 15.7084 8.63335 17.0167L8.54169 17.175C8.15002 17.8334 7.30002 18.0667 6.64169 17.675L5.20002 16.85C4.44169 16.4167 4.18335 15.4417 4.61669 14.6917C5.37502 13.3834 4.75835 12.3167 3.25002 12.3167C2.37502 12.3167 1.66669 11.6 1.66669 10.7334Z" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </button>
                 <button class="control-island-button" data-channel="app:minimize">
                     <div class="minus-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -53,6 +64,25 @@
         <div class="cristall-body">
             <div class="sidebar">
                 <div class="sidebar-panel">
+                    <div class="sidebar-workspace-changer">
+                        <div class="sidebar-workspace-switcher">
+                            <button class="sidebar-workspace-button">
+                                <div class="left-arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <path d="M11.25 14.9401L6.36 10.0501C5.7825 9.47256 5.7825 8.52756 6.36 7.95006L11.25 3.06006" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <p class="sidebar-workspace-title" id="workspace-name">Workspace</p>
+                            <button class="sidebar-workspace-button">
+                                <div class="right-arrow-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <path d="M6.6825 14.9401L11.5725 10.0501C12.15 9.47256 12.15 8.52756 11.5725 7.95006L6.6825 3.06006" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
                     <div class="sidebar-controls">
                         <button class="sidebar-button">
                             <div class="folder-add-icon">
@@ -80,53 +110,40 @@
                                 </svg>
                             </div>
                         </button>
+                        <button class="sidebar-button">
+                            <div class="main-component-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M17.4583 12.125L12.1333 17.45C10.9667 18.6166 9.05 18.6166 7.875 17.45L2.54999 12.125C1.38332 10.9583 1.38332 9.04164 2.54999 7.86664L7.875 2.54163C9.04167 1.37496 10.9583 1.37496 12.1333 2.54163L17.4583 7.86664C18.625 9.04164 18.625 10.9583 17.4583 12.125Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5.20831 5.20837L14.7916 14.7917" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14.7916 5.20837L5.20831 14.7917" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </button>
                     </div>
                     <div class="sidebar-list-files">
                         <button class="sidebar-file">
+                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
                             <div class="sidebar-file-marker"></div>
                             <p class="sidebar-file-name" id="file-name">This app is great!</p>
                         </button>
                         <button class="sidebar-file">
+                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
                             <p class="sidebar-file-name" id="file-name">This is my story... 2000 years ago...</p>
                         </button>
                         <button class="sidebar-file">
+                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
                             <p class="sidebar-file-name" id="file-name">Learn Blender & 3D sphere</p>
                         </button>
                         <button class="sidebar-file">
+                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
                             <p class="sidebar-file-name" id="file-name">Unreal Engine 5 bookmarks</p>
                         </button>
                         <button class="sidebar-file">
+                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
                             <div class="sidebar-file-marker"></div>
                             <p class="sidebar-file-name" id="file-name">School project</p>
                         </button>                        
                     </div>
-                </div>
-                <div class="sidebar-workspace-changer">
-                    <div class="sidebar-workspace-switcher">
-                        <button class="sidebar-workspace-button">
-                            <div class="left-arrow-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path d="M11.25 14.9401L6.36 10.0501C5.7825 9.47256 5.7825 8.52756 6.36 7.95006L11.25 3.06006" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </button>
-                        <p class="sidebar-workspace-title" id="workspace-name">Workspace</p>
-                        <button class="sidebar-workspace-button">
-                            <div class="right-arrow-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                                    <path d="M6.6825 14.9401L11.5725 10.0501C12.15 9.47256 12.15 8.52756 11.5725 7.95006L6.6825 3.06006" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </button>                       
-                    </div>
-                    <button class="sidebar-workspace-settings-button">
-                        <div class="settings-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M1.66669 10.7334V9.26669C1.66669 8.40003 2.37502 7.68336 3.25002 7.68336C4.75835 7.68336 5.37502 6.6167 4.61669 5.30836C4.18335 4.55836 4.44169 3.58336 5.20002 3.15003L6.64169 2.32503C7.30002 1.93336 8.15002 2.1667 8.54169 2.82503L8.63335 2.98336C9.38335 4.2917 10.6167 4.2917 11.375 2.98336L11.4667 2.82503C11.8584 2.1667 12.7084 1.93336 13.3667 2.32503L14.8084 3.15003C15.5667 3.58336 15.825 4.55836 15.3917 5.30836C14.6334 6.6167 15.25 7.68336 16.7584 7.68336C17.625 7.68336 18.3417 8.39169 18.3417 9.26669V10.7334C18.3417 11.6 17.6334 12.3167 16.7584 12.3167C15.25 12.3167 14.6334 13.3834 15.3917 14.6917C15.825 15.45 15.5667 16.4167 14.8084 16.85L13.3667 17.675C12.7084 18.0667 11.8584 17.8334 11.4667 17.175L11.375 17.0167C10.625 15.7084 9.39169 15.7084 8.63335 17.0167L8.54169 17.175C8.15002 17.8334 7.30002 18.0667 6.64169 17.675L5.20002 16.85C4.44169 16.4167 4.18335 15.4417 4.61669 14.6917C5.37502 13.3834 4.75835 12.3167 3.25002 12.3167C2.37502 12.3167 1.66669 11.6 1.66669 10.7334Z" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </button>
                 </div>
             </div>
             <div class="viewport">
