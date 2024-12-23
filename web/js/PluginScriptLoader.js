@@ -1,26 +1,33 @@
 class ScriptLoader {
-    constructor() {
-        this.apis = [];
-    }
+    constructor() {}
 
     LoadScripts(scriptResource, fire) {
-        scriptResource.entries.forEach(script => {
-            window.electronAPI.invoke('plugins:load:script', {
-                pluginName: `${pluginLoader.GetPluginData(fire).data.name}.${pluginLoader.GetPluginData(fire).data.com}`,
-                file: script.file
-            }).then(data => {
-                let loader = document.createElement('script');
-                loader.setAttribute('src', data);
+        return new Promise((resolve, reject) => {
+            scriptResource.entries.forEach((script, index) => {
+                window.electronAPI.invoke('plugins:load:script', {
+                    pluginName: `${pluginLoader.GetPluginData(fire).data.name}.${pluginLoader.GetPluginData(fire).data.com}`,
+                    file: script.file
+                }).then(data => {
+                    let loader = document.createElement('script');
+                    loader.setAttribute('src', data);
+    
+                    document.head.append(loader);
+    
+                    loader.addEventListener('load', () => {
+                        let executor = new Executor();
+    
+                        executor.LoadAPI(API);
+                        executor.LoadContext(fire);
+                        executor.LoadScripts(Module);
+    
+                        GlobalProfiler.Push(executor);
+    
+                        loader.remove();
 
-                document.head.append(loader);
-
-                loader.addEventListener('load', () => {
-                    this.apis.push({
-                        index: script.index,
-                        api: Module
+                        if (index === scriptResource.entries.length - 1) {
+                            return resolve();
+                        }
                     });
-
-                    loader.remove();
                 });
             });
         });

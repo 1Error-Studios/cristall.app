@@ -1,9 +1,16 @@
 class GlobalProfiler {
-    constructor() {
-        this.executors = [];
+    static executors = [];
+
+    constructor() {}
+
+    static Push(executor) {
+        GlobalProfiler.executors.push({
+            createdAt: Date.now(),
+            executor
+        });
     }
 
-    Push(executor) {
-        this.executors.push(executor);
+    static GetExecutable(context) {
+        return GlobalProfiler.executors.find(item => item.executor.GetContext() === context).executor;
     }
 }

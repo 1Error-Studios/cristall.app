@@ -32,30 +32,9 @@ class HTMLLoader {
 
         if (element['functions'] && Array.isArray(element['functions'])) {
             element['functions'].forEach(func => {
-                switch(func.type) {
-                    case "event":
-                        readyElement.addEventListener(func.event_name, (event) => {
-                            let executable = pluginLoader.GetScriptLoader().GetScriptContext(func.call.index).api[`${func.call.function_name}`];
+                let executor = GlobalProfiler.GetExecutable(pluginFire);
 
-                            let args = [];
-
-                            func.call.include.forEach(include => {
-                                if (include === 'event') {
-                                    args.push(event);
-                                }
-                                else if (include === 'context') {
-                                    args.push(pluginFire);
-                                }
-                                else {
-                                    args.push(APIProfiler[include]);
-                                }
-                            });
-
-                            executable(...args);
-                        });
-
-                        break;
-                }
+                executor.Execute(readyElement, func);
             });
         }
         else {
