@@ -93,3 +93,7 @@ ipcMain.handle('log:make-note', (event, args) => {
 ipcMain.handle('files:load-all', (event) => {
     return Loader.LoadAllFiles();
 });
+
+ipcMain.handle('files:load-file', (event, filename) => {
+    return Loader.LoadFile(filename);
+});

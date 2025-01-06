@@ -25,7 +25,7 @@ class Loader {
         let content = fs.readFileSync(FOLDERS_PATH['files'] + `/${filename}`).toString();
         let extention = filename.split('.')[filename.split('.').length - 1];
 
-        return { content, extention };
+        return { filename, content, extention };
     }
 
     /**

@@ -125,29 +125,7 @@
                             </div>
                         </button>
                     </div>
-                    <div class="sidebar-list-files">
-                        <button class="sidebar-file">
-                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
-                            <div class="sidebar-file-marker"></div>
-                            <p class="sidebar-file-name" id="file-name">This app is great!</p>
-                        </button>
-                        <button class="sidebar-file">
-                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
-                            <p class="sidebar-file-name" id="file-name">This is my story... 2000 years ago...</p>
-                        </button>
-                        <button class="sidebar-file">
-                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
-                            <p class="sidebar-file-name" id="file-name">Learn Blender & 3D sphere</p>
-                        </button>
-                        <button class="sidebar-file">
-                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
-                            <p class="sidebar-file-name" id="file-name">Unreal Engine 5 bookmarks</p>
-                        </button>
-                        <button class="sidebar-file">
-                            <div class="sidebar-file-type"><p class="sidebar-file-type-name">MD</p></div>
-                            <div class="sidebar-file-marker"></div>
-                            <p class="sidebar-file-name" id="file-name">School project</p>
-                        </button>                        
+                    <div class="sidebar-list-files">         
                     </div>
                 </div>
             </div>
@@ -170,7 +148,12 @@
         <script>
             let loader = new Loader();
 
-            loader.LoadWebFiles();
+            loader.SetRootElement(document.querySelector('.sidebar-list-files'));
+
+            loader.LoadWebFiles().then(() => {
+                loader.ParseAllFiles();
+                loader.ImplementFiles();
+            });
 
             let pluginLoader = new PluginLoader();
             let scriptLoader = new ScriptLoader();
