@@ -6,6 +6,7 @@ const { Window } = require('./core/window/Window.js');
 const { Checker } = require('./core/filesystem/Checker.js');
 const { Log } = require('./core/log/Log.js');
 const { PluginManager } = require('./core/plugin/PluginManager.js');
+const { Loader } = require('./core/filesystem/Loader.js');
 
 const { dev_mode } = require('./meta.json');
 
@@ -87,4 +88,8 @@ ipcMain.handle('log:make-note', (event, args) => {
     if (dev_mode) {
         Log.MakeNewNote(args.title, args.message);
     }
+});
+
+ipcMain.handle('files:load-all', (event) => {
+    return Loader.LoadAllFiles();
 });

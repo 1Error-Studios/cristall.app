@@ -164,9 +164,14 @@
         <script src="./js/PluginHtmlLoader.js"></script>
         <script src="./js/PluginCSSLoader.js"></script>
         <script src="./js/PluginLoader.js"></script>
+        <script src="./js/web.loader/Loader.js"></script>
 
         <!-- FRONTEND-JS -->
         <script>
+            let loader = new Loader();
+
+            loader.LoadWebFiles();
+
             let pluginLoader = new PluginLoader();
             let scriptLoader = new ScriptLoader();
 
