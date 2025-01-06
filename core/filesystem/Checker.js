@@ -41,20 +41,8 @@ class Checker {
         }
 
         files.forEach(item => {
-            if (!fs.existsSync(item)) {
-                let content = '';
-                let extension = item.split('.')[item.split('.').length - 1];
-
-                switch(extension) {
-                    case "json":
-                        content = '[]';
-                        break;
-                    default:
-                        content = '';
-                        break;
-                }
-
-                fs.writeFileSync(item, content);
+            if (!fs.existsSync(item.path)) {
+                fs.writeFileSync(item.path, item.default_content);
             }
         });
     }

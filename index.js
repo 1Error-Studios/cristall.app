@@ -11,7 +11,7 @@ const { Loader } = require('./core/filesystem/Loader.js');
 const { dev_mode } = require('./meta.json');
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
-Checker.CheckFilesExist(Object.values(FILES_PATH));
+Checker.CheckFilesExist(FILES_PATH);
 
 Log.ClearLog();
 

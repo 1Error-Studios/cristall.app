@@ -1,6 +1,7 @@
 const fs = require('fs');
-const { dev_mode } = require('../../meta.json');
 const { FILES_PATH } = require('../misc/Structure.js');
+
+let LOG_PATH = FILES_PATH.find(item => item.name === 'log_file').path;
 
 class Log {
     /**
@@ -11,7 +12,7 @@ class Log {
      * @returns {null}
      */
     static MakeNewNote(title, message) {
-        const liveStack = JSON.parse(fs.readFileSync(FILES_PATH['log_file']));
+        const liveStack = JSON.parse(fs.readFileSync(LOG_PATH));
 
         liveStack.push({
             time: Date.now(),
@@ -19,7 +20,7 @@ class Log {
             message
         });
 
-        fs.writeFileSync(FILES_PATH['log_file'], JSON.stringify(liveStack, null, '\t'));
+        fs.writeFileSync(LOG_PATH, JSON.stringify(liveStack, null, '\t'));
     }
 
     /**
@@ -28,7 +29,7 @@ class Log {
      * @returns {null}
      */
     static ClearLog() {
-        fs.writeFileSync(FILES_PATH['log_file'], '[]');
+        fs.writeFileSync(LOG_PATH, '[]');
     }
 }
 

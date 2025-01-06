@@ -39,7 +39,7 @@ class Loader {
         });
 
         files = files
-            .filter(dirent => !dirent.isDirectory())
+            .filter(dirent => !dirent.isDirectory() && dirent.name !== 'file_repository.json')
             .map(dirent => dirent.name);
 
         return files;
