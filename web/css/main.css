@@ -149,7 +149,8 @@ body {
 }
 
 .sidebar-not-found-text {
-    color: var(--txt-primary);
+    -webkit-user-select: none;
+    color: var(--txt-secondary);
     font-family: 'Outfit-Regular';
     font-size: 16px;
     font-style: normal;

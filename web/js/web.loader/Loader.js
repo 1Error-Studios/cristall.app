@@ -47,12 +47,16 @@ class Loader {
             });
         }
         else {
+            function getRandomNumber (min, max) {
+                return Math.floor(Math.random() * (max - min)) + min
+            }
+            let randomPhrases = ['Womp-womp, no files?', 'Error 404. Files not found.', 'Shut up and take my files!', 'Where\'s the files Lebowski?', 'Pas de bras, pas de files.', 'The files are missing due to cascading resonance. I\'m so sorry.', 'Fun fact: there are no files.'];
             let notFound = document.createElement('div');
             notFound.classList.add('sidebar-not-found');
 
             notFound.innerHTML =
             `
-            <p class="sidebar-not-found-text">Hohol ne obnaruzhen</p>
+            <p class="sidebar-not-found-text">${randomPhrases[getRandomNumber(0, randomPhrases.length - 1)]}</p>
             `;
 
             this.root.append(notFound);
