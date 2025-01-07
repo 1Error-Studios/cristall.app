@@ -4,8 +4,7 @@ const FOLDERS_PATH = {
     'company': `${os.homedir()}/AppData/Roaming/1Error Studios`,
     'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall`,
     'plugins': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/plugins`,
-    'files': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/files`,
-    'dev': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/dev`,
+    'files': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/files`
 }
 
 const FILES_PATH = [

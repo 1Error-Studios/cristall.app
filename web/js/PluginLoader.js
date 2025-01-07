@@ -1,14 +1,17 @@
 class PluginLoader {
     constructor() {
         this.plugins = [];
+        this.parsedPlugins = [];
         this.scriptLoader = null;
     }
 
-    LoadPlugins(callback) {
-        window.electronAPI.invoke('plugins:upload').then(data => {
-            this.plugins = data;
+    LoadPlugins() {
+        return new Promise((resolve, reject) => {
+            window.electronAPI.invoke('plugins:upload').then(data => {
+                this.plugins = data;
 
-            callback();
+                return resolve();
+            });
         });
     }
 
