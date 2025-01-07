@@ -140,6 +140,21 @@ body {
     gap: 10px;
 }
 
+.sidebar-not-found {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.sidebar-not-found-text {
+    color: var(--txt-primary);
+    font-family: 'Outfit-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
+
 .sidebar-file {
     display: flex;
     padding: 10px;
