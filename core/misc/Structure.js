@@ -17,6 +17,23 @@ const FILES_PATH = [
         name: 'file_repository',
         path: `${FOLDERS_PATH.files}/file_repository.json`,
         default_content: '[]'
+    },
+    {
+        name: 'hotkeys',
+        path: `${FOLDERS_PATH.app}/hotkeys.json`,
+        default_content: '[]'
+    },
+    {
+        name: 'settings',
+        path: `${FOLDERS_PATH.app}/settings.json`,
+        default_content: JSON.stringify({
+            dev_mode: false,
+            window: {
+                width: 800,
+                height: 600
+            },
+            theme: 'dark'
+        }, null, '\t')
     }
 ]
 

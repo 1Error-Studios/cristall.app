@@ -7,13 +7,17 @@ const { Checker } = require('./core/filesystem/Checker.js');
 const { Log } = require('./core/log/Log.js');
 const { PluginManager } = require('./core/plugin/PluginManager.js');
 const { Loader } = require('./core/filesystem/Loader.js');
-
-const { dev_mode } = require('./meta.json');
+const { Settings } = require('./core/settings/Settings.js');
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(FILES_PATH);
 
 Log.ClearLog();
+
+const settingsManager = new Settings();
+settingsManager.LoadSettings(settingsManager.ParseSettings());
+
+console.log(settingsManager.settings);
 
 const window = new Window();
 let pluginManager = new PluginManager();
@@ -22,8 +26,12 @@ pluginManager.CheckPlugins();
 
 const createWindow = () => {
     window.TitleSetup('Crystall');
+
+    //
     window.WidthSetup(1200);
     window.HeightSetup(800);
+    //
+
     window.SetupAdditionalOptions({
         frame: false,
         autoHideMenuBar: true,
@@ -85,7 +93,7 @@ ipcMain.handle('plugins:load:script', (event, args) => {
 });
 
 ipcMain.handle('log:make-note', (event, args) => {
-    if (dev_mode) {
+    if (settingsManager.GetField('dev_mode')) {
         Log.MakeNewNote(args.title, args.message);
     }
 });
