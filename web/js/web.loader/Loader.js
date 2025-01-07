@@ -40,7 +40,7 @@ class Loader {
                 `
                 <div class="sidebar-file-type"><p class="sidebar-file-type-name">${item.split('.')[item.split('.').length - 1].toUpperCase()}</p></div>
                 <div class="sidebar-file-marker"></div>
-                <p class="sidebar-file-name" id="file-name">${item}</p>
+                <p class="sidebar-file-name" id="file-name">${item.split('.')[0]}</p>
                 `
 
                 this.root.append(file);
