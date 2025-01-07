@@ -46,5 +46,16 @@ class Loader {
                 this.root.append(file);
             });
         }
+        else {
+            let notFound = document.createElement('div');
+            notFound.classList.add('sidebar-not-found');
+
+            notFound.innerHTML =
+            `
+            <p class="sidebar-not-found-text">Hohol ne obnaruzhen</p>
+            `;
+
+            this.root.append(notFound);
+        }
     }
 }
