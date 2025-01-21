@@ -29,7 +29,7 @@ class Settings {
      * 
      * @returns {Object}
      */
-    ParseSettings() {
+    static ParseSettings() {
         return JSON.parse(fs.readFileSync(SETTINGS_FILE.path).toString());
     }
 
@@ -97,6 +97,31 @@ class Settings {
                 Log.MakeNewNote('Settings.UploadSettings()', 'SUCCESS: uploaded data to settings.json file');
             }
         }
+    }
+
+    /**
+     * Get any param without exemplar
+     * 
+     * @param {string} fieldName 
+     */
+    static HotGetField(fieldName) {
+        if (!fieldName || typeof fieldName !== 'string') {
+            Log.MakeNewNote('Settings.HotGetField(fieldName)', 'ERROR: fieldName has incorrect type or value.');
+
+            return;
+        }
+
+        let HotSettings = this.ParseSettings();
+
+        if (!HotSettings[fieldName]) {
+            if (HotSettings.dev_mode) {
+                Log.MakeNewNote('Settings.HotGetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
+            }
+
+            return;
+        }
+
+        return HotSettings[fieldName];
     }
 }
 

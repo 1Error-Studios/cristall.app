@@ -1,6 +1,6 @@
 const { FOLDERS_PATH } = require('../misc/Structure.js');
 const { Log } = require('../log/Log.js');
-const { dev_mode } = require('../../meta.json');
+const { Settings } = require('../settings/Settings.js')
 const fs = require('fs');
 
 class Loader {
@@ -15,7 +15,7 @@ class Loader {
         filename = filename.replace(new RegExp(' ', 'ig'), '_');
 
         if (!fs.existsSync(FOLDERS_PATH['files'] + `/${filename}`)) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('Loader.LoadFile(filename)', `WARNING: file with name ${filename} not found.`);
             }
 

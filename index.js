@@ -15,7 +15,7 @@ Checker.CheckFilesExist(FILES_PATH);
 Log.ClearLog();
 
 const settingsManager = new Settings();
-settingsManager.LoadSettings(settingsManager.ParseSettings());
+settingsManager.LoadSettings(Settings.ParseSettings());
 
 const window = new Window();
 let pluginManager = new PluginManager();
@@ -23,7 +23,7 @@ let pluginManager = new PluginManager();
 pluginManager.CheckPlugins();
 
 const createWindow = () => {
-    window.TitleSetup('Crystall');
+    window.TitleSetup('Cristall');
     window.WidthSetup(settingsManager.GetField('window').width);
     window.HeightSetup(settingsManager.GetField('window').height);
 
@@ -78,11 +78,7 @@ ipcMain.handle('app:minimize', event => {
 });
 
 ipcMain.handle('app:maximize', event => {
-    if (window.DropWindow().isFullScreen()) {
-        window.DropWindow().setFullScreen(false);
-    } else {
-        window.DropWindow().setFullScreen(true);
-    }
+    window.DropWindow().setFullScreen(!window.DropWindow().isFullScreen());
 });
 
 ipcMain.handle('plugins:upload', event => {

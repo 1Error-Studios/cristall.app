@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const { FOLDERS_PATH } = require('../misc/Structure.js');
 const { Log } = require('../log/Log.js');
-const { dev_mode } = require('../../meta.json');
+const { Settings } = require('../settings/Settings.js');
 
 class PluginManager {
     constructor() {
@@ -23,7 +23,7 @@ class PluginManager {
 
         this.plugins = this.plugins.concat(pluginsFolders);
 
-        if (dev_mode) {
+        if (Settings.HotGetField('dev_mode')) {
             Log.MakeNewNote('PluginManager.CheckPlugins()', `SUCCESS: was finded ${this.plugins.length} plugins.`);
         }
     }
@@ -36,7 +36,7 @@ class PluginManager {
      */
     GetPluginInfo(id) {
         if (typeof id !== 'string') {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginInfo(id)', 'ERROR: @id isn\'t string');
             }
 
@@ -44,7 +44,7 @@ class PluginManager {
         }
 
         if (!this.plugins.includes(id)) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginInfo(id)', `ERROR: could\'t find any plugins with @id: ${id}`);
             }
 
@@ -58,7 +58,7 @@ class PluginManager {
 
             return pluginInfoParsed;
         } catch (error) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginInfo(id)', 'ERROR: couldn\'t read file plugin.json. JSON parse error.');
             }
 
@@ -74,7 +74,7 @@ class PluginManager {
      */
     GetPluginSettings(id) {
         if (typeof id !== 'string') {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginSettings(id)', 'ERROR: @id isn\'t string');
             }
 
@@ -82,7 +82,7 @@ class PluginManager {
         }
 
         if (!this.plugins.includes(id)) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginSettings(id)', `ERROR: could\'t find any plugins with @id: ${id}`);
             }
 
@@ -96,7 +96,7 @@ class PluginManager {
 
             return pluginInfoParsed;
         } catch (error) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetPluginSettings(id)', 'ERROR: couldn\'t read file settings.json. JSON parse error.');
             }
 
@@ -112,7 +112,7 @@ class PluginManager {
      */
     GetAllPluginResources(id) {
         if (typeof id !== 'string') {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetAllPluginResources(id)', 'ERROR: @id isn\'t string');
             }
 
@@ -120,7 +120,7 @@ class PluginManager {
         }
 
         if (!this.plugins.includes(id)) {
-            if (dev_mode) {
+            if (Settings.HotGetField('dev_mode')) {
                 Log.MakeNewNote('PluginManager.GetAllPluginResources(id)', `ERROR: could\'t find any plugins with @id: ${id}`);
             }
 
