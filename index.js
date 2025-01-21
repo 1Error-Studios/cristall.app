@@ -17,8 +17,6 @@ Log.ClearLog();
 const settingsManager = new Settings();
 settingsManager.LoadSettings(settingsManager.ParseSettings());
 
-console.log(settingsManager.settings);
-
 const window = new Window();
 let pluginManager = new PluginManager();
 
@@ -26,11 +24,8 @@ pluginManager.CheckPlugins();
 
 const createWindow = () => {
     window.TitleSetup('Crystall');
-
-    //
-    window.WidthSetup(1200);
-    window.HeightSetup(800);
-    //
+    window.WidthSetup(settingsManager.GetField('window').width);
+    window.HeightSetup(settingsManager.GetField('window').height);
 
     window.SetupAdditionalOptions({
         frame: false,
@@ -62,6 +57,16 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+});
+
+app.on('before-quit', (event) => {
+    let windowSettings = settingsManager.GetField('window');
+
+    windowSettings.width = window.DropWindow().getContentBounds().width;
+    windowSettings.height = window.DropWindow().getContentBounds().height;
+
+    settingsManager.ChangeField('window', windowSettings);
+    settingsManager.UploadSettings();
 });
 
 // signals

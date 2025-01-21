@@ -91,7 +91,7 @@ class Settings {
      */
     UploadSettings() {
         if (Object.keys(this.settings).length > 0) {
-            fs.writeFileSync(SETTINGS_FILE.path, JSON.parse(this.settings, null, '\t'));
+            fs.writeFileSync(SETTINGS_FILE.path, JSON.stringify(this.settings, null, '\t'));
 
             if (this.settings.dev_mode) {
                 Log.MakeNewNote('Settings.UploadSettings()', 'SUCCESS: uploaded data to settings.json file');
