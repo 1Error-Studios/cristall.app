@@ -7,6 +7,7 @@
     </head>
     <body>
         <script src="./lib/jquery-3.7.1.min.js"></script>
+        <script src="./lib/marked.min.js"></script>
 
         <script src="./api/Document.js"></script>
         <script src="./api/Context.js"></script>
@@ -156,16 +157,16 @@
                 loader.ImplementFiles();
             });
 
-            let pluginLoader = new PluginLoader();
-            let scriptLoader = new ScriptLoader();
+            // let pluginLoader = new PluginLoader();
+            // let scriptLoader = new ScriptLoader();
 
-            pluginLoader.SetScriptLoaderLink(scriptLoader);
+            // pluginLoader.SetScriptLoaderLink(scriptLoader);
 
-            pluginLoader.LoadPlugins().then(() => {
-                pluginLoader.ParseAndApplyPlugins();
+            // pluginLoader.LoadPlugins().then(() => {
+            //     pluginLoader.ParseAndApplyPlugins();
 
-                TakeNote("{WEB}.PluginLoader.LoadPlugins(callback).callback()", `SUCCESS: applied ${pluginLoader.plugins.length} plugins.`);
-            });
+            //     TakeNote("{WEB}.PluginLoader.LoadPlugins(callback).callback()", `SUCCESS: applied ${pluginLoader.plugins.length} plugins.`);
+            // });
 
             document.querySelectorAll('[data-channel]').forEach(element => {
                 element.addEventListener('click', event => {
