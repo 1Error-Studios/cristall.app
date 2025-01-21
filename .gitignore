@@ -133,4 +133,4 @@ dist
 build/
 
 # Fonts
-web/fonts/*.ttf
+web/fonts
