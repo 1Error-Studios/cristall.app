@@ -39,6 +39,16 @@ const createWindow = () => {
     window.CreateWindow();
 
     window.DropWindow().loadFile('./web/main.html');
+
+    window.DropWindow().on('resize', () => {
+        let windowSettings = settingsManager.GetField('window');
+
+        windowSettings.width = window.DropWindow().getContentBounds().width;
+        windowSettings.height = window.DropWindow().getContentBounds().height;
+
+        settingsManager.ChangeField('window', windowSettings);
+        settingsManager.UploadSettings();
+    });
 }
 
 app.whenReady().then(() => {
@@ -55,16 +65,6 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
-});
-
-app.on('before-quit', (event) => {
-    let windowSettings = settingsManager.GetField('window');
-
-    windowSettings.width = window.DropWindow().getContentBounds().width;
-    windowSettings.height = window.DropWindow().getContentBounds().height;
-
-    settingsManager.ChangeField('window', windowSettings);
-    settingsManager.UploadSettings();
 });
 
 // signals
