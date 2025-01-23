@@ -47,7 +47,6 @@ const createWindow = () => {
         windowSettings.height = window.DropWindow().getContentBounds().height;
 
         settingsManager.ChangeField('window', windowSettings);
-        settingsManager.UploadSettings();
     });
 }
 
@@ -65,6 +64,10 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+});
+
+app.on('quit', (event) => {
+    settingsManager.UploadSettings();
 });
 
 // signals
