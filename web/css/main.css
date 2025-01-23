@@ -261,22 +261,20 @@ body {
 .blur {
     z-index: 50;
     position: absolute;
-    top: 64px;
     width: 100%;
-    height: calc(100%-64px);
+    height: 100%;
     backdrop-filter: blur(6px);
     background: rgba(33, 33, 33, .65);
 }
 
 .popup-wrapper {
     z-index: 51;
-    display: flex;
     position: absolute;
+    display: flex;
     align-items: center;
     justify-content: center;
-    top: 64px;
     width: 100%;
-    height: calc(100%-64px);
+    height: 100%;
 }
 
 .popup-frame {
@@ -286,7 +284,6 @@ body {
     padding: 20px;
     padding-top: 10px;
     border-radius: 18px;
-    align-self: stretch;
     align-items: center;
     transition: all .33s ease;
     background: var(--bg-secondary);
