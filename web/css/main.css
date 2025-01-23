@@ -278,19 +278,85 @@ body {
 }
 
 .popup-frame {
-    display: flex;
-    width: 25%;
+    width: 30%;
     gap: 10px;
     padding: 20px;
     padding-top: 10px;
     border-radius: 18px;
     align-items: center;
     transition: all .33s ease;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
+}
+
+.popup-header {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 .popup-title {
+    -webkit-user-select: none;
+    color: var(--txt-secondary);
+    font-family: 'Outfit-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
 
+.popup-body {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup-body-item {
+    cursor: pointer;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    transition: all .33s ease;
+}
+
+.popup-body-item-icon {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--bg-grouped);
+    transition: all .33s ease;
+}
+
+.popup-body-item-text-frame {
+    display: flex;
+    width: calc(100% - 54px);
+    gap: 6px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popup-body-item-title {
+    -webkit-user-select: none;
+    color: var(--txt-primary);
+    font-family: 'Outfit-Regular';
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.popup-body-item-description {
+    -webkit-user-select: none;
+    color: var(--txt-secondary);
+    font-family: 'Outfit-Regular';
+    font-size: 10px;
+    font-style: normal;
+    line-height: normal;
 }
 
 /*<--EXTRA PARAMETERS-->*/
@@ -438,4 +504,28 @@ body {
 
 .control-island-button:hover > .settings-icon > svg {
     transform: rotate(90deg);
+}
+
+/*file type selector*/
+.popup-body-item:hover {
+    width: calc(100% + 10px);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: var(--bg-grouped);
+}
+
+.popup-body-item-icon > p {
+    transition: all .33s ease;
+}
+
+.popup-body-item-icon > svg > path {
+    transition: all .33s ease; 
+}
+
+.popup-body-item:hover > .popup-body-item-icon > p {
+    color: var(--txt-primary);
+}
+
+.popup-body-item:hover > .popup-body-item-icon > svg > path {
+    color: var(--txt-primary);
 }
