@@ -35,7 +35,7 @@ body {
 }
 
 .logo-red-app {
-    color: var(--cl-purple-marker);
+    color: var(--cl-red);
 }
 
 .breadcrumbs {
@@ -257,9 +257,48 @@ body {
     align-self: stretch;
 }
 
+/*<--POPUP FRAME-->*/
+.blur {
+    z-index: 50;
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    height: calc(100%-64px);
+    backdrop-filter: blur(6px);
+    background: rgba(33, 33, 33, .65);
+}
+
+.popup-wrapper {
+    z-index: 51;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 64px;
+    width: 100%;
+    height: calc(100%-64px);
+}
+
+.popup-frame {
+    display: flex;
+    width: 25%;
+    gap: 10px;
+    padding: 20px;
+    padding-top: 10px;
+    border-radius: 18px;
+    align-self: stretch;
+    align-items: center;
+    transition: all .33s ease;
+    background: var(--bg-secondary);
+}
+
+.popup-title {
+
+}
+
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
-.folder-add-icon, .workspace-icon, .guides-icon, .settings-icon, .main-component-icon {
+.folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -281,10 +320,9 @@ body {
 }
 
 .folder-add-icon > svg > path, .workspace-icon > svg > path, 
-.guides-icon > svg > path, .left-arrow-icon > svg > path, 
-.right-arrow-icon > svg > path, .settings-icon > svg > path, 
-.document-icon > svg > path, .folder-icon > svg > path,
-.main-component-icon > svg > path {
+.left-arrow-icon > svg > path, .right-arrow-icon > svg > path, 
+.settings-icon > svg > path, .document-icon > svg > path, 
+.folder-icon > svg > path, .main-component-icon > svg > path {
     transition: all .33s ease;
 }
 
@@ -305,10 +343,6 @@ body {
 }
 
 .sidebar-button:hover > .workspace-icon > svg > path {
-    stroke: var(--txt-primary);
-}
-
-.sidebar-button:hover > .guides-icon > svg > path {
     stroke: var(--txt-primary);
 }
 
