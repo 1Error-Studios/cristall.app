@@ -316,6 +316,7 @@ body {
     padding: 10px;
     gap: 10px;
     width: 100%;
+    display: flex;
     align-items: center;
     border-radius: 12px;
     background: var(--bg-secondary);
@@ -324,6 +325,7 @@ body {
 
 .popup-body-item-icon {
     display: flex;
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     justify-content: center;
@@ -335,7 +337,7 @@ body {
 
 .popup-body-item-text-frame {
     display: flex;
-    width: calc(100% - 54px);
+    width: 100%;
     gap: 6px;
     justify-content: center;
     flex-direction: column;
