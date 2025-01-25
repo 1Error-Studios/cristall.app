@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { FILES_PATH } = require('../misc/Structure.js');
+const { Settings } = require('../settings/Settings.js');
 
 let LOG_PATH = FILES_PATH.find(item => item.name === 'log_file').path;
 
@@ -12,15 +13,17 @@ class Log {
      * @returns {null}
      */
     static MakeNewNote(title, message) {
-        const liveStack = JSON.parse(fs.readFileSync(LOG_PATH));
+        if (Settings.HotGetField('dev_mode')) {
+            const liveStack = JSON.parse(fs.readFileSync(LOG_PATH));
 
-        liveStack.push({
-            time: Date.now(),
-            title,
-            message
-        });
+            liveStack.push({
+                time: Date.now(),
+                title,
+                message
+            });
 
-        fs.writeFileSync(LOG_PATH, JSON.stringify(liveStack, null, '\t'));
+            fs.writeFileSync(LOG_PATH, JSON.stringify(liveStack, null, '\t'));
+        }
     }
 
     /**

@@ -8,6 +8,7 @@ const { Log } = require('./core/log/Log.js');
 const { PluginManager } = require('./core/plugin/PluginManager.js');
 const { Loader } = require('./core/filesystem/Loader.js');
 const { Settings } = require('./core/settings/Settings.js');
+const { WorkspacesLoader } = require('./core/workspaces/Loader.js');
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(FILES_PATH);

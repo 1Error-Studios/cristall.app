@@ -47,9 +47,7 @@ class Settings {
         }
 
         if (!this.settings[fieldName]) {
-            if (this.settings.dev_mode) {
-                Log.MakeNewNote('Settings.GetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
-            }
+            Log.MakeNewNote('Settings.GetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
 
             return;
         }
@@ -72,9 +70,7 @@ class Settings {
         }
 
         if (!this.settings[fieldName]) {
-            if (this.settings.dev_mode) {
-                Log.MakeNewNote('Settings.ChangeField(fieldName, fieldValue)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
-            }
+            Log.MakeNewNote('Settings.ChangeField(fieldName, fieldValue)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
 
             return;
         }
@@ -92,10 +88,6 @@ class Settings {
     UploadSettings() {
         if (Object.keys(this.settings).length > 0) {
             fs.writeFileSync(SETTINGS_FILE.path, JSON.stringify(this.settings, null, '\t'));
-
-            if (this.settings.dev_mode) {
-                Log.MakeNewNote('Settings.UploadSettings()', 'SUCCESS: uploaded data to settings.json file');
-            }
         }
     }
 
@@ -114,9 +106,7 @@ class Settings {
         let HotSettings = this.ParseSettings();
 
         if (!HotSettings[fieldName]) {
-            if (HotSettings.dev_mode) {
-                Log.MakeNewNote('Settings.HotGetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
-            }
+            Log.MakeNewNote('Settings.HotGetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
 
             return;
         }

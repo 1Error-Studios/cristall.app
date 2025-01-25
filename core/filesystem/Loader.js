@@ -1,6 +1,5 @@
 const { FOLDERS_PATH } = require('../misc/Structure.js');
 const { Log } = require('../log/Log.js');
-const { Settings } = require('../settings/Settings.js')
 const fs = require('fs');
 
 class Loader {
@@ -15,9 +14,7 @@ class Loader {
         filename = filename.replace(new RegExp(' ', 'ig'), '_');
 
         if (!fs.existsSync(FOLDERS_PATH['files'] + `/${filename}`)) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Loader.LoadFile(filename)', `WARNING: file with name ${filename} not found.`);
-            }
+            Log.MakeNewNote('Loader.LoadFile(filename)', `WARNING: file with name ${filename} not found.`);
 
             return;
         }
@@ -39,7 +36,7 @@ class Loader {
         });
 
         files = files
-            .filter(dirent => !dirent.isDirectory() && dirent.name !== 'file_repository.json')
+            .filter(dirent => !dirent.isDirectory())
             .map(dirent => dirent.name);
 
         return files;

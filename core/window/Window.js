@@ -1,7 +1,6 @@
 const { dev_mode } = require('../../meta.json');
 const { BrowserWindow } = require('electron');
 const { Log } = require('../log/Log.js');
-const { Settings } = require('../settings/Settings.js');
 
 class Window {
     constructor() {
@@ -25,25 +24,19 @@ class Window {
      */
     FullWindowSetup(width, height, title) {
         if (typeof width !== "number" || width > 1920 || width < 800) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: width is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: width is not number or has incorrect value!');
 
             return;
         }
 
         if (typeof height !== "number" || height > 1080 || height < 600) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: height is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: height is not number or has incorrect value!');
 
             return;
         }
 
         if (typeof title !== "string") {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: title is not string!');
-            }
+            Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'FATAL: title is not string!');
 
             return;
         }
@@ -52,9 +45,7 @@ class Window {
         this.currentHeight = height;
         this.title = title;
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'INFO: successfully compleate setup!');
-        }
+        Log.MakeNewNote('Window.FullWindowSetup(width, height, title)', 'INFO: successfully compleate setup!');
     }
 
     /**
@@ -65,18 +56,14 @@ class Window {
      */
     WidthSetup(width) {
         if (typeof width !== "number" || width > 1920 || width < 800) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.WidthSetup(width)', 'FATAL: width is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.WidthSetup(width)', 'FATAL: width is not number or has incorrect value!');
 
             return;
         }
 
         this.currentWidth = width;
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.WidthSetup(width)', 'INFO: successfully changed width!');
-        }
+        Log.MakeNewNote('Window.WidthSetup(width)', 'INFO: successfully changed width!');
     }
 
     /**
@@ -87,18 +74,14 @@ class Window {
      */
     HeightSetup(height) {
         if (typeof height !== "number" || height > 1080 || height < 600) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.HeightSetup(height)', 'FATAL: height is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.HeightSetup(height)', 'FATAL: height is not number or has incorrect value!');
 
             return;
         }
 
         this.currentHeight = height;
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.HeightSetup(height)', 'INFO: successfully changed height!');
-        }
+        Log.MakeNewNote('Window.HeightSetup(height)', 'INFO: successfully changed height!');
     }
 
     /**
@@ -109,18 +92,14 @@ class Window {
      */
     TitleSetup(title) {
         if (typeof title !== "string") {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.TitleSetup(title)', 'FATAL: title is not string!');
-            }
+            Log.MakeNewNote('Window.TitleSetup(title)', 'FATAL: title is not string!');
 
             return;
         }
 
         this.title = title;
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.TitleSetup(title)', 'INFO: successfully changed title!');
-        }
+        Log.MakeNewNote('Window.TitleSetup(title)', 'INFO: successfully changed title!');
     }
 
     /**
@@ -130,18 +109,14 @@ class Window {
      */
     SetupAdditionalOptions(additionalOptions) {
         if (typeof additionalOptions === 'object' && Array.isArray()) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'FATAL: additionalOptions is not JS.Object type!');
-            }
+            Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'FATAL: additionalOptions is not JS.Object type!');
 
             return;
         }
 
         this.additionalOptions = additionalOptions;
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'INFO: applied new additionalOptions to window!');
-        }
+        Log.MakeNewNote('Window.SetupAdditionalOptions(additionalOptions)', 'INFO: applied new additionalOptions to window!');
     }
 
     /**
@@ -151,33 +126,25 @@ class Window {
      */
     CreateWindow() {
         if (typeof this.currentWidth !== "number" || this.currentWidth > 1920 || this.currentWidth < 800) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: width is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.CreateWindow()', 'FATAL: width is not number or has incorrect value!');
 
             return;
         }
 
         if (typeof this.currentHeight !== "number" || this.currentHeight > 1080 || this.currentHeight < 600) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not number or has incorrect value!');
-            }
+            Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not number or has incorrect value!');
 
             return;
         }
 
         if (typeof this.title !== "string" || this.title.length === 0) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not string!');
-            }
+            Log.MakeNewNote('Window.CreateWindow()', 'FATAL: height is not string!');
 
             return;
         }
 
         if (this.window instanceof BrowserWindow) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.CreateWindow()', 'ERROR: window already exist!');
-            }
+            Log.MakeNewNote('Window.CreateWindow()', 'ERROR: window already exist!');
 
             return;
         }
@@ -189,9 +156,7 @@ class Window {
             ...this.additionalOptions
         });
 
-        if (Settings.HotGetField('dev_mode')) {
-            Log.MakeNewNote('Window.CreateWindow()', 'INFO: successfully created window instance!');
-        }
+        Log.MakeNewNote('Window.CreateWindow()', 'INFO: successfully created window instance!');
     }
 
     /**
@@ -201,9 +166,7 @@ class Window {
      */
     DropWindow() {
         if (!(this.window instanceof BrowserWindow)) {
-            if (Settings.HotGetField('dev_mode')) {
-                Log.MakeNewNote('Window.CreateWindow()', 'FATAL: could not find any window instances!');
-            }
+            Log.MakeNewNote('Window.CreateWindow()', 'FATAL: could not find any window instances!');
 
             return;
         }

@@ -46,22 +46,6 @@ body {
     gap: 10px;
 }
 
-.breadcrumbs-slash {
-    color: var(--txt-secondary);
-    font-family: 'Outfit-Medium';
-    font-size: 16px;
-    font-style: normal;
-    line-height: normal;
-}
-
-.breadcrumbs-title {
-    color: var(--txt-primary);
-    font-family: 'Outfit-Medium';
-    font-size: 16px;
-    font-style: normal;
-    line-height: normal;
-}
-
 .control-island-frame {
     -webkit-app-region: none;
     display: flex;
@@ -225,6 +209,7 @@ body {
     align-items: center;
     flex: 1 0 0;
     align-self: stretch;
+    gap: 20px;
 }
 
 .sidebar-workspace-title {

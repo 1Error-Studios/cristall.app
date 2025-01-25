@@ -14,9 +14,12 @@ const FILES_PATH = [
         default_content: '[]'
     },
     {
-        name: 'file_repository',
-        path: `${FOLDERS_PATH.files}/file_repository.json`,
-        default_content: '[]'
+        name: 'workspaces',
+        path: `${FOLDERS_PATH.app}/workspaces.json`,
+        default_content: JSON.stringify({
+            active: null,
+            content: []
+        }, null, '\t')
     },
     {
         name: 'hotkeys',
