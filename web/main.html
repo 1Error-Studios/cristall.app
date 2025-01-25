@@ -190,6 +190,8 @@
                 if (workspaces.DropActiveWorkspace() !== null) {
                     document.querySelector('.breadcrumbs').style = '';
                 }
+
+                TakeNote('{WEB}.Workspaces.LoadWorkspace()', `SUCCESS: Loaded ${workspaces.DropWorkspacesContent().length} workspaces`);
             });
 
             loader.SetRootElement(document.querySelector('.sidebar-list-files'));

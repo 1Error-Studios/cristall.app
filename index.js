@@ -18,6 +18,8 @@ Log.ClearLog();
 const settingsManager = new Settings();
 settingsManager.LoadSettings(Settings.ParseSettings());
 
+WorkspacesLoader.ValidateFile();
+
 const window = new Window();
 let pluginManager = new PluginManager();
 

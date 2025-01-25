@@ -16,4 +16,12 @@ class Workspaces {
     DropActiveWorkspace() {
         return this.workspace.active;
     }
+
+    DropWorkspacesContent() {
+        return this.workspace.content;
+    }
+
+    GetWorkspace(index) {
+        return this.workspace.content.find(item => item.index === index);
+    }
 }
