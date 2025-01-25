@@ -30,7 +30,7 @@
             <div class="logo">
                 <p class="logo-cristall-app">Cristall.<span class="logo-red-app">app</span></p>
             </div>
-            <div class="breadcrumbs">
+            <div class="breadcrumbs" style="display: none;">
                 <div class="sidebar-workspace-changer">
                     <div class="sidebar-workspace-switcher">
                         <button class="sidebar-workspace-button">
@@ -122,11 +122,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="notifications">
+                <!-- <div class="notification">
+                    <h3 class="notification-title">Notification</h3>
+                    <p class="notification-text">Yes, it's notification. What's up?</p>
+                </div> -->
+            </div>
+
             <div class="sidebar">
                 <div class="sidebar-panel">
                     <div class="sidebar-controls">
-                        <button class="sidebar-button">
-                            <div class="folder-add-icon">
+                        <button class="sidebar-button" id="file">
+                            <div class="file-add-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M18.3333 8.33329V12.5C18.3333 16.6666 16.6667 18.3333 12.5 18.3333H7.49999C3.33332 18.3333 1.66666 16.6666 1.66666 12.5V7.49996C1.66666 3.33329 3.33332 1.66663 7.49999 1.66663H11.6667" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M18.3333 8.33329H15C12.5 8.33329 11.6667 7.49996 11.6667 4.99996V1.66663L18.3333 8.33329Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -134,7 +142,7 @@
                             </div>
                         </button>
                         <button class="sidebar-button">
-                            <div class="workspace-icon">
+                            <div class="folder-add-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M10.05 13.75V9.58334" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M12.0833 11.6667H7.91666" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -143,7 +151,7 @@
                             </div>
                         </button>
                         <button class="sidebar-button">
-                            <div class="main-component-icon">
+                            <div class="workspace-icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.3334 10.75V14.25C13.3334 17.1666 12.1667 18.3333 9.25002 18.3333H5.75002C2.83335 18.3333 1.66669 17.1666 1.66669 14.25V10.75C1.66669 7.83329 2.83335 6.66663 5.75002 6.66663H9.25002C12.1667 6.66663 13.3334 7.83329 13.3334 10.75Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M18.3334 5.74996V9.24996C18.3334 12.1666 17.1667 13.3333 14.25 13.3333H13.3334V10.75C13.3334 7.83329 12.1667 6.66663 9.25002 6.66663H6.66669V5.74996C6.66669 2.83329 7.83335 1.66663 10.75 1.66663H14.25C17.1667 1.66663 18.3334 2.83329 18.3334 5.74996Z" stroke="#999999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -162,6 +170,7 @@
 
         <div data-sector-id="plugins"></div>
 
+        <script src="./js/web.notifications/Notifications.js"></script>
         <!-- <script src="./js/web.plugin/Plugin.js"></script> -->
         <script src="./js/WebLoger.js"></script>
         <!-- <script src="./js/IDGenerator.js"></script>
@@ -170,10 +179,18 @@
         <script src="./js/PluginCSSLoader.js"></script>
         <script src="./js/PluginLoader.js"></script> -->
         <script src="./js/web.loader/Loader.js"></script>
+        <script src="./js/web.workspaces/Workspaces.js"></script>
 
         <!-- FRONTEND-JS -->
         <script>
             let loader = new Loader();
+            let workspaces = new Workspaces();
+
+            workspaces.LoadWorkspace().then(() => {
+                if (workspaces.DropActiveWorkspace() !== null) {
+                    document.querySelector('.breadcrumbs').style = '';
+                }
+            });
 
             loader.SetRootElement(document.querySelector('.sidebar-list-files'));
 
@@ -199,6 +216,15 @@
 
                     window.electronAPI.invoke(channel);
                 });
+            });
+
+            document.querySelector('#file').addEventListener('click', () => {
+                if (workspaces.DropActiveWorkspace() === null) {
+                    Alert('Error', 'Firstly - create the workspace in settings', 1500)
+                }
+                else {
+
+                }
             });
         </script>
         <!-- FRONTEND-JS -->

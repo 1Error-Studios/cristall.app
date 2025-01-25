@@ -108,3 +108,7 @@ ipcMain.handle('files:load-all', (event) => {
 ipcMain.handle('files:load-file', (event, filename) => {
     return Loader.LoadFile(filename);
 });
+
+ipcMain.handle('workspaces:load-all', (event) => {
+    return WorkspacesLoader.DropParsedFile();
+})

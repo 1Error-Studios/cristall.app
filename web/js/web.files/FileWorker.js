@@ -1,0 +1,5 @@
+class FileWorker {
+    static CreateNewFile() {
+
+    }
+}

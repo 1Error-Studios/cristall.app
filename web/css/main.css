@@ -43,7 +43,7 @@ body {
     display: flex;
     padding: 10px;
     align-items: flex-start;
-    gap: 10px;
+    height: 64px;
 }
 
 .control-island-frame {
@@ -200,6 +200,7 @@ body {
     align-self: stretch;
     border-radius: 12px;
     background: var(--bg-primary);
+    height: 100%;
 }
 
 .sidebar-workspace-switcher {
@@ -346,9 +347,43 @@ body {
     line-height: normal;
 }
 
+/* Notifications */
+.notifications {
+    position: fixed;
+    top: 74px;
+    right: 10px;
+    height: fit-content;
+    width: fit-content;
+    z-index: 100;
+    transition: all .33s ease;
+}
+
+.notification {
+    background: var(--bg-grouped);
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.notification-title {
+    font-family: 'Outfit-Regular';
+    font-size: 14px;
+    color: var(--txt-secondary);
+}
+
+.notification-text {
+    font-family: 'Outfit-Regular';
+    font-size: 16px;
+    color: var(--txt-primary);
+}
+
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
-.folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon {
+.folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon, .file-add-icon {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -389,6 +424,10 @@ body {
 }
 
 .sidebar-button:hover > .folder-add-icon > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.sidebar-button:hover > .file-add-icon > svg > path {
     stroke: var(--txt-primary);
 }
 
