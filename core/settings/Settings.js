@@ -105,7 +105,7 @@ class Settings {
 
         let HotSettings = this.ParseSettings();
 
-        if (!HotSettings[fieldName]) {
+        if (!HotSettings.keys().includes(fieldName)) {
             Log.MakeNewNote('Settings.HotGetField(fieldName)', `WARNING: field with name ${fieldName} not found. SKIPPED.`);
 
             return;
