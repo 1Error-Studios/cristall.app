@@ -487,6 +487,18 @@ body {
     font-family: 'Outfit-Regular';
 }
 
+.control-island-button-active {
+    background: var(--bg-primary);
+}
+
+.control-island-button-active > .settings-icon > svg {
+    transform: rotate(90deg);
+}
+
+.control-island-button-active > .settings-icon > svg > path {
+    stroke: var(--cl-red);
+}
+
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
 .folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon, .file-add-icon {

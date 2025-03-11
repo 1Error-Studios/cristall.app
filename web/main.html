@@ -402,9 +402,11 @@
 
                 if (isSettingsOpened) {
                     document.querySelector('.settings-main-body').style = '';
+                    document.querySelector('[data-control="settings"]').classList.add('control-island-button-active');
                 }
                 else {
                     document.querySelector('.settings-main-body').style = 'display: none';
+                    document.querySelector('[data-control="settings"]').classList.remove('control-island-button-active');
                 }
             });
         </script>
