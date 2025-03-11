@@ -487,33 +487,6 @@ body {
     font-family: 'Outfit-Regular';
 }
 
-.settings-field-option-text-title {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: var(--txt-primary);
-}
-
-.settings-field-option-text-description {
-    font-size: 14px;
-    color: var(--txt-secondary);
-}
-
-.option-frame-disabled > .settings-field-option-wrapper-icon {
-    background-color: var(--bg-grouped);
-}
-
-.option-frame-disabled > .settings-field-option-wrapper-icon > svg > path {
-    stroke: var(--txt-secondary);
-}
-
-.option-frame-disabled > .settings-field-option-container > .settings-field-option-text > p {
-    color: var(--txt-secondary);
-}
-
-.color-orange {
-    color: var(--cl-orange);
-}
-
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
 .folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon, .file-add-icon {
@@ -642,7 +615,7 @@ body {
 }
 
 .control-island-button:hover > .settings-icon > svg > path {
-    stroke: var(--cl-red);  /* --txt-primary */
+    stroke: var(--cl-red);
 }
 
 .control-island-button:hover > .minus-icon > svg > path {
@@ -689,7 +662,22 @@ body {
     color: var(--txt-primary);
 }
 
-/* settings icons */
+/* settings */
+.settings-field-option-text-title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--txt-primary);
+}
+
+.settings-field-option-text-description {
+    font-size: 14px;
+    color: var(--txt-secondary);
+}
+
+.color-orange {
+    color: var(--cl-orange);
+}
+
 .split-line {
     width: 200px;
     height: 2px;
