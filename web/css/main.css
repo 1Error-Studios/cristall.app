@@ -381,6 +381,138 @@ body {
     color: var(--txt-primary);
 }
 
+/* Settings */
+.settings-main-body {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 64px);
+}
+
+.settings-sidebar {
+    position: relative;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: calc(100% - 64px);
+    padding: 10px;
+    flex-direction: column;
+    background: var(--bg-secondary);
+}
+
+.settings-sidebar-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.settings-back-button {
+    -webkit-user-select: none;
+    display: flex;
+    width: 240px;
+    height: 42px;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.settings-button {
+    -webkit-user-select: none;
+    position: relative;
+    display: flex;
+    width: 240px;
+    height: 50px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;   
+}
+
+.settings-button-text {
+    font-family: 'Outfit-Regular';
+    font-size: 16px;
+    color: var(--txt-secondary);     
+}
+
+.settings-field {
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.settings-field-frame {
+    padding: 10px;
+    gap: 10px;
+}
+
+.settings-field-title-frame {
+    -webkit-user-select: none;
+    padding: 10px;
+}
+
+.settings-field-title {
+    font-family: 'Outfit-Bold';
+    font-size: 14px;
+    color: var(--txt-primary);
+}
+
+.settings-field-option-frame {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    gap: 10px;
+}
+
+.settings-field-option-wrapper-icon {
+    width: 64px;
+    height: 64px;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 16px;
+    background-color: var(--cl-blue);
+}
+
+.settings-field-option-container {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.settings-field-option-text {
+    padding: 10px;
+    font-family: 'Outfit-Regular';
+}
+
+.settings-field-option-text-title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--txt-primary);
+}
+
+.settings-field-option-text-description {
+    font-size: 14px;
+    color: var(--txt-secondary);
+}
+
+.option-frame-disabled > .settings-field-option-wrapper-icon {
+    background-color: var(--bg-grouped);
+}
+
+.option-frame-disabled > .settings-field-option-wrapper-icon > svg > path {
+    stroke: var(--txt-secondary);
+}
+
+.option-frame-disabled > .settings-field-option-container > .settings-field-option-text > p {
+    color: var(--txt-secondary);
+}
+
+.color-orange {
+    color: var(--cl-orange);
+}
+
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
 .folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon, .file-add-icon {
@@ -509,7 +641,7 @@ body {
 }
 
 .control-island-button:hover > .settings-icon > svg > path {
-    stroke: var(--txt-primary);  
+    stroke: var(--cl-red);  /* --txt-primary */
 }
 
 .control-island-button:hover > .minus-icon > svg > path {
@@ -553,5 +685,56 @@ body {
 }
 
 .popup-body-item:hover > .popup-body-item-icon > svg > path {
+    color: var(--txt-primary);
+}
+
+/* settings icons */
+.split-line {
+    width: 200px;
+    height: 2px;
+    background-color: var(--bg-grouped);
+}
+
+.arrow-left-icon {
+    display: flex;
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.settings-button-icon {
+    position: absolute;
+    display: flex;
+    left: 16px;
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.arrow-left-icon > svg > path {
+    transition: all .33s ease;
+}
+
+.settings-button, .settings-button-text {
+    transition: all .33s ease;
+}
+
+.settings-button:hover {
+    background-color: var(--bg-grouped);
+}
+
+.settings-button:hover > .settings-button-text {
+    color: var(--txt-primary);
+}
+
+.settings-back-button:hover > .arrow-left-icon > svg > path {
+    stroke: var(--txt-primary);
+}
+
+.settings-back-button:hover > .settings-button-text {
     color: var(--txt-primary);
 }

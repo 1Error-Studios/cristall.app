@@ -1,32 +1,48 @@
 :root {
     /*Backgrounds*/
+    /* --bg-primary: none; */
     --bg-primary: #1C1C1C;
     --bg-primary-wt: #E3E3E3;
+    /* --bg-secondary: none; */
     --bg-secondary: #212121;
     --bg-secondary-wt: #DEDEDE;
+    /* --bg-grouped: none; */
     --bg-grouped: #2E2E2E;
     --bg-grouped-wt: #D1D1D1;
     
     /*Texts and Icons*/
+    /* --txt-primary: none; */
     --txt-primary: #FFF;
     --txt-primary-wt: #000;
+    /* --txt-secondary: none; */
     --txt-secondary: #999;
     --txt-secondary-wt: #666;
 
     /*Colors*/
+    --cl-main: none;
+
+    --cl-pink: #FF2D55;
     --cl-red: #C44A4A;
-    
+    --cl-orange: #FF9500;
+    --cl-yellow: #FFCC00;
+    --cl-green: #34C759;
+    --cl-mint: #00C7BE;
+    --cl-cyan: #32ADE6;
+    --cl-blue: #007AFF;
+    --cl-indigo: #5856D6;
+    --cl-purple: #AF52DE;
+
     --cl-red-marker: #FE4D4D;
     --cl-orange-marker: #FF7514;
     --cl-yellow-marker: #FCDD76;
     --cl-green-marker: #71BC78;
     --cl-blue-marker: #7FC7FF;
     --cl-purple-marker: #A2A2D0;
-}
 
-@font-face {
-    font-family: 'Outfit-Thin'; /*100*/
-    src: url('../fonts/Outfit-Thin.ttf');
+    /* Fonts */
+    --fnt-regular: none;
+    --fnt-medium: none;
+    --fnt-bold: none;
 }
 
 @font-face {
@@ -42,9 +58,4 @@
 @font-face {
     font-family: 'Outfit-Bold'; /*600*/
     src: url('../fonts/Outfit-Bold.ttf');
-}
-
-@font-face {
-    font-family: 'Outfit-SemiBold'; /*900*/
-    src: url('../fonts/Outfit-SemiBold.ttf');
 }
