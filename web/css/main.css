@@ -394,7 +394,7 @@ body {
     top: 0;
     left: 0;
     width: 260px;
-    height: calc(100% - 64px);
+    height: 100%;
     padding: 10px;
     flex-direction: column;
     background: var(--bg-secondary);
