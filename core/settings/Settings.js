@@ -77,9 +77,7 @@ class Settings {
 
         this.settings[fieldName] = fieldValue;
 
-        if (this.settings.dev_mode) {
-            Log.MakeNewNote('Settings.ChangeField(fieldName, fieldValue)', `SUCCESS: applied ${fieldValue} to ${fieldName}`);
-        }
+        // Log.MakeNewNote('Settings.ChangeField(fieldName, fieldValue)', `SUCCESS: applied ${fieldValue} to ${fieldName}`);
     }
 
     /**
