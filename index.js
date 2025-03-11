@@ -33,8 +33,8 @@ const createWindow = () => {
     window.SetupAdditionalOptions({
         frame: false,
         autoHideMenuBar: true,
-        minHeight: 600,
-        minWidth: 800,
+        minHeight: 800,
+        minWidth: 1200,
         webPreferences: {
             preload: join(__dirname, 'preload.js')
         }
