@@ -138,15 +138,6 @@
             <div class="settings-main-body" style="display: none;">
                 <div class="settings-sidebar">
                     <div class="settings-sidebar-panel">
-                        <button class="settings-back-button" data-control="close-settings">
-                            <div class="arrow-left-icon">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.77254 5.43579L3.20837 11L8.77254 16.5641" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.7916 11H3.36414" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                
-                            </div>
-                            <p class="settings-button-text">Back to main screen</p>
-                        </button>
                         <button class="settings-button">
                             <div class="settings-button-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -415,16 +406,10 @@
                 if (isSettingsOpened) {
                     document.querySelector('.settings-main-body').style = '';
                 }
-            });
-
-            document.querySelector('[data-control="close-settings"]').addEventListener('click', () => {
-                let isSettingsOpened = document.querySelector('.settings-main-body').style.length > 0;
-
-
-                if (!isSettingsOpened) {
+                else {
                     document.querySelector('.settings-main-body').style = 'display: none';
                 }
-            })
+            });
         </script>
         <!-- FRONTEND-JS -->
     </body>
