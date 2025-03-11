@@ -74,13 +74,20 @@ body {
     height: 100%;
 }
 
+/*<--WORKSPACE DESIGN-->*/
+.workspace-main-body {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 64px);   
+}
+
 .sidebar {
     position: relative;
     display: flex;
     top: 0;
     left: 0;
     width: 260px;
-    height: calc(100% - 64px);
+    height: 100%;
     padding: 10px;
     flex-direction: column;
     justify-content: space-between;
@@ -243,6 +250,44 @@ body {
     align-self: stretch;
 }
 
+.viewport-frame {
+    padding: 10px 0px;
+    gap: 10px;
+    width: 65%;
+}
+
+.viewport-title {
+    padding: 10px;
+    color: var(--txt-primary);
+    font-family: 'Outfit-Regular';
+    font-size: 36px;
+}
+
+.viewport-text {
+    padding: 10px;
+    color: var(--txt-secondary);
+    font-family: 'Outfit-Regular';
+    font-size: 16px;  
+}
+
+.viewport-add-button-frame {
+    padding: 10px;
+}
+
+.viewport-add-button {
+    -webkit-user-select: none;
+    display: flex;
+    gap: 10px;
+    width: 97px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 10px;
+    font-family: 'Outfit-Regular';
+    color: var(--txt-secondary); 
+    background-color: var(--bg-grouped);
+}
+
 /*<--POPUP FRAME-->*/
 .blur {
     z-index: 50;
@@ -359,6 +404,7 @@ body {
 }
 
 .notification {
+    -webkit-user-select: none;
     background: var(--bg-grouped);
     border-radius: 12px;
     padding: 16px;
@@ -466,13 +512,34 @@ body {
     gap: 10px;
 }
 
+.settings-field-option-wrapper {
+    position: relative;
+}
+
 .settings-field-option-wrapper-icon {
     width: 64px;
     height: 64px;
     padding: 20px;
     gap: 20px;
     border-radius: 16px;
+    backdrop-filter: blur(24px);
+    background-color: var(--bg-secondary-opacity);
+}
+
+.settings-blue-square {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: -50;
+    width: 20px;
+    height: 20px;
     background-color: var(--cl-blue);
+}
+
+.settings-gray-square {
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-primary-opacity);
 }
 
 .settings-field-option-container {
@@ -525,7 +592,8 @@ body {
 .folder-add-icon > svg > path, .workspace-icon > svg > path, 
 .left-arrow-icon > svg > path, .right-arrow-icon > svg > path, 
 .settings-icon > svg > path, .document-icon > svg > path, 
-.folder-icon > svg > path, .main-component-icon > svg > path {
+.folder-icon > svg > path, .main-component-icon > svg > path,
+.file-add-icon > svg > path {
     transition: all .33s ease;
 }
 

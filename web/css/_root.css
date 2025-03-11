@@ -3,9 +3,12 @@
     /* --bg-primary: none; */
     --bg-primary: #1C1C1C;
     --bg-primary-wt: #E3E3E3;
+    --bg-primary-opacity: rgba(255, 255, 255, 0.3);
     /* --bg-secondary: none; */
     --bg-secondary: #212121;
     --bg-secondary-wt: #DEDEDE;
+    --bg-secondary-opacity: rgba(33, 33, 33, 0.7);
+    --bg-secondary-opacity2: rgba(33, 33, 33, 0.4);
     /* --bg-grouped: none; */
     --bg-grouped: #2E2E2E;
     --bg-grouped-wt: #D1D1D1;
