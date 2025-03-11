@@ -113,6 +113,15 @@ class Settings {
 
         return HotSettings[fieldName];
     }
+
+    /**
+     * Drop the settings object
+     * 
+     * @returns {Object}
+     */
+    DropSettings() {
+        return this.settings;
+    }
 }
 
 exports.Settings = Settings;

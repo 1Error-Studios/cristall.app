@@ -113,4 +113,8 @@ ipcMain.handle('files:load-file', (event, filename) => {
 
 ipcMain.handle('workspaces:load-all', (event) => {
     return WorkspacesLoader.DropParsedFile();
-})
+});
+
+ipcMain.handle('settings:load-all', (event) => {
+    return settingsManager.DropSettings();
+});
