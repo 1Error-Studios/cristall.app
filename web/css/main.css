@@ -482,6 +482,7 @@ body {
 }
 
 .settings-field-option-text {
+    -webkit-user-select: none;
     padding: 10px;
     font-family: 'Outfit-Regular';
 }
