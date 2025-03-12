@@ -465,6 +465,7 @@ body {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(30px);
+    background-color: var(--bg-secondary);
 }
 
 .settings-button-text {
@@ -542,13 +543,14 @@ body {
 /* Colour squares */
 .settings-relative {
     position: relative;
+    z-index: 2;
 }
 
 .settings-square {
     position: absolute;
     top: 22px;
     left: 22px;
-    z-index: -50;
+    z-index: -1;
     width: 20px;
     height: 20px;
     background-color: var(--cl-blue);
@@ -781,7 +783,7 @@ body {
 }
 
 .settings-button-active {
-    background: var(--bg-grouped-opacity);
+    background-color: var(--bg-grouped-opacity);
 }
 
 .settings-button-active > .settings-button-text {

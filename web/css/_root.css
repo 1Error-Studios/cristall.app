@@ -12,7 +12,7 @@
     /* --bg-grouped: none; */
     --bg-grouped: #2e2e2e;
     --bg-grouped-wt: #D1D1D1;
-    --bg-grouped-opacity: rgb(46, 46, 46, 0.25);
+    --bg-grouped-opacity: rgba(46, 46, 46, 0.25);
     
     /*Texts and Icons*/
     /* --txt-primary: none; */

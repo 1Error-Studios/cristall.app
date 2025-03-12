@@ -138,7 +138,6 @@
                 <div class="settings-sidebar">
                     <div class="settings-sidebar-panel">
                         <div class="settings-relative">
-                            <div class="settings-square"></div>
                             <button class="settings-button settings-button-active" sector-control-id="appearence">
                                 <div class="settings-button-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,68 +156,84 @@
                                 </div>
                                 <p class="settings-button-text">Appearence</p>
                             </button>
+                            <div class="settings-square" style="background-color: var(--cl-red) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
                         </div>
-                        <button class="settings-button" sector-control-id="system">
-                            <div class="settings-button-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M12 17.22V22" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M2 13H22" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M7.5 22H16.5" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                
-                            </div>
-                            <p class="settings-button-text">System</p>
-                        </button>
-                        <button class="settings-button" sector-control-id="workspaces">
-                            <div class="settings-button-icon">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.25004 20.1666H13.75C18.3334 20.1666 20.1667 18.3333 20.1667 13.7499V8.24992C20.1667 3.66659 18.3334 1.83325 13.75 1.83325H8.25004C3.66671 1.83325 1.83337 3.66659 1.83337 8.24992V13.7499C1.83337 18.3333 3.66671 20.1666 8.25004 20.1666Z" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M9.16663 1.83325V20.1666" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M9.16663 11H20.1666" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <p class="settings-button-text">Workspaces</p>
-                        </button>
-                        <button class="settings-button" sector-control-id="plugins">
-                            <div class="settings-button-icon">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.90588 6.82007L11.0001 11.5042L19.0392 6.84757" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M11 19.8093V11.4951" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M9.10246 2.27343L4.20746 4.98676C3.0983 5.60093 2.1908 7.14093 2.1908 8.40593V13.5851C2.1908 14.8501 3.0983 16.3901 4.20746 17.0043L9.10246 19.7268C10.1475 20.3043 11.8616 20.3043 12.9066 19.7268L17.8016 17.0043C18.9108 16.3901 19.8183 14.8501 19.8183 13.5851V8.40593C19.8183 7.14093 18.9108 5.60093 17.8016 4.98676L12.9066 2.26426C11.8525 1.68676 10.1475 1.68676 9.10246 2.27343Z" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                
-                            </div>
-                            <p class="settings-button-text">Plugins</p>
-                        </button>
+                        <div class="settings-relative">
+                            <button class="settings-button" sector-control-id="system">
+                                <div class="settings-button-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.44 2H17.55C21.11 2 22 2.89 22 6.44V12.77C22 16.33 21.11 17.21 17.56 17.21H6.44C2.89 17.22 2 16.33 2 12.78V6.44C2 2.89 2.89 2 6.44 2Z" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 17.22V22" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M2 13H22" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.5 22H16.5" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                
+                                </div>
+                                <p class="settings-button-text">System</p>
+                            </button>
+                        <div class="settings-square" style="background-color: var(--cl-green) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                        </div>
+                        <div class="settings-relative">
+                            <button class="settings-button" sector-control-id="workspaces">
+                                <div class="settings-button-icon">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.25004 20.1666H13.75C18.3334 20.1666 20.1667 18.3333 20.1667 13.7499V8.24992C20.1667 3.66659 18.3334 1.83325 13.75 1.83325H8.25004C3.66671 1.83325 1.83337 3.66659 1.83337 8.24992V13.7499C1.83337 18.3333 3.66671 20.1666 8.25004 20.1666Z" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9.16663 1.83325V20.1666" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9.16663 11H20.1666" stroke="#30B0C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p class="settings-button-text">Workspaces</p>
+                            </button>
+                            <div class="settings-square" style="background-color: var(--cl-mint) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                        </div>
+                        <div class="settings-relative">
+                            <button class="settings-button" sector-control-id="plugins">
+                                <div class="settings-button-icon">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.90588 6.82007L11.0001 11.5042L19.0392 6.84757" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 19.8093V11.4951" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M9.10246 2.27343L4.20746 4.98676C3.0983 5.60093 2.1908 7.14093 2.1908 8.40593V13.5851C2.1908 14.8501 3.0983 16.3901 4.20746 17.0043L9.10246 19.7268C10.1475 20.3043 11.8616 20.3043 12.9066 19.7268L17.8016 17.0043C18.9108 16.3901 19.8183 14.8501 19.8183 13.5851V8.40593C19.8183 7.14093 18.9108 5.60093 17.8016 4.98676L12.9066 2.26426C11.8525 1.68676 10.1475 1.68676 9.10246 2.27343Z" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                                
+                                </div>
+                                <p class="settings-button-text">Plugins</p>
+                            </button>
+                            <div class="settings-square" style="background-color: var(--cl-orange) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                        </div>
                         <div class="split-line"></div>
-                        <button class="settings-button" sector-control-id="development">
-                            <div class="settings-button-icon">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.3333 8.80008C18.3333 5.13342 16.8666 3.66675 13.2 3.66675H8.79996C5.13329 3.66675 3.66663 5.13342 3.66663 8.80008V13.2001C3.66663 16.8667 5.13329 18.3334 8.79996 18.3334" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M14.9875 7.33341C14.4833 6.69175 13.64 6.41675 12.375 6.41675H9.62496C7.33329 6.41675 6.41663 7.33341 6.41663 9.62508V12.3751C6.41663 13.6401 6.69163 14.4834 7.32413 14.9876" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M7.34253 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M11 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M14.6666 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18.3334 7.33325H20.1667" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M7.34253 18.3333V20.1666" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M1.83337 7.33325H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M1.83337 11H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M1.83337 14.6667H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M15.3175 17.0407C16.1224 17.0407 16.775 16.3882 16.775 15.5832C16.775 14.7783 16.1224 14.1257 15.3175 14.1257C14.5125 14.1257 13.86 14.7783 13.86 15.5832C13.86 16.3882 14.5125 17.0407 15.3175 17.0407Z" stroke="#5856D6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.4591 16.0049V15.1524C10.4591 14.6482 10.8716 14.2357 11.3758 14.2357C12.2558 14.2357 12.6133 13.6124 12.1733 12.8516C11.9166 12.4116 12.0724 11.8432 12.5124 11.5957L13.3466 11.1099C13.7316 10.8807 14.2266 11.0182 14.4558 11.4032L14.5108 11.4949C14.9508 12.2557 15.6658 12.2557 16.1058 11.4949L16.1608 11.4032C16.3899 11.0182 16.8849 10.8899 17.2699 11.1099L18.1041 11.5957C18.5441 11.8524 18.6999 12.4116 18.4433 12.8516C18.0033 13.6124 18.3608 14.2357 19.2408 14.2357C19.7449 14.2357 20.1574 14.6482 20.1574 15.1524V16.0049C20.1574 16.5091 19.7449 16.9216 19.2408 16.9216C18.3608 16.9216 18.0033 17.5449 18.4433 18.3057C18.6999 18.7457 18.5441 19.3141 18.1041 19.5616L17.2699 20.0474C16.8849 20.2766 16.3899 20.1391 16.1608 19.7541L16.1058 19.6624C15.6658 18.9016 14.9508 18.9016 14.5108 19.6624L14.4558 19.7541C14.2266 20.1391 13.7316 20.2674 13.3466 20.0474L12.5124 19.5616C12.0724 19.3049 11.9166 18.7457 12.1733 18.3057C12.6133 17.5449 12.2558 16.9216 11.3758 16.9216C10.8716 16.9307 10.4591 16.5182 10.4591 16.0049Z" stroke="#5856D6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <p class="settings-button-text">Development</p>
-                        </button>
-                        <button class="settings-button" sector-control-id="about">
-                            <div class="settings-button-icon">
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15.5834 16.8943H11.9167L7.83753 19.6076C7.23253 20.0109 6.41671 19.5801 6.41671 18.8468V16.8943C3.66671 16.8943 1.83337 15.0609 1.83337 12.3109V6.81087C1.83337 4.06087 3.66671 2.22754 6.41671 2.22754H15.5834C18.3334 2.22754 20.1667 4.06087 20.1667 6.81087V12.3109C20.1667 15.0609 18.3334 16.8943 15.5834 16.8943Z" stroke="#FF2D55" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M11 10.4133V10.2209C11 9.59753 11.3851 9.26752 11.7701 9.00168C12.1459 8.74502 12.5217 8.41503 12.5217 7.81003C12.5217 6.96669 11.8434 6.28833 11 6.28833C10.1567 6.28833 9.47839 6.96669 9.47839 7.81003" stroke="#FF2D55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M10.9958 12.6041H11.0041" stroke="#FF2D55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <p class="settings-button-text">About program</p>
-                        </button>
+                        <div class="settings-relative">
+                            <button class="settings-button" sector-control-id="development">
+                                <div class="settings-button-icon">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.3333 8.80008C18.3333 5.13342 16.8666 3.66675 13.2 3.66675H8.79996C5.13329 3.66675 3.66663 5.13342 3.66663 8.80008V13.2001C3.66663 16.8667 5.13329 18.3334 8.79996 18.3334" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.9875 7.33341C14.4833 6.69175 13.64 6.41675 12.375 6.41675H9.62496C7.33329 6.41675 6.41663 7.33341 6.41663 9.62508V12.3751C6.41663 13.6401 6.69163 14.4834 7.32413 14.9876" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.34253 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.6666 3.66659V1.83325" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M18.3334 7.33325H20.1667" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.34253 18.3333V20.1666" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1.83337 7.33325H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1.83337 11H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1.83337 14.6667H3.66671" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.3175 17.0407C16.1224 17.0407 16.775 16.3882 16.775 15.5832C16.775 14.7783 16.1224 14.1257 15.3175 14.1257C14.5125 14.1257 13.86 14.7783 13.86 15.5832C13.86 16.3882 14.5125 17.0407 15.3175 17.0407Z" stroke="#5856D6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10.4591 16.0049V15.1524C10.4591 14.6482 10.8716 14.2357 11.3758 14.2357C12.2558 14.2357 12.6133 13.6124 12.1733 12.8516C11.9166 12.4116 12.0724 11.8432 12.5124 11.5957L13.3466 11.1099C13.7316 10.8807 14.2266 11.0182 14.4558 11.4032L14.5108 11.4949C14.9508 12.2557 15.6658 12.2557 16.1058 11.4949L16.1608 11.4032C16.3899 11.0182 16.8849 10.8899 17.2699 11.1099L18.1041 11.5957C18.5441 11.8524 18.6999 12.4116 18.4433 12.8516C18.0033 13.6124 18.3608 14.2357 19.2408 14.2357C19.7449 14.2357 20.1574 14.6482 20.1574 15.1524V16.0049C20.1574 16.5091 19.7449 16.9216 19.2408 16.9216C18.3608 16.9216 18.0033 17.5449 18.4433 18.3057C18.6999 18.7457 18.5441 19.3141 18.1041 19.5616L17.2699 20.0474C16.8849 20.2766 16.3899 20.1391 16.1608 19.7541L16.1058 19.6624C15.6658 18.9016 14.9508 18.9016 14.5108 19.6624L14.4558 19.7541C14.2266 20.1391 13.7316 20.2674 13.3466 20.0474L12.5124 19.5616C12.0724 19.3049 11.9166 18.7457 12.1733 18.3057C12.6133 17.5449 12.2558 16.9216 11.3758 16.9216C10.8716 16.9307 10.4591 16.5182 10.4591 16.0049Z" stroke="#5856D6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p class="settings-button-text">Development</p>
+                            </button>
+                        <div class="settings-square" style="background-color: var(--cl-indigo) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                        </div>
+                        <div class="settings-relative">
+                            <button class="settings-button" sector-control-id="about">
+                                <div class="settings-button-icon">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.5834 16.8943H11.9167L7.83753 19.6076C7.23253 20.0109 6.41671 19.5801 6.41671 18.8468V16.8943C3.66671 16.8943 1.83337 15.0609 1.83337 12.3109V6.81087C1.83337 4.06087 3.66671 2.22754 6.41671 2.22754H15.5834C18.3334 2.22754 20.1667 4.06087 20.1667 6.81087V12.3109C20.1667 15.0609 18.3334 16.8943 15.5834 16.8943Z" stroke="#FF2D55" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 10.4133V10.2209C11 9.59753 11.3851 9.26752 11.7701 9.00168C12.1459 8.74502 12.5217 8.41503 12.5217 7.81003C12.5217 6.96669 11.8434 6.28833 11 6.28833C10.1567 6.28833 9.47839 6.96669 9.47839 7.81003" stroke="#FF2D55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M10.9958 12.6041H11.0041" stroke="#FF2D55" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p class="settings-button-text">About program</p>
+                            </button>
+                        <div class="settings-square" style="background-color: var(--cl-pink) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="settings-field">
