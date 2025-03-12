@@ -526,22 +526,6 @@ body {
     background-color: var(--bg-secondary-opacity);
 }
 
-.settings-blue-square {
-    position: absolute;
-    top: 22px;
-    left: 22px;
-    z-index: -50;
-    width: 20px;
-    height: 20px;
-    background-color: var(--cl-blue);
-}
-
-.settings-gray-square {
-    width: 20px;
-    height: 20px;
-    background-color: var(--bg-primary-opacity);
-}
-
 .settings-field-option-container {
     display: flex;
     padding: 10px;
@@ -564,6 +548,17 @@ body {
 
 .control-island-button-active > .settings-icon > svg > path {
     stroke: var(--cl-red);
+}
+
+/* Colour squares */
+.settings-square {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: -50;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cl-blue);
 }
 
 /*<--EXTRA PARAMETERS-->*/
