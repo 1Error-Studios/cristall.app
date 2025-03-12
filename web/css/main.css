@@ -6,6 +6,8 @@ body {
 /*<--HEADER DESIGN-->*/
 .header {
     -webkit-app-region: drag;
+    position: relative;
+    z-index: 1000;
     display: flex;
     height: 64px;
     padding: 10px;
@@ -539,6 +541,34 @@ body {
     font-size: 14px;
     font-family: 'Outfit-Regular';
     color: var(--txt-primary);
+    transition: all .33s ease;
+}
+
+.settings-field-option-button:hover {
+    /* color: var(--txt-primary); */
+    background-color: var(--cl-blue);
+}
+
+.settings-system-devmode-button {
+    -webkit-user-select: none;
+    display: flex;
+    margin: 10px;
+    width: 227px;
+    height: 61px;
+    gap: 16px;
+    padding: 18px 26px;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit-Regular';
+    font-size: 20px;
+    color: var(--txt-primary);
+    background-color: var(--cl-red);
+    transition: all .33s ease;
+}
+
+.settings-system-devmode-button:hover {
+    background-color: var(--cl-blue);
 }
 
 .control-island-button-active {

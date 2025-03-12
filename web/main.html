@@ -208,7 +208,7 @@
                             </button>
                             <div class="settings-square" style="background-color: var(--cl-orange) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
                         </div>
-                        <div class="split-line"></div>
+                        <div class="settings-sidebar-split-line"></div>
                         <div class="settings-relative">
                             <button class="settings-button" sector-control-id="development">
                                 <div class="settings-button-icon">
@@ -289,6 +289,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="settings-field-split-line"></div>
                             <div class="settings-field-option-frame">
                                 <div class="settings-field-option-wrapper">
                                     <div class="settings-field-option-wrapper-icon">
@@ -333,7 +334,68 @@
                                 </div>
                             </div>
                         </div>
-                        <div sector-id="system" style="display: none;" control-index="1"></div>
+                        <div sector-id="system" style="display: none;">
+                            <div class="settings-field-title-frame">
+                                <p class="settings-field-title">General Program Settings</p>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.0001 3H9.0001C7.0501 8.84 7.0501 15.16 9.0001 21H8.0001" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15 3C16.95 8.84 16.95 15.16 15 21" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="settings-square"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Application language</p>
+                                        <p class="settings-field-option-text-description">Setup your language in application</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22 12C22 17.52 17.52 22 12 22C6.48 22 3.11 16.44 3.11 16.44M3.11 16.44H7.63M3.11 16.44V21.44M2 12C2 6.48 6.44 2 12 2C18.67 2 22 7.56 22 7.56M22 7.56V2.56M22 7.56H17.56" stroke="var(--cl-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>                                            
+                                    </div>
+                                    <div class="settings-square"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Auto-Update</p>
+                                        <p class="settings-field-option-text-description">Would you like to check and download updates?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-field-split-line"></div>
+                            <div class="settings-field-title-frame">
+                                <p class="settings-field-title">About DEV-MODE</p>
+                            </div>
+                            <div class="settings-field-option-frame" style="padding: 0 0;">
+                                <div class="settings-field-option-container" style="padding: 0 0;">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">If you want to create own plugins - do this:</p>
+                                        <p class="settings-field-option-text-description">Click on the next button and open the <span style="color: var(--cl-red);">settings.json</span>. Close application, change the <span style="color: var(--cl-red);">dev_mode</span> property and now you able to create plugins and see debug logs. Good luck, newly developer! </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="settings-system-devmode-button">
+                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 8V12.1667" stroke="var(--cl-yellow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.0001 18.3419H4.95011C2.05844 18.3419 0.850107 16.2752 2.25011 13.7502L4.85011 9.06689L7.30011 4.66689C8.78344 1.99189 11.2168 1.99189 12.7001 4.66689L15.1501 9.07523L17.7501 13.7586C19.1501 16.2836 17.9334 18.3502 15.0501 18.3502H10.0001V18.3419Z" stroke="var(--cl-yellow)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.99536 14.6665H10.0028" stroke="var(--cl-yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                        
+                                Take the red pill
+                            </button>  
+                            <div class="settings-field-split-line"></div>
+                        </div>
                         <div sector-id="workspaces" style="display: none;" control-index="2"></div>
                         <div sector-id="plugins" style="display: none;" control-index="3"></div>
                         <div sector-id="development" style="display: none;" control-index="4"></div>
