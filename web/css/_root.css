@@ -10,8 +10,9 @@
     --bg-secondary-opacity: rgba(33, 33, 33, 0.7);
     --bg-secondary-opacity2: rgba(33, 33, 33, 0.4);
     /* --bg-grouped: none; */
-    --bg-grouped: #2E2E2E;
+    --bg-grouped: #2e2e2e;
     --bg-grouped-wt: #D1D1D1;
+    --bg-grouped-opacity: rgb(46, 46, 46, 0.25);
     
     /*Texts and Icons*/
     /* --txt-primary: none; */

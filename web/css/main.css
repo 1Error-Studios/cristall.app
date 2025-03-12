@@ -792,8 +792,16 @@ body {
     transition: all .33s ease;
 }
 
+.settings-button-active {
+    background: var(--bg-grouped-opacity);
+}
+
+.settings-button-active > .settings-button-text {
+    color: var(--txt-primary);
+}
+
 .settings-button:hover {
-    background-color: var(--bg-grouped);
+    background-color: var(--bg-grouped-opacity);
 }
 
 .settings-button:hover > .settings-button-text {

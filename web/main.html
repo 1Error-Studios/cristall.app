@@ -137,7 +137,7 @@
             <div class="settings-main-body" style="display: none;">
                 <div class="settings-sidebar">
                     <div class="settings-sidebar-panel">
-                        <button class="settings-button" sector-control-id="appearence">
+                        <button class="settings-button settings-button-active" sector-control-id="appearence">
                             <div class="settings-button-icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_145_448)">
@@ -220,7 +220,7 @@
                 </div>
                 <div class="settings-field">
                     <div class="settings-field-frame">
-                        <div sector-id="appearence" style="display: none;">
+                        <div sector-id="appearence">
                             <div class="settings-field-title-frame">
                                 <p class="settings-field-title">Interface</p>
                             </div>
@@ -305,11 +305,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div sector-id="system"></div>
-                        <div sector-id="workspaces"></div>
-                        <div sector-id="plugins"></div>
-                        <div sector-id="development"></div>
-                        <div sector-id="about"></div>
+                        <div sector-id="system" style="display: none;"></div>
+                        <div sector-id="workspaces" style="display: none;"></div>
+                        <div sector-id="plugins" style="display: none;"></div>
+                        <div sector-id="development" style="display: none;"></div>
+                        <div sector-id="about" style="display: none;"></div>
                     </div>
                 </div>
             </div>
@@ -445,6 +445,8 @@
                 else {
                     document.querySelector('.settings-main-body').style = 'display: none';
                     document.querySelector('[data-control="settings"]').classList.remove('control-island-button-active');
+
+                    settings.CleanTab();
                 }
             });
         </script>

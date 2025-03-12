@@ -1,7 +1,7 @@
 class SettingsLoader {
     constructor() {
         this.settings = {};
-        this.currentTab = 0;
+        this.currentTab = 'appearence';
     }
 
     /**
@@ -48,11 +48,13 @@ class SettingsLoader {
         }
 
         if (this.currentTab != 0) {
+            document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.remove('settings-button-active');
             document.querySelector(`[sector-id="${this.currentTab}"]`).style = 'display: none';
         }
 
         this.currentTab = sector;
 
+        document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.add('settings-button-active');
         document.querySelector(`[sector-id="${this.currentTab}"]`).style = '';
 
         TakeNote('{Web}.SettingsLoader.ChangeTab(sector)', `SUCCESS: changed settings tab to ${sector}`);
@@ -77,5 +79,9 @@ class SettingsLoader {
         });
 
         TakeNote('{Web}.SettingsLoader.SetupTabs()', 'SUCCESS: events loaded');
+    }
+
+    CleanTab() {
+        this.ChangeTab('appearence');
     }
 }
