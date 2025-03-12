@@ -33,9 +33,9 @@
                 return Math.floor(Math.random() * (max - min)) + min
             }
 
-            let randomPhrases = ['Womp-womp, no files?', 'Error 404. Files not found.', 'Shut up and take my files!', 'Where\'s the files Lebowski?', 'Pas de bras, pas de files.', 'The files are missing due to cascading resonance. I\'m so sorry.', 'Fun fact: there are no files.', 'Still no files.', 'What are you seeking for here?', 'You\'re an anomaly, a tumour of the worlds.', 'A guy opens his file and gets redacted and you think that of me? No. I am the one who redacted!', 'The right word in the wrong place can make all the difference in the file.', 'When plugin gives you error? Don\'t make bug reports. Make plugins take the error back! Get mad!', 'I used to be a plugin developer like you, until I got a critical error in the debug log.', 'Files. Files never been found.', 'You know, I\'m something of a file editor.'];
+            let randomPhrases = [];
 
-            let phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];
+            let phrase;
         </script>
 
         <!-- Header -->
@@ -534,15 +534,24 @@
         <script src="./js/web.plugin/PluginLoader.js"></script> -->
         <script src="./js/web.loader/Loader.js"></script>
         <script src="./js/web.workspaces/Workspaces.js"></script>
+        <script src="./js/web.localisation/Localisation.js"></script>
 
         <!-- FRONTEND-JS -->
         <script>
             let loader = new Loader();
             let workspaces = new Workspaces();
             let settings = new SettingsLoader();
+            let localisation = new Localisation();
 
             settings.LoadSettings().then(() => {
                 settings.SetupTabs();
+            });
+
+            localisation.LoadPrebuiltPackages().then(() => {
+                randomPhrases = localisation.DropKey('en-US', 'random_startup_phrases');
+                phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];
+
+                document.querySelector('#phrases').textContent = phrase;
             });
 
             workspaces.LoadWorkspace().then(() => {
@@ -614,8 +623,6 @@
             window.electronAPI.invoke('settings:get-version').then(version => {
                 document.querySelector('#version').textContent = version;
             });
-
-            document.querySelector('#phrases').textContent = phrase;
 
             document.querySelector('[control-id="new-quote"]').addEventListener('click', (event) => {
                 phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];

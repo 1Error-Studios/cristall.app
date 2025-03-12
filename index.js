@@ -98,9 +98,7 @@ ipcMain.handle('plugins:load:script', (event, args) => {
 });
 
 ipcMain.handle('log:make-note', (event, args) => {
-    if (settingsManager.GetField('dev_mode')) {
-        Log.MakeNewNote(args.title, args.message);
-    }
+    Log.MakeNewNote(args.title, args.message);
 });
 
 ipcMain.handle('files:load-all', (event) => {
@@ -121,4 +119,11 @@ ipcMain.handle('settings:load-all', (event) => {
 
 ipcMain.handle('settings:get-version', (event) => {
     return require('./meta.json').version;
-})
+});
+
+ipcMain.handle('localisation:load-prebuilt', (event) => {
+    return JSON.stringify({
+        'en-US': require('./localisation/en-US.json'),
+        'ru-RU': require('./localisation/ru-RU.json')
+    });
+});

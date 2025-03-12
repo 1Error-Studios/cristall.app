@@ -35,7 +35,8 @@ const FILES_PATH = [
                 width: 800,
                 height: 600
             },
-            theme: 'dark'
+            theme: 'dark',
+            language: Intl.DateTimeFormat().resolvedOptions().locale
         }, null, '\t')
     }
 ]
