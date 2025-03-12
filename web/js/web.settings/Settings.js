@@ -78,28 +78,22 @@ class SettingsLoader {
         }
 
         function Next(currentTab) {
-            document.querySelector(`[sector-id="${currentTab}"]`).parentElement.style = 'position: relative;'
+            if (index > id) {
+                document.querySelector(`[sector-id="${currentTab}"]`).parentElement.style = 'position: relative; top: 100%;';
+            }
+            else {
+                document.querySelector(`[sector-id="${currentTab}"]`).parentElement.style = 'position: relative; top: -100%;';
+            }
 
             document.querySelector(`[sector-control-id="${currentTab}"]`).classList.add('settings-button-active');
 
-            if (index > id) {
-                document.querySelector(`[sector-id="${currentTab}"]`).style = 'position: relative; top: 100%;';
+            document.querySelector(`[sector-id="${currentTab}"]`).style = 'position: relative; top: 100%;';
 
-                $(document.querySelector(`[sector-id="${currentTab}"]`)).animate({
-                    top: '100%'
-                }, 220, () => {
-                    document.querySelector(`[sector-id="${currentTab}"]`).style = '';
-                });
-            }
-            else {
-                document.querySelector(`[sector-id="${currentTab}"]`).style = 'position: relative; top: -100%;';
-
-                $(document.querySelector(`[sector-id="${currentTab}"]`)).animate({
-                    top: '-100%'
-                }, 220, () => {
-                    document.querySelector(`[sector-id="${currentTab}"]`).style = '';
-                });
-            }
+            $(document.querySelector(`[sector-id="${currentTab}"]`).parentElement).animate({
+                top: '0'
+            }, 220, () => {
+                document.querySelector(`[sector-id="${currentTab}"]`).style = '';
+            });
         }
 
         TakeNote('{Web}.SettingsLoader.ChangeTab(sector)', `SUCCESS: changed settings tab to ${sector}`);
