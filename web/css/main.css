@@ -399,7 +399,7 @@ body {
     right: 10px;
     height: fit-content;
     width: fit-content;
-    z-index: 100;
+    z-index: 1000;
     transition: all .33s ease;
 }
 

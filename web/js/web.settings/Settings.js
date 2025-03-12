@@ -18,6 +18,10 @@ class SettingsLoader {
             window.electronAPI.invoke('settings:load-all').then(data => {
                 this.settings = data;
 
+                if (!this.settings.dev_mode) {
+                    document.querySelector('[sector-control-id="development"]').classList.add('settings-button-disabled');
+                }
+
                 TakeNote('{Web}.SettingsLoader.LoadSettings(settings)', 'SUCCESS: Loaded new instance to @settings');
 
                 return resolve();
@@ -61,6 +65,12 @@ class SettingsLoader {
         document.querySelectorAll('[sector-control-id]').forEach(element => {
             element.addEventListener('click', (event) => {
                 let sector = element.getAttribute('sector-control-id');
+
+                if (sector == 'development' && !this.settings.dev_mode) {
+                    Alert('Error', 'To open development settings check the system tab.', 1500);
+
+                    return;
+                }
 
                 this.ChangeTab(sector);
             });
