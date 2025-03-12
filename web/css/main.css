@@ -756,6 +756,7 @@ body {
 }
 
 .settings-field-split-line {
+    margin: 20px 10px;
     width: 100%;
     height: 2px;
     background-color: var(--bg-grouped);
