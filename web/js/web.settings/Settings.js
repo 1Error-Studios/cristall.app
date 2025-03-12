@@ -124,4 +124,8 @@ class SettingsLoader {
     CleanTab() {
         this.ChangeTab('appearence');
     }
+
+    GetProperty(key) {
+        return this.settings[key];
+    }
 }

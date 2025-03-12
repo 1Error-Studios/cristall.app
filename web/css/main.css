@@ -599,6 +599,62 @@ body {
     background-color: var(--cl-blue);
 }
 
+/* Drop down */
+.settings-field-option-drop-down {
+    position: relative;
+}
+
+.settings-field-option-drop-down-view {
+    width: 260px;
+    height: 44px;
+    padding: 12px 16px;
+    background: var(--bg-grouped);
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.settings-field-option-drop-down-view-icon {
+    display: flex;
+    align-items: center;
+}
+
+.settings-field-option-drop-down-view-text {
+    -webkit-user-select: none;
+    color: var(--txt-primary);
+    font-family: 'Outfit Regular', Arial;
+    font-size: 14px;
+}
+
+.settings-field-option-drop-down-list {
+    position: absolute;
+    background: var(--bg-grouped-opacity);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    top: 49px;
+    left: 0;
+    width: 260px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-field-option-drop-down-list-item {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    color: var(--txt-secondary);
+    -webkit-user-select: none;
+    font-family: 'Outfit Regular', Arial;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .33s ease;
+    border-radius: 12px;
+}
+
 /*<--EXTRA PARAMETERS-->*/
 /*sidebar*/
 .folder-add-icon, .workspace-icon, .settings-icon, .main-component-icon, .file-add-icon {
@@ -853,5 +909,10 @@ body {
 }
 
 .settings-back-button:hover > .settings-button-text {
+    color: var(--txt-primary);
+}
+
+.settings-field-option-drop-down-list-item:hover {
+    background-color: var(--bg-grouped);
     color: var(--txt-primary);
 }

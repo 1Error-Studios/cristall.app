@@ -14,6 +14,7 @@ class Localisation {
                 Object.keys(localisation).forEach(item => {
                     this.languagePackages.push({
                         id: this.languagePackages.length,
+                        name: localisation[item]['localisation_name'] ?? 'unnamed',
                         type: 'prebuilt',
                         languageCode: item,
                         package: localisation[item]
@@ -30,8 +31,35 @@ class Localisation {
     DropKey(code, key) {
         let instance = this.languagePackages.find(item => item.languageCode === code);
 
-        console.log(instance.package[key])
-
         return instance.package[key];
+    }
+
+    SetupDefaultLanguage(code) {
+        this.defaultLanguage = code;
+    }
+
+    SetupLanguageFromSettings(code) {
+        this.activeLanguage = code;
+    }
+
+    DropActiveLanguage() {
+        return this.activeLanguage;
+    }
+
+    DropLanguagesList() {
+        let languages = [];
+
+        this.languagePackages.forEach(item => {
+            languages.push({
+                name: item.name,
+                value: item.languageCode
+            });
+        });
+
+        return languages;
+    }
+
+    GetPackageName(code) {
+        return this.languagePackages.find(item => item.languageCode === code).name;
     }
 }

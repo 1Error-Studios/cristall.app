@@ -10,6 +10,7 @@
         <script src="./lib/marked.min.js"></script>
         <script src="./js/web.notifications/Notifications.js"></script>
         <script src="./js/WebLoger.js"></script>
+        <script src="./js/web.dropdown/DropDown.js"></script>
 
         <!-- <script src="./api/Document.js"></script>
         <script src="./api/Context.js"></script>
@@ -356,6 +357,19 @@
                                         <p class="settings-field-option-text-title">Application language</p>
                                         <p class="settings-field-option-text-description">Setup your language in application</p>
                                     </div>
+                                    <div class="settings-field-option-drop-down" drop-down-id="language">
+                                        <div class="settings-field-option-drop-down-view" drop-down-view="true">
+                                            <span class="settings-field-option-drop-down-view-text" drop-down-view-text="true"></span>
+                                            <div class="settings-field-option-drop-down-view-icon">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16.5999 7.45825L11.1666 12.8916C10.5249 13.5333 9.4749 13.5333 8.83324 12.8916L3.3999 7.45825" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="settings-field-option-drop-down-list" drop-down-list="true" style="display: none;">
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="settings-field-option-frame">
@@ -543,15 +557,33 @@
             let settings = new SettingsLoader();
             let localisation = new Localisation();
 
+            let languageDropDown = new DropDown(
+                '[drop-down-id="language"]',
+                '[drop-down-id="language"] > [drop-down-view="true"]',
+                '[drop-down-id="language"] > [drop-down-view="true"] > [drop-down-view-text="true"]',
+                '[drop-down-id="language"] > [drop-down-list="true"]'
+            );
+
+            localisation.SetupDefaultLanguage('en-US');
+
             settings.LoadSettings().then(() => {
                 settings.SetupTabs();
+
+                localisation.SetupLanguageFromSettings(settings.GetProperty('language'));
             });
 
             localisation.LoadPrebuiltPackages().then(() => {
-                randomPhrases = localisation.DropKey('en-US', 'random_startup_phrases');
+                randomPhrases = localisation.DropKey(localisation.DropActiveLanguage(), 'random_startup_phrases');
                 phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];
 
                 document.querySelector('#phrases').textContent = phrase;
+
+                languageDropDown.LoadEntries(localisation.DropLanguagesList());
+                languageDropDown.ChangeActiveEntry(localisation.GetPackageName(localisation.DropActiveLanguage()));
+                languageDropDown.SetupEvents();
+                languageDropDown.SetupEventsForEntries((item) => {
+                    console.log(item.getAttribute('entry-name'));
+                })
             });
 
             workspaces.LoadWorkspace().then(() => {
