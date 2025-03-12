@@ -459,10 +459,16 @@
                 if (isSettingsOpened) {
                     document.querySelector('.settings-main-body').style = '';
                     document.querySelector('[data-control="settings"]').classList.add('control-island-button-active');
+
+                    $('.settings-sidebar').animate({
+                        'left': '0'
+                    }, 320);
                 }
                 else {
                     document.querySelector('.settings-main-body').style = 'display: none';
                     document.querySelector('[data-control="settings"]').classList.remove('control-island-button-active');
+
+                    document.querySelector('.settings-sidebar').style = '';
 
                     settings.CleanTab();
                 }
