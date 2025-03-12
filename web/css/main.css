@@ -454,20 +454,8 @@ body {
     align-self: stretch;
 }
 
-.settings-back-button {
-    -webkit-user-select: none;
-    display: flex;
-    width: 240px;
-    height: 42px;
-    padding: 10px;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
 .settings-button {
     -webkit-user-select: none;
-    position: relative;
     display: flex;
     width: 240px;
     height: 50px;
@@ -475,7 +463,8 @@ body {
     gap: 10px;
     border-radius: 16px;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
+    backdrop-filter: blur(30px);
 }
 
 .settings-button-text {
@@ -551,6 +540,10 @@ body {
 }
 
 /* Colour squares */
+.settings-relative {
+    position: relative;
+}
+
 .settings-square {
     position: absolute;
     top: 22px;
