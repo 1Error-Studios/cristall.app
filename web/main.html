@@ -28,6 +28,16 @@
 
         <script src="./js/web.api/APIProfiler.js"></script> -->
 
+        <script>
+            function getRandomNumber (min, max) {
+                return Math.floor(Math.random() * (max - min)) + min
+            }
+
+            let randomPhrases = ['Womp-womp, no files?', 'Error 404. Files not found.', 'Shut up and take my files!', 'Where\'s the files Lebowski?', 'Pas de bras, pas de files.', 'The files are missing due to cascading resonance. I\'m so sorry.', 'Fun fact: there are no files.', 'Still no files.', 'What are you seeking for here?', 'You\'re an anomaly, a tumour of the worlds.', 'A guy opens his file and gets redacted and you think that of me? No. I am the one who redacted!', 'The right word in the wrong place can make all the difference in the file.', 'When plugin gives you error? Don\'t make bug reports. Make plugins take the error back! Get mad!', 'I used to be a plugin developer like you, until I got a critical error in the debug log.', 'Files. Files never been found.', 'You know, I\'m something of a file editor.'];
+
+            let phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];
+        </script>
+
         <!-- Header -->
         <div class="header">
             <div class="logo">
@@ -238,7 +248,7 @@
                 </div>
                 <div class="settings-field">
                     <div class="settings-field-frame">
-                        <div sector-id="appearence">
+                        <div sector-id="appearence" control-index="0">
                             <div class="settings-field-title-frame">
                                 <p class="settings-field-title">Interface</p>
                             </div>
@@ -323,11 +333,76 @@
                                 </div>
                             </div>
                         </div>
-                        <div sector-id="system" style="display: none;"></div>
-                        <div sector-id="workspaces" style="display: none;"></div>
-                        <div sector-id="plugins" style="display: none;"></div>
-                        <div sector-id="development" style="display: none;"></div>
-                        <div sector-id="about" style="display: none;"></div>
+                        <div sector-id="system" style="display: none;" control-index="1"></div>
+                        <div sector-id="workspaces" style="display: none;" control-index="2"></div>
+                        <div sector-id="plugins" style="display: none;" control-index="3"></div>
+                        <div sector-id="development" style="display: none;" control-index="4"></div>
+                        <div sector-id="about" style="display: none;" control-index="5">
+                            <div class="settings-field-title-frame">
+                                <p class="settings-field-title">General information</p>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.9999 18.0003H9.32992C6.01992 18.0003 4.65992 15.6503 6.31992 12.7803L7.65992 10.4703L8.99992 8.16031C10.6599 5.29031 13.3699 5.29031 15.0299 8.16031L16.3699 10.4703L17.7099 12.7803C19.3699 15.6503 18.0099 18.0003 14.6999 18.0003H11.9999Z" stroke="#007AFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="settings-square"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Application version</p>
+                                        <p class="settings-field-option-text-description" id="version"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.79 10.4698V17.7898C17.79 20.1198 15.9 21.9998 13.58 21.9998H6.21C3.89 21.9998 2 20.1098 2 17.7898V10.4698C2 8.13977 3.89 6.25977 6.21 6.25977H13.58C15.9 6.25977 17.79 8.14977 17.79 10.4698Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M5.5 4V2.25" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M9.5 4V2.25" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.5 4V2.25" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M22 13.1602C22 15.4802 20.11 17.3702 17.79 17.3702V8.9502C20.11 8.9502 22 10.8302 22 13.1602Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 12H17.51" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="settings-square"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Application's Authors. <span style="color: var(--cl-pink); font-family: inherit;">Made with Love</span></p>
+                                        <p class="settings-field-option-text-description">1Error Studios</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="settings-field-split-line"></div>
+                            <div class="settings-field-title-frame">
+                                <p class="settings-field-title">Fun. Take some fun</p>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.5 9.75C16.3284 9.75 17 9.07843 17 8.25C17 7.42157 16.3284 6.75 15.5 6.75C14.6716 6.75 14 7.42157 14 8.25C14 9.07843 14.6716 9.75 15.5 9.75Z" stroke="#007AFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.5 9.75C9.32843 9.75 10 9.07843 10 8.25C10 7.42157 9.32843 6.75 8.5 6.75C7.67157 6.75 7 7.42157 7 8.25C7 9.07843 7.67157 9.75 8.5 9.75Z" stroke="#007AFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.4 13.2998H15.6C16.1 13.2998 16.5 13.6998 16.5 14.1998C16.5 16.6898 14.49 18.6998 12 18.6998C9.51 18.6998 7.5 16.6898 7.5 14.1998C7.5 13.6998 7.9 13.2998 8.4 13.2998Z" stroke="#007AFF" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="settings-square"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Quote of this session</p>
+                                        <p class="settings-field-option-text-description" id="phrases"></p>
+                                    </div>
+                                    <button class="settings-field-option-button" control-id="new-quote">New quote</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -472,6 +547,18 @@
 
                     settings.CleanTab();
                 }
+            });
+
+            window.electronAPI.invoke('settings:get-version').then(version => {
+                document.querySelector('#version').textContent = version;
+            });
+
+            document.querySelector('#phrases').textContent = phrase;
+
+            document.querySelector('[control-id="new-quote"]').addEventListener('click', (event) => {
+                phrase = randomPhrases[getRandomNumber(0, randomPhrases.length)];
+
+                document.querySelector('#phrases').textContent = phrase;
             });
         </script>
         <!-- FRONTEND-JS -->

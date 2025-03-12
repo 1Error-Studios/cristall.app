@@ -518,6 +518,7 @@ body {
 }
 
 .settings-field-option-container {
+    width: 100%;
     display: flex;
     padding: 10px;
     justify-content: space-between;
@@ -527,6 +528,17 @@ body {
     -webkit-user-select: none;
     padding: 10px;
     font-family: 'Outfit-Regular';
+}
+
+.settings-field-option-button {
+    height: fit-content;
+    background: var(--bg-grouped);
+    border-radius: 16px;
+    width: 120px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-family: 'Outfit-Regular';
+    color: var(--txt-primary);
 }
 
 .control-island-button-active {

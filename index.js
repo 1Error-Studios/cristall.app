@@ -118,3 +118,7 @@ ipcMain.handle('workspaces:load-all', (event) => {
 ipcMain.handle('settings:load-all', (event) => {
     return settingsManager.DropSettings();
 });
+
+ipcMain.handle('settings:get-version', (event) => {
+    return require('./meta.json').version;
+})

@@ -33,8 +33,9 @@ class SettingsLoader {
      * Change settings tab
      * 
      * @param {string} sector 
+     * @param {number} index 
      */
-    ChangeTab(sector) {
+    ChangeTab(sector, index) {
         if (!sector || typeof sector != 'string') {
             TakeNote('{Web}.SettingsLoader.ChangeTab(sector)', `FAILED: @sector not found or incorrect. SKIPPED.`);
 
@@ -47,15 +48,59 @@ class SettingsLoader {
             return;
         }
 
-        if (this.currentTab != 0) {
-            document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.remove('settings-button-active');
-            document.querySelector(`[sector-id="${this.currentTab}"]`).style = 'display: none';
+        let id = document.querySelector(`[sector-id="${this.currentTab}"]`).getAttribute('control-index');
+
+        document.querySelector(`[sector-id="${this.currentTab}"]`).parentElement.style = 'position: relative;'
+
+        if (index > id) {
+            $(document.querySelector(`[sector-id="${this.currentTab}"]`).parentElement).animate({
+                top: '-100%'
+            }, 220, () => {
+                document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.remove('settings-button-active');
+                document.querySelector(`[sector-id="${this.currentTab}"]`).style = 'display: none';
+
+                this.currentTab = sector;
+
+                Next(this.currentTab);
+            });
+        }
+        else {
+            $(document.querySelector(`[sector-id="${this.currentTab}"]`).parentElement).animate({
+                top: '100%'
+            }, 220, () => {
+                document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.remove('settings-button-active');
+                document.querySelector(`[sector-id="${this.currentTab}"]`).style = 'display: none';
+
+                this.currentTab = sector;
+
+                Next(this.currentTab);
+            });
         }
 
-        this.currentTab = sector;
+        function Next(currentTab) {
+            document.querySelector(`[sector-id="${currentTab}"]`).parentElement.style = 'position: relative;'
 
-        document.querySelector(`[sector-control-id="${this.currentTab}"]`).classList.add('settings-button-active');
-        document.querySelector(`[sector-id="${this.currentTab}"]`).style = '';
+            document.querySelector(`[sector-control-id="${currentTab}"]`).classList.add('settings-button-active');
+
+            if (index > id) {
+                document.querySelector(`[sector-id="${currentTab}"]`).style = 'position: relative; top: 100%;';
+
+                $(document.querySelector(`[sector-id="${currentTab}"]`)).animate({
+                    top: '100%'
+                }, 220, () => {
+                    document.querySelector(`[sector-id="${currentTab}"]`).style = '';
+                });
+            }
+            else {
+                document.querySelector(`[sector-id="${currentTab}"]`).style = 'position: relative; top: -100%;';
+
+                $(document.querySelector(`[sector-id="${currentTab}"]`)).animate({
+                    top: '-100%'
+                }, 220, () => {
+                    document.querySelector(`[sector-id="${currentTab}"]`).style = '';
+                });
+            }
+        }
 
         TakeNote('{Web}.SettingsLoader.ChangeTab(sector)', `SUCCESS: changed settings tab to ${sector}`);
     }
@@ -67,6 +112,7 @@ class SettingsLoader {
         document.querySelectorAll('[sector-control-id]').forEach(element => {
             element.addEventListener('click', (event) => {
                 let sector = element.getAttribute('sector-control-id');
+                let id = document.querySelector(`[sector-id="${sector}"]`).getAttribute('control-index');
 
                 if (sector == 'development' && !this.settings.dev_mode) {
                     Alert('Error', 'To open development settings check the system tab.', 1500);
@@ -74,7 +120,7 @@ class SettingsLoader {
                     return;
                 }
 
-                this.ChangeTab(sector);
+                this.ChangeTab(sector, id);
             });
         });
 

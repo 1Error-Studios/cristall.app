@@ -47,16 +47,12 @@ class Loader {
             });
         }
         else {
-            function getRandomNumber (min, max) {
-                return Math.floor(Math.random() * (max - min)) + min
-            }
-            let randomPhrases = ['Womp-womp, no files?', 'Error 404. Files not found.', 'Shut up and take my files!', 'Where\'s the files Lebowski?', 'Pas de bras, pas de files.', 'The files are missing due to cascading resonance. I\'m so sorry.', 'Fun fact: there are no files.', 'Still no files.', 'What are you seeking for here?', 'You\'re an anomaly, a tumour of the worlds.', 'A guy opens his file and gets redacted and you think that of me? No. I am the one who redacted!', 'The right word in the wrong place can make all the difference in the file.', 'When plugin gives you error? Don\'t make bug reports. Make plugins take the error back! Get mad!', 'I used to be a plugin developer like you, until I got a critical error in the debug log.', 'Files. Files never been found.', 'You know, I\'m something of a file editor.'];
             let notFound = document.createElement('div');
             notFound.classList.add('sidebar-not-found');
 
             notFound.innerHTML =
             `
-            <p class="sidebar-not-found-text">${randomPhrases[getRandomNumber(0, randomPhrases.length)]}</p>
+            <p class="sidebar-not-found-text">${phrase}</p>
             `;
 
             this.root.append(notFound);
