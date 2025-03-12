@@ -524,6 +524,7 @@ body {
     display: flex;
     padding: 10px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .settings-field-option-text {
