@@ -48,6 +48,10 @@ class SettingsLoader {
             return;
         }
 
+        if (sector === this.currentTab) {
+            return;
+        }
+
         let id = document.querySelector(`[sector-id="${this.currentTab}"]`).getAttribute('control-index');
 
         document.querySelector(`[sector-id="${this.currentTab}"]`).parentElement.style = 'position: relative;'
