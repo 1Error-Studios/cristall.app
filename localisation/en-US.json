@@ -1,5 +1,6 @@
 {
     "localisation_name": "English",
+    "localisation_icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"> <g clip-path=\"url(#clip0_220_2677)\"> <g clip-path=\"url(#clip1_220_2677)\"> <path d=\"M-3.5 0H21.5V18H-3.5V0Z\" fill=\"#012169\"\/> <path d=\"M-0.570312 0L8.96094 6.7875L18.4531 0H21.5V2.325L12.125 9.0375L21.5 15.7125V18H18.375L9 11.2875L-0.335938 18H-3.5V15.75L5.83594 9.075L-3.5 2.4V0H-0.570312Z\" fill=\"white\"\/> <path d=\"M13.0625 10.5375L21.5 16.5V18L10.9141 10.5375H13.0625ZM5.875 11.2875L6.10938 12.6L-1.39062 18H-3.5L5.875 11.2875ZM21.5 0V0.1125L11.7734 7.1625L11.8516 5.5125L19.5469 0H21.5ZM-3.5 0L5.83594 6.6H3.49219L-3.5 1.575V0Z\" fill=\"#C8102E\"\/> <path d=\"M5.91406 0V18H12.1641V0H5.91406ZM-3.5 6V12H21.5V6H-3.5Z\" fill=\"white\"\/> <path d=\"M-3.5 7.2375V10.8375H21.5V7.2375H-3.5ZM7.16406 0V18H10.9141V0H7.16406Z\" fill=\"#C8102E\"\/> <\/g> <\/g> <defs> <clipPath id=\"clip0_220_2677\"> <rect width=\"18\" height=\"18\" rx=\"9\" fill=\"white\"\/> <\/clipPath> <clipPath id=\"clip1_220_2677\"> <rect width=\"25\" height=\"18\" fill=\"white\" transform=\"translate(-3.5)\"\/> <\/clipPath> <\/defs> <\/svg>",
     "random_startup_phrases": [
         "Womp-womp, no files?",
         "Error 404. Files not found.",

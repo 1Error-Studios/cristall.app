@@ -1,5 +1,6 @@
 {
     "localisation_name": "Русский",
+    "localisation_icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"> <g clip-path=\"url(#clip0_220_2678)\"> <g clip-path=\"url(#clip1_220_2678)\"> <path d=\"M-3 0H21V6H-3V0Z\" fill=\"white\"\/> <path d=\"M-3 6H21V12H-3V6Z\" fill=\"#0039A6\"\/> <path d=\"M-3 12H21V18H-3V12Z\" fill=\"#D52B1E\"\/> <\/g> <\/g> <defs> <clipPath id=\"clip0_220_2678\"> <rect width=\"18\" height=\"18\" rx=\"9\" fill=\"white\"\/> <\/clipPath> <clipPath id=\"clip1_220_2678\"> <rect width=\"24\" height=\"18\" fill=\"white\" transform=\"translate(-3)\"\/> <\/clipPath> <\/defs> <\/svg>",
     "random_startup_phrases": [
         "Плаки-плаки, нет файлов?",
         "Ошибка 404. Файлы не найдены.",
