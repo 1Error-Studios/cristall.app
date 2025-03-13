@@ -128,4 +128,12 @@ class SettingsLoader {
     GetProperty(key) {
         return this.settings[key];
     }
+
+    ChangeProperty(key, newValue) {
+        this.settings[key] = newValue;
+    }
+
+    DropSettingsToSystem() {
+        window.electronAPI.invoke('settings:save', JSON.stringify(this.settings));
+    }
 }

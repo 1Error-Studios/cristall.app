@@ -582,7 +582,10 @@
                 languageDropDown.ChangeActiveEntry(localisation.GetPackageName(localisation.DropActiveLanguage()));
                 languageDropDown.SetupEvents();
                 languageDropDown.SetupEventsForEntries((item) => {
-                    console.log(item.getAttribute('entry-name'));
+                    languageDropDown.ChangeActiveEntry(item.getAttribute('entry-name'));
+                    languageDropDown.CloseDropDown();
+                    settings.ChangeProperty('language', item.getAttribute('entry-value'));
+                    settings.DropSettingsToSystem();
                 })
             });
 

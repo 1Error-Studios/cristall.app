@@ -58,4 +58,8 @@ class DropDown {
             });
         }
     }
+
+    CloseDropDown() {
+        this.dropDownList.style = 'display: none';
+    }
 }

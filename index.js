@@ -121,6 +121,13 @@ ipcMain.handle('settings:get-version', (event) => {
     return require('./meta.json').version;
 });
 
+ipcMain.handle('settings:save', (event, settings) => {
+    settings = JSON.parse(settings);
+
+    settingsManager.LoadSettings(settings);
+    settingsManager.UploadSettings();
+});
+
 ipcMain.handle('localisation:load-prebuilt', (event) => {
     return JSON.stringify({
         'en-US': require('./localisation/en-US.json'),
