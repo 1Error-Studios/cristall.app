@@ -165,7 +165,7 @@
                                         </defs>
                                     </svg>                                
                                 </div>
-                                <p class="settings-button-text">Appearence</p>
+                                <p class="settings-button-text" translation-key="settings.sidebar.buttons.appearence"></p>
                             </button>
                             <div class="settings-square" style="background-color: var(--cl-red) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
                         </div>
@@ -569,7 +569,7 @@
             settings.LoadSettings().then(() => {
                 settings.SetupTabs();
 
-                localisation.SetupLanguageFromSettings(settings.GetProperty('language'));
+                localisation.SetupActiveLanguage(settings.GetProperty('language'));
             });
 
             localisation.LoadPrebuiltPackages().then(() => {
@@ -578,14 +578,18 @@
 
                 document.querySelector('#phrases').textContent = phrase;
 
+                localisation.LoadLocalisation();
+
                 languageDropDown.LoadEntries(localisation.DropLanguagesList());
                 languageDropDown.ChangeActiveEntry(localisation.GetPackageName(localisation.DropActiveLanguage()));
                 languageDropDown.SetupEvents();
                 languageDropDown.SetupEventsForEntries((item) => {
                     languageDropDown.ChangeActiveEntry(item.getAttribute('entry-name'));
+                    localisation.SetupActiveLanguage(item.getAttribute('entry-value'));
                     languageDropDown.CloseDropDown();
                     settings.ChangeProperty('language', item.getAttribute('entry-value'));
                     settings.DropSettingsToSystem();
+                    localisation.LoadLocalisation();
                 })
             });
 

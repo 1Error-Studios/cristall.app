@@ -17,5 +17,6 @@
         "I used to be a plugin developer like you, until I got a critical error in the debug log.",
         "Files. Files never been found.",
         "You know, I'm something of a file editor."
-    ]
+    ],
+    "settings.sidebar.buttons.appearence": "Appearence"
 }

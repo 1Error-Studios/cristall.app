@@ -38,7 +38,7 @@ class Localisation {
         this.defaultLanguage = code;
     }
 
-    SetupLanguageFromSettings(code) {
+    SetupActiveLanguage(code) {
         this.activeLanguage = code;
     }
 
@@ -61,5 +61,15 @@ class Localisation {
 
     GetPackageName(code) {
         return this.languagePackages.find(item => item.languageCode === code).name;
+    }
+
+    LoadLocalisation() {
+        document.querySelectorAll('[translation-key]').forEach(item => {
+            let key = item.getAttribute('translation-key');
+
+            item.textContent = this.languagePackages.find(item => item.languageCode === this.activeLanguage).package[key] ?? 'Localisation not found';
+        });
+
+        TakeNote('{WEB}.Localisation.LoadLocalisation()', 'SUCCESS: Loaded fully localisation.');
     }
 }
