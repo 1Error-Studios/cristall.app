@@ -113,6 +113,11 @@ class SettingsLoader {
 
                     return;
                 }
+                else if (sector == 'plugins') {
+                    Alert('Error', 'The plugins are still in development. Please be patient.', 1500);
+
+                    return;
+                }
 
                 this.ChangeTab(sector, id);
             });
