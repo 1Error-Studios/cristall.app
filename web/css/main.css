@@ -566,7 +566,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'Outfit-Regular';
-    font-size: 20px;
+    font-size: 18px;
     color: var(--txt-primary);
     background-color: var(--cl-red);
     transition: all .33s ease;

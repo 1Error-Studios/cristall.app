@@ -4,7 +4,7 @@ const FOLDERS_PATH = {
     'company': `${os.homedir()}/AppData/Roaming/1Error Studios`,
     'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall`,
     'plugins': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/plugins`,
-    'files': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/files`
+    'files': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces`
 }
 
 const FILES_PATH = [
@@ -32,10 +32,15 @@ const FILES_PATH = [
         default_content: JSON.stringify({
             dev_mode: false,
             window: {
-                width: 800,
-                height: 600
+                width: 1200,
+                height: 800
             },
+            use_system_theme: false,
             theme: 'dark',
+            font: 'Outfit',
+            main_color: 'red',
+            auto_update: true,
+            use_workspaces: true,
             language: Intl.DateTimeFormat().resolvedOptions().locale
         }, null, '\t')
     }
