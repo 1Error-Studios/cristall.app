@@ -19,7 +19,7 @@ class DropDown {
             entry.classList.add('settings-field-option-drop-down-list-item');
             entry.setAttribute('entry-name', item.name);
             entry.setAttribute('entry-value', item.value);
-            entry.textContent = item.name;
+            entry.innerHTML = item.icon + item.name;
 
             this.entriesHTML.push(entry);
             this.dropDownList.append(entry);
@@ -33,7 +33,7 @@ class DropDown {
 
         this.activeEntry = entryName;
 
-        this.dropDownText.textContent = this.activeEntry;
+        this.dropDownText.innerHTML = this.entries.find(item => item.name === entryName).icon + this.activeEntry;
 
         document.querySelector(`[entry-name="${this.activeEntry}"]`).style = 'display: none;';
     }

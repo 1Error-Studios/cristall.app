@@ -15,6 +15,7 @@ class Localisation {
                     this.languagePackages.push({
                         id: this.languagePackages.length,
                         name: localisation[item]['localisation_name'] ?? 'unnamed',
+                        icon: localisation[item]['localisation_icon'] ?? null,
                         type: 'prebuilt',
                         languageCode: item,
                         package: localisation[item]
@@ -52,7 +53,8 @@ class Localisation {
         this.languagePackages.forEach(item => {
             languages.push({
                 name: item.name,
-                value: item.languageCode
+                value: item.languageCode,
+                icon: item.icon
             });
         });
 

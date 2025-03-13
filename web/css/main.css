@@ -631,6 +631,9 @@ body {
     color: var(--txt-primary);
     font-family: 'Outfit Regular', Arial;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .settings-field-option-drop-down-list {
@@ -658,6 +661,7 @@ body {
     cursor: pointer;
     transition: all .33s ease;
     border-radius: 12px;
+    gap: 10px;
 }
 
 /*<--EXTRA PARAMETERS-->*/
