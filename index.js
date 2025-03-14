@@ -22,6 +22,7 @@ settingsManager.LoadSettings(Settings.ParseSettings());
 WorkspacesLoader.ValidateFile();
 
 const window = new Window();
+const consoleWindow = new Window();
 let pluginManager = new PluginManager();
 
 pluginManager.CheckPlugins();
@@ -52,6 +53,25 @@ const createWindow = () => {
 
         settingsManager.ChangeField('window', windowSettings);
     });
+}
+
+function OpenConsole() {
+    consoleWindow.TitleSetup('Cristall.Console');
+    consoleWindow.WidthSetup('1200');
+    consoleWindow.HeightSetup('800');
+
+    consoleWindow.SetupAdditionalOptions({
+        frame: false,
+        autoHideMenuBar: true,
+        minHeight: 800,
+        minWidth: 1200,
+        webPreferences: {
+            preload: join(__dirname, 'preload.js')
+        }
+    });
+    consoleWindow.CreateWindow();
+
+    consoleWindow.DropWindow().loadFile('./web/console.html');
 }
 
 app.whenReady().then(() => {
@@ -135,4 +155,16 @@ ipcMain.handle('localisation:load-prebuilt', (event) => {
         'ru-RU': JSON.parse(fs.readFileSync('./localisation/ru-RU.json').toString()),
         'kn-KN': JSON.parse(fs.readFileSync('./localisation/kn-KN.json').toString())
     });
+});
+
+ipcMain.handle('console:open', (event) => {
+    OpenConsole();
+});
+
+ipcMain.handle('console:minimize', event => {
+    consoleWindow.DropWindow().minimize();
+});
+
+ipcMain.handle('console:maximize', event => {
+    consoleWindow.DropWindow().setFullScreen(!window.DropWindow().isFullScreen());
 });

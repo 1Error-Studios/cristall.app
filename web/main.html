@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="css/_reset.css">
         <link rel="stylesheet" href="css/_root.css">
         <link rel="stylesheet" href="css/main.css">
@@ -455,7 +456,30 @@
                             </div>
                         </div>
                         <div sector-id="plugins" style="display: none;" control-index="3"></div>
-                        <div sector-id="development" style="display: none;" control-index="4"></div>
+                        <div sector-id="development" style="display: none;" control-index="4">
+                            <div class="settings-field-title-frame">
+                                <p class="settings-field-title">Utilities</p>
+                            </div>
+                            <div class="settings-field-option-frame">
+                                <div class="settings-field-option-wrapper">
+                                    <div class="settings-field-option-wrapper-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.88989 9C7.86989 9.49 8.70989 10.23 9.31989 11.15C9.66989 11.67 9.66989 12.34 9.31989 12.86C8.70989 13.77 7.86989 14.51 6.88989 15" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13 15H17" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>                                            
+                                    </div>
+                                    <div class="settings-square" style="background-color: var(--cl-indigo);"></div>
+                                </div>
+                                <div class="settings-field-option-container">
+                                    <div class="settings-field-option-text">
+                                        <p class="settings-field-option-text-title">Open developer console</p>
+                                        <p class="settings-field-option-text-description">If you want to execute any command or see errors.</p>
+                                    </div>
+                                    <button class="settings-field-option-button new-quote-class" control-id="open-console">Open</button>
+                                </div>
+                            </div>
+                        </div>
                         <div sector-id="about" style="display: none;" control-index="5">
                             <div class="settings-field-title-frame">
                                 <p class="settings-field-title">General information</p>
@@ -753,6 +777,10 @@
 
                 document.querySelector('#phrases').textContent = phrase;
             });
+
+            document.querySelector('[control-id="open-console"]').addEventListener('click', (event) => {
+                window.electronAPI.invoke('console:open');
+            })
         </script>
         <!-- FRONTEND-JS -->
     </body>
