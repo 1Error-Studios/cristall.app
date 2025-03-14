@@ -2,6 +2,7 @@ class SettingsLoader {
     constructor() {
         this.settings = {};
         this.currentTab = 'appearence';
+        this.isSwitching = false;
     }
 
     /**
@@ -53,6 +54,7 @@ class SettingsLoader {
         }
 
         let id = document.querySelector(`[sector-id="${this.currentTab}"]`).getAttribute('control-index');
+        this.isSwitching = true;
 
         document.querySelector(`[sector-id="${this.currentTab}"]`).parentElement.style = 'position: relative;'
 
@@ -65,7 +67,7 @@ class SettingsLoader {
 
                 this.currentTab = sector;
 
-                Next(this.currentTab);
+                Next(this.currentTab, this);
             });
         }
         else {
@@ -77,11 +79,11 @@ class SettingsLoader {
 
                 this.currentTab = sector;
 
-                Next(this.currentTab);
+                Next(this.currentTab, this);
             });
         }
 
-        function Next(currentTab) {
+        function Next(currentTab, self) {
             if (index > id) {
                 document.querySelector(`[sector-id="${currentTab}"]`).parentElement.style = 'position: relative; top: 100%;';
             }
@@ -97,6 +99,8 @@ class SettingsLoader {
                 top: '0'
             }, 220, () => {
                 document.querySelector(`[sector-id="${currentTab}"]`).style = '';
+
+                self.isSwitching = false;
             });
         }
 
@@ -123,7 +127,9 @@ class SettingsLoader {
                     return;
                 }
 
-                this.ChangeTab(sector, id);
+                if (!this.isSwitching) {
+                    this.ChangeTab(sector, id);
+                }
             });
         });
 
