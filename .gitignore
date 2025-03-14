@@ -131,6 +131,3 @@ dist
 
 # Electron build
 build/
-
-# Fonts
-web/fonts/
