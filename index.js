@@ -166,7 +166,7 @@ ipcMain.handle('console:minimize', event => {
 });
 
 ipcMain.handle('console:maximize', event => {
-    consoleWindow.DropWindow().setFullScreen(!window.DropWindow().isFullScreen());
+    consoleWindow.DropWindow().setFullScreen(!consoleWindow.DropWindow().isFullScreen());
 });
 
 ipcMain.handle('console:close', event => {
