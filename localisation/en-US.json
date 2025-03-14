@@ -19,5 +19,10 @@
         "Files. Files never been found.",
         "You know, I'm something of a file editor."
     ],
-    "settings.sidebar.buttons.appearence": "Appearence"
+    "settings.sidebar.buttons.appearence": "Appearence",
+    "settings.sidebar.buttons.system": "System",
+    "settings.sidebar.buttons.workspaces": "Workspaces",
+    "settings.sidebar.buttons.plugins": "Plugins",
+    "settings.sidebar.buttons.development": "Development",
+    "settings.sidebar.buttons.about": "About program"
 }

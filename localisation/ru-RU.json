@@ -19,5 +19,10 @@
         "Файлы. Файлы никогда не находятся",
         "Знаете, я тоже своего рода файловый редактор."
     ],
-    "settings.sidebar.buttons.appearence": "Внешний вид"
+    "settings.sidebar.buttons.appearence": "Внешний вид",
+    "settings.sidebar.buttons.system": "Система",
+    "settings.sidebar.buttons.workspaces": "Рабочие среды",
+    "settings.sidebar.buttons.plugins": "Плагины",
+    "settings.sidebar.buttons.development": "Разработка",
+    "settings.sidebar.buttons.about": "О программе"
 }

@@ -104,21 +104,22 @@ svg {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 10px;
     height: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--bg-primary);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    /* border-radius: 4px; */
+    background: var(--bg-grouped);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--bg-grouped);
 }

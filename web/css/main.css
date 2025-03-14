@@ -191,7 +191,7 @@ tr {
 .sidebar-not-found-text {
     -webkit-user-select: none;
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -212,7 +212,7 @@ tr {
     -webkit-user-select: none;
     flex: 1 0 0;
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -297,6 +297,7 @@ tr {
     gap: 10px;
     flex: 1 0 0;
     align-self: stretch;
+    overflow-y: scroll;
 }
 
 .viewport-frame {
@@ -308,14 +309,14 @@ tr {
 .viewport-title {
     padding: 10px;
     color: var(--txt-primary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 36px;
 }
 
 .viewport-text {
     padding: 10px;
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;  
 }
 
@@ -332,7 +333,7 @@ tr {
     font-size: 15px;
     border-radius: 12px;
     padding: 10px;
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     color: var(--txt-secondary); 
     background-color: var(--bg-grouped);
 }
@@ -345,7 +346,7 @@ tr {
 
 .viewport-quote {
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px; 
 }
 
@@ -355,7 +356,7 @@ tr {
 
 .viewport-list-text {
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px; 
 }
 
@@ -365,13 +366,13 @@ tr {
 
 .viewport-table-title {
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 14px; 
 }
 
 .viewport-table-text {
     color: var(--txt-primary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 14px; 
 }
 
@@ -416,7 +417,7 @@ tr {
 .popup-title {
     -webkit-user-select: none;
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -464,7 +465,7 @@ tr {
 .popup-body-item-title {
     -webkit-user-select: none;
     color: var(--txt-primary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     font-style: normal;
     line-height: normal;
@@ -473,7 +474,7 @@ tr {
 .popup-body-item-description {
     -webkit-user-select: none;
     color: var(--txt-secondary);
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 10px;
     font-style: normal;
     line-height: normal;
@@ -503,13 +504,13 @@ tr {
 }
 
 .notification-title {
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 14px;
     color: var(--txt-secondary);
 }
 
 .notification-text {
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     color: var(--txt-primary);
 }
@@ -560,7 +561,7 @@ tr {
 }
 
 .settings-button-text {
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     color: var(--txt-secondary);     
 }
@@ -619,7 +620,7 @@ tr {
 .settings-field-option-text {
     -webkit-user-select: none;
     padding: 10px;
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
 }
 
 .settings-field-option-button {
@@ -629,14 +630,19 @@ tr {
     width: 120px;
     padding: 10px 0;
     font-size: 14px;
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     color: var(--txt-primary);
     transition: all .33s ease;
 }
 
-.settings-field-option-button:hover {
+.settings-field-option-button:not(.new-quote-class):hover {
     /* color: var(--txt-primary); */
     background-color: var(--cl-blue);
+}
+
+.settings-field-option-button:hover {
+    /* color: var(--txt-primary); */
+    background-color: var(--cl-pink);
 }
 
 .settings-system-devmode-button {
@@ -650,15 +656,15 @@ tr {
     border-radius: 16px;
     align-items: center;
     justify-content: center;
-    font-family: 'Outfit-Regular';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 18px;
     color: var(--txt-primary);
-    background-color: var(--cl-red);
+    background-color: var(--bg-grouped);
     transition: all .33s ease;
 }
 
 .settings-system-devmode-button:hover {
-    background-color: var(--cl-blue);
+    background-color: var(--cl-green);
 }
 
 .control-island-button-active {
@@ -935,10 +941,6 @@ tr {
 .settings-field-option-text-description {
     font-size: 14px;
     color: var(--txt-secondary);
-}
-
-.color-orange {
-    color: var(--cl-orange);
 }
 
 .settings-sidebar-split-line {
