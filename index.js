@@ -22,7 +22,7 @@ settingsManager.LoadSettings(Settings.ParseSettings());
 WorkspacesLoader.ValidateFile();
 
 const window = new Window();
-const consoleWindow = new Window();
+let consoleWindow;
 let pluginManager = new PluginManager();
 
 pluginManager.CheckPlugins();
@@ -56,6 +56,8 @@ const createWindow = () => {
 }
 
 function OpenConsole() {
+    consoleWindow = new Window();
+
     consoleWindow.TitleSetup('Cristall.Console');
     consoleWindow.WidthSetup('1200');
     consoleWindow.HeightSetup('800');
