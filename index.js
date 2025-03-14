@@ -132,6 +132,7 @@ ipcMain.handle('settings:save', (event, settings) => {
 ipcMain.handle('localisation:load-prebuilt', (event) => {
     return JSON.stringify({
         'en-US': JSON.parse(fs.readFileSync('./localisation/en-US.json').toString()),
-        'ru-RU': JSON.parse(fs.readFileSync('./localisation/ru-RU.json').toString())
+        'ru-RU': JSON.parse(fs.readFileSync('./localisation/ru-RU.json').toString()),
+        'kn-KN': JSON.parse(fs.readFileSync('./localisation/kn-KN.json').toString())
     });
 });
