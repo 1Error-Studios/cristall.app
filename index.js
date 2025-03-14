@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const { join } = require('path');
+const fs = require('fs');
 
 const { FOLDERS_PATH, FILES_PATH } = require('./core/misc/Structure.js');
 const { Window } = require('./core/window/Window.js');
@@ -130,7 +131,7 @@ ipcMain.handle('settings:save', (event, settings) => {
 
 ipcMain.handle('localisation:load-prebuilt', (event) => {
     return JSON.stringify({
-        'en-US': require('./localisation/en-US.json'),
-        'ru-RU': require('./localisation/ru-RU.json')
+        'en-US': JSON.parse(fs.readFileSync('./localisation/en-US.json').toString()),
+        'ru-RU': JSON.parse(fs.readFileSync('./localisation/ru-RU.json').toString())
     });
 });
