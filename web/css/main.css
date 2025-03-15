@@ -673,7 +673,7 @@ tr {
 }
 
 .settings-workspaces-create-text {
-    font-family: 'Outfit-Bold', 'Inter-Bold';
+    font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     color: var(--txt-primary);
     margin-bottom: 20px;
@@ -701,8 +701,10 @@ tr {
     display: flex;
     width: 50px;
     height: 50px;
-    justify-content: center;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
     align-items: center;
+    justify-content: center;
     background-color: var(--bg-secondary);
 }
 
