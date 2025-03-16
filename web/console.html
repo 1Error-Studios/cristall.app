@@ -93,6 +93,22 @@
                     messageTitle.classList.add('message-title');
                     messageTitle.textContent = item.title;
 
+                    if (item.message.includes('FATAL', 'ERROR', 'FAILED')) {
+                    messageTitle.classList.add('message-title-error')
+                    }
+                    else if (item.message.includes('INFO')) {
+                        messageTitle.classList.add('message-title-info')
+                    }
+                    else if (item.message.includes('SUCCESS')) {
+                        messageTitle.classList.add('message-title-success')
+                    }
+                    else if (item.message.includes('WARNING')) {
+                        messageTitle.classList.add('message-title-warning')
+                    }
+                    else {
+                        messageTitle.classList.add('message-title-info')
+                    }
+
                     let messageTimeStamp = document.createElement('p');
                     messageTimeStamp.classList.add('message-time-stamp');
                     messageTimeStamp.textContent = TimeConverter(item.time);
@@ -125,6 +141,22 @@
                 let messageTitle = document.createElement('p');
                 messageTitle.classList.add('message-title');
                 messageTitle.textContent = '{USER.INPUT}';
+
+                if (text.includes('FATAL', 'ERROR', 'FAILED')) {
+                    messageTitle.classList.add('message-title-error')
+                }
+                else if (text.includes('INFO')) {
+                    messageTitle.classList.add('message-title-info')
+                }
+                else if (text.includes('SUCCESS')) {
+                    messageTitle.classList.add('message-title-success')
+                }
+                else if (text.includes('WARNING')) {
+                    messageTitle.classList.add('message-title-warning')
+                }
+                else {
+                    messageTitle.classList.add('message-title-info')
+                }
 
                 let messageTimeStamp = document.createElement('p');
                 messageTimeStamp.classList.add('message-time-stamp');

@@ -17,6 +17,9 @@ class CommandExecutor {
         if (foundedCommand) {
             foundedCommand.handler(commandInNature, splitted);
         }
+        else {
+            AddNote('FATAL: Unknown command.');
+        }
     }
 
     AddCommand(command, handler) {
