@@ -24,6 +24,7 @@ WorkspacesLoader.ValidateFile();
 const window = new Window();
 let consoleWindow;
 let pluginManager = new PluginManager();
+let isConsoleOpenned = false;
 
 pluginManager.CheckPlugins();
 
@@ -141,7 +142,7 @@ ipcMain.handle('settings:load-all', (event) => {
 });
 
 ipcMain.handle('settings:get-version', (event) => {
-    return require('./meta.json').version;
+    return JSON.parse(fs.readFileSync('./meta.json').toString()).version;
 });
 
 ipcMain.handle('settings:save', (event, settings) => {
@@ -160,7 +161,10 @@ ipcMain.handle('localisation:load-prebuilt', (event) => {
 });
 
 ipcMain.handle('console:open', (event) => {
-    OpenConsole();
+    if (!isConsoleOpenned) {
+        OpenConsole();
+        isConsoleOpenned = true;
+    }
 });
 
 ipcMain.handle('console:minimize', event => {
@@ -173,4 +177,5 @@ ipcMain.handle('console:maximize', event => {
 
 ipcMain.handle('console:close', event => {
     consoleWindow.DropWindow().close();
+    isConsoleOpenned = false;
 });
