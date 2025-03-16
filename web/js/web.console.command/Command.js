@@ -22,7 +22,7 @@ class CommandExecutor {
             foundedCommand.handler(commandInNature, splitted);
         }
         else {
-            AddNote('FATAL: Unknown command.');
+            AddNote('WARNING: Unknown command.');
         }
 
         this.DropLastExecuted();
