@@ -231,6 +231,10 @@
         </script>
 
         <script>
+            function getRandomNumber (min, max) {
+                return Math.floor(Math.random() * (max - min)) + min
+            }
+
             commandExecutor.AddCommand('/echo', (command, options) => {
                 let string = options.join(' ');
 
@@ -248,6 +252,19 @@
 
                 window.electronAPI.invoke('console:command:invisible', status);
                 AddNote(`LOGGED: invisible-mode turned to ${status}`);
+            });
+
+            commandExecutor.AddCommand('/georgia', (command, options) => {
+                let wordsCount = getRandomNumber(5, 25);
+                let words = ['сам', 'нет ты', 'терпи', 'не мороси', 'карлик', 'петух', 'баля', 'саси', 'не шаришь'];
+
+                let result = '';
+
+                for (let i = 0; i < wordsCount; i++) {
+                    result += words[getRandomNumber(0, words.length)] + ' ';
+                }
+
+                AddNote(`KOSTYA-AI GENERATED: ${result}`);
             });
         </script>
     </body>
