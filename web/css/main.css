@@ -635,14 +635,16 @@ tr {
     transition: all .33s ease;
 }
 
-.settings-field-option-button:not(.new-quote-class):hover {
-    /* color: var(--txt-primary); */
-    background-color: var(--cl-blue);
+.new-quote-class:hover {
+    background-color: var(--cl-pink);
 }
 
-.settings-field-option-button:hover {
-    /* color: var(--txt-primary); */
-    background-color: var(--cl-pink);
+.open-console-class:hover {
+    background-color: var(--cl-indigo);
+}
+
+[class="settings-field-option-button"]:hover {
+    background-color: var(--cl-blue);
 }
 
 .settings-system-devmode-button {
