@@ -65,8 +65,8 @@ function OpenConsole() {
     consoleWindow.SetupAdditionalOptions({
         frame: false,
         autoHideMenuBar: true,
-        minHeight: 800,
-        minWidth: 1200,
+        minHeight: 700,
+        minWidth: 1000,
         webPreferences: {
             preload: join(__dirname, 'preload.js')
         }
