@@ -182,3 +182,7 @@ ipcMain.handle('console:close', event => {
     consoleWindow.DropWindow().close();
     isConsoleOpenned = false;
 });
+
+ipcMain.handle('console:load-messages', event => {
+    return JSON.stringify(Log.DropFile());
+});

@@ -41,25 +41,19 @@
             </div>
         </div>
         <div class="console-messages-frame">
-            <div class="message-frame">
-                <p class="message-title">WorkspacesLoader.DropParsedFile()</p>
-                <div class="message-item-frame">
-                    <p class="message-time-stamp">1488228337</p>
-                    <p class="message-description">Dropped all workspace.json file content</p>
-                </div>
-            </div>
+            
         </div>
         <div class="console-input-frame">
             <input class="console-input" placeholder="Command...">
-            <button class="console-button">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button class="console-button" contol-id="refresh">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.3351 7.6201C21.0301 7.2301 19.5901 6.9751 18.0001 6.9751C10.8151 6.9751 4.99512 12.7951 4.99512 19.9801C4.99512 27.1801 10.8151 33.0001 18.0001 33.0001C25.1851 33.0001 31.0051 27.1801 31.0051 19.9951C31.0051 17.3251 30.1951 14.8351 28.8151 12.7651" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M24.1949 7.98L19.8599 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M24.1951 7.97998L19.1401 11.67" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                        
             </button>
             <button class="console-button">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.1 9.47999L23.835 5.23499C29.55 3.32999 32.655 6.44999 30.765 12.165L26.52 24.9C23.67 33.465 18.99 33.465 16.14 24.9L14.88 21.12L11.1 19.86C2.53502 17.01 2.53502 12.345 11.1 9.47999Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M15.165 20.4751L20.535 15.0901" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                        
@@ -67,11 +61,71 @@
         </div>
 
         <script>
+            function TimeConverter(UNIX_timestamp){
+                let input = new Date(UNIX_timestamp * 1000);
+
+                let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                let year = input.getFullYear();
+                let month = months[input.getMonth()];
+
+                let date = input.getDate();
+                let hour = input.getHours() < 10 ? `0${input.getHours()}` : input.getHours();
+                let min = input.getMinutes() < 10 ? `0${input.getMinutes()}` : input.getMinutes();
+                let sec = input.getSeconds() < 10 ? `0${input.getSeconds()}` : input.getSeconds();
+
+                let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+
+                return time;
+            }
+
+            function HandleLogMessages(data) {
+                data.forEach(item => {
+                    let message = document.createElement('div');
+                    message.classList.add('message-frame');
+                    let messageAdditionalFrame = document.createElement('div');
+                    messageAdditionalFrame.classList.add('message-item-frame');
+
+                    let messageTitle = document.createElement('p');
+                    messageTitle.classList.add('message-title');
+                    messageTitle.textContent = item.title;
+
+                    let messageTimeStamp = document.createElement('p');
+                    messageTimeStamp.classList.add('message-time-stamp');
+                    messageTimeStamp.textContent = TimeConverter(item.time);
+
+                    let messageDescription = document.createElement('p');
+                    messageDescription.classList.add('message-description');
+                    messageDescription.textContent = item.message;
+
+                    messageAdditionalFrame.append(messageTimeStamp);
+                    messageAdditionalFrame.append(messageDescription);
+                    message.append(messageTitle);
+                    message.append(messageAdditionalFrame);
+
+                    document.querySelector('.console-messages-frame').append(message);
+                });
+            }
+
+            function ClearLog() {
+                document.querySelector('.console-messages-frame').innerHTML = '';
+            }
+
             document.querySelectorAll('[data-channel]').forEach(element => {
                 element.addEventListener('click', event => {
                     let channel = element.getAttribute('data-channel');
 
                     window.electronAPI.invoke(channel);
+                });
+            });
+
+            window.electronAPI.invoke('console:load-messages').then(data => {
+                HandleLogMessages(JSON.parse(data));
+            });
+
+            document.querySelector('[contol-id="refresh"]').addEventListener('click', () => {
+                window.electronAPI.invoke('console:load-messages').then(data => {
+                    ClearLog();
+                    HandleLogMessages(JSON.parse(data));
                 });
             });
         </script>

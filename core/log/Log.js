@@ -34,6 +34,15 @@ class Log {
     static ClearLog() {
         fs.writeFileSync(LOG_PATH, '[]');
     }
+
+    /**
+     * Drop parsed settings file
+     * 
+     * @returns {JSON}
+     */
+    static DropFile() {
+        return JSON.parse(fs.readFileSync(LOG_PATH).toString());
+    }
 }
 
 exports.Log = Log;
