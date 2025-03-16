@@ -22,7 +22,7 @@ class CommandExecutor {
             foundedCommand.handler(commandInNature, splitted);
         }
         else {
-            AddNote('WARNING: Unknown command.');
+            AddNote(`WARNING: Unknown command - ${command}`);
         }
 
         this.DropLastExecuted();
