@@ -29,7 +29,22 @@
     padding: 10px 0;
     font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
+}
+
+.message-title-info {
     color: var(--cl-blue);
+}
+
+.message-title-success {
+    color: var(--cl-green);
+}
+
+.message-title-error {
+    color: var(--cl-red);
+}
+
+.message-title-warning {
+    color: var(--cl-orange);
 }
 
 .message-item-frame {
