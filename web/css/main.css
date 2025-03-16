@@ -727,24 +727,63 @@ tr {
     justify-content: space-between;
 }
 
-.settings-workspaces-table-text-icon {
+.settings-workspaces-table-text-icon-frame {
+    position: relative;
+}
+
+.settings-workspaces-table-text-icon-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
+    min-width: 64px;
     height: 64px;
     font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     color: var(--txt-secondary);   
 }
 
+.settings-workspaces-table-text-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 22px;
+    backdrop-filter: blur(24px);
+    color: var(--txt-primary); 
+    background-color: var(--bg-secondary-opacity);
+}
+
 .settings-workspaces-table-text {
     padding: 10px;
     font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
-    color: var(--txt-secondary);   
+    color: var(--txt-primary);   
 }
 
+.settings-workspaces-table-button-frame {
+    display: flex;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: var(--bg-secondary);
+}
+
+.settings-workspaces-table-button {
+    height: 52px;
+    width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .33s ease;
+}
+
+.settings-workspaces-table-button:hover {
+    background-color: var(--bg-grouped);
+}
+
+/* Some shit stuff */
 .control-island-button-active {
     background: var(--bg-primary);
 }
