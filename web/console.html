@@ -15,7 +15,7 @@
         <!-- Header -->
         <div class="header">
             <div class="logo">
-                <p class="logo-cristall-app">Cristall.<span class="logo-red-app">Console</span></p>
+                <p class="logo-cristall-app">Cristall.<span class="logo-red-app">console</span></p>
             </div>
             <div class="control-island-frame">
                 <button class="control-island-button" data-channel="console:minimize">
@@ -219,6 +219,12 @@
                 let string = options.join(' ');
 
                 AddNote(`ECHO: ${string}`);
+            });
+
+            commandExecutor.AddCommand('/math', (command, options) => {
+                let problem = options.join(' ');
+
+                AddNote(`RESULT: ${eval(problem)}`);
             });
 
             commandExecutor.AddCommand('/invisible', (command, options) => {
