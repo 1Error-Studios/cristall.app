@@ -844,7 +844,7 @@
                             filename.splice(fileName.value.split('.').length - 1, 1);
                             filename = filename.join('.');
 
-                            if (!['md', 'umd', 'json']) {
+                            if (!['md', 'umd', 'json'].includes(extension)) {
                                 Alert('HEY!', 'Add to file correct extension. Supported: .md, .umd, .json', 1500);
                                 fileName.remove();
 
