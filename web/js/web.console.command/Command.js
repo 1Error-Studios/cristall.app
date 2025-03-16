@@ -1,6 +1,9 @@
 class CommandExecutor {
     constructor() {
         this.commands = [];
+
+        this.executed = [];
+        this.lastIndex = 0;
     }
 
     /**
@@ -8,6 +11,7 @@ class CommandExecutor {
      * @param {string} command 
      */
     Execute(command) {
+        this.executed.push(command);
         let splitted = command.split(' ');
         let commandInNature = splitted[0];
         splitted.splice(0, 1);
@@ -20,6 +24,8 @@ class CommandExecutor {
         else {
             AddNote('FATAL: Unknown command.');
         }
+
+        this.DropLastExecuted();
     }
 
     AddCommand(command, handler) {
@@ -27,5 +33,25 @@ class CommandExecutor {
             command,
             handler
         });
+    }
+
+    DropLastExecuted() {
+        this.lastIndex = this.executed.length;
+    }
+
+    UpLastIndex() {
+        if (this.executed[this.lastIndex + 1]) {
+            this.lastIndex += 1;
+        }
+    }
+
+    DownLastIndex() {
+        if (this.executed[this.lastIndex - 1]) {
+            this.lastIndex -= 1;
+        }
+    }
+
+    GetLastExecuted() {
+        return this.executed[this.lastIndex];
     }
 }

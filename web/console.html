@@ -211,6 +211,22 @@
                 if (event.key === 'Enter') {
                     ExecuteCommand();
                 }
+                else if (event.key === 'ArrowUp') {
+                    commandExecutor.DownLastIndex();
+                    let command = commandExecutor.GetLastExecuted();
+                    
+                    if (command) {
+                        document.querySelector('.console-input').value = command;
+                    }
+                }
+                else if (event.key === 'ArrowDown') {
+                    commandExecutor.UpLastIndex();
+                    let command = commandExecutor.GetLastExecuted();
+                    
+                    if (command) {
+                        document.querySelector('.console-input').value = command;
+                    }
+                }
             });
         </script>
 
