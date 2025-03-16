@@ -167,7 +167,6 @@
                 if (command.length > 0) {
                     commandExecutor.Execute(command);
                     document.querySelector('.console-input').value = '';
-                    window.scrollTo(0, document.body.scrollHeight);
                     document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
                 }
             }
