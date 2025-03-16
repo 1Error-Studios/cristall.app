@@ -712,6 +712,7 @@ tr {
 }
 
 .settings-workspaces-table-frame {
+    -webkit-user-select: none;
     display: flex;
     padding: 0 10px;
     gap: 20px;
