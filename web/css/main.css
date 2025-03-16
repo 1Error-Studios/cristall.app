@@ -304,6 +304,7 @@ tr {
     padding: 10px 0px;
     gap: 10px;
     width: 65%;
+    max-width: 750px;
 }
 
 .viewport-title {
@@ -708,6 +709,40 @@ tr {
     align-items: center;
     justify-content: center;
     background-color: var(--bg-secondary);
+}
+
+.settings-workspaces-table-frame {
+    display: flex;
+    padding: 0 10px;
+    gap: 20px;
+    width: 100%;
+    height: 64px;
+    align-items: center;
+}
+
+.settings-workspaces-table-text-frame {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.settings-workspaces-table-text-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-secondary);   
+}
+
+.settings-workspaces-table-text {
+    padding: 10px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-secondary);   
 }
 
 .control-island-button-active {
