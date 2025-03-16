@@ -161,12 +161,24 @@
                 });
             });
 
-            document.querySelector('[control-id="execute"]').addEventListener('click', () => {
+            function ExecuteCommand() {
                 let command = document.querySelector('.console-input').value;
 
                 if (command.length > 0) {
                     commandExecutor.Execute(command);
                     document.querySelector('.console-input').value = '';
+                    window.scrollTo(0, document.body.scrollHeight);
+                    document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
+                }
+            }
+
+            document.querySelector('[control-id="execute"]').addEventListener('click', () => {
+                ExecuteCommand();
+            });
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                    ExecuteCommand();
                 }
             });
         </script>
