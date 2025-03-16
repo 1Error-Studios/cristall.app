@@ -165,6 +165,9 @@ ipcMain.handle('console:open', (event) => {
         OpenConsole();
         isConsoleOpenned = true;
     }
+    else {
+        consoleWindow.DropWindow().focus();
+    }
 });
 
 ipcMain.handle('console:minimize', event => {
