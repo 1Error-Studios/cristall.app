@@ -60,8 +60,8 @@ function OpenConsole() {
     consoleWindow = new Window();
 
     consoleWindow.TitleSetup('Cristall.Console');
-    consoleWindow.WidthSetup('1200');
-    consoleWindow.HeightSetup('800');
+    consoleWindow.WidthSetup(1000);
+    consoleWindow.HeightSetup(700);
 
     consoleWindow.SetupAdditionalOptions({
         frame: false,
