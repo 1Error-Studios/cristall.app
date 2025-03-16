@@ -1,7 +1,8 @@
 class Loader {
     constructor() {
-        this.filesNames = [];
-        this.filesParsed = [];
+        this.workspaces = [];
+
+        this.activeWorkspace = 0;
 
         this.root = null;
     }
@@ -13,7 +14,14 @@ class Loader {
     LoadWebFiles() {
         return new Promise((resolve, reject) => {
             window.electronAPI.invoke('files:load-all').then(result => {
-                this.files = result;
+                this.workspaces = JSON.parse(result).content;
+
+                if (JSON.parse(result).active != null) {
+                    this.activeWorkspace = JSON.parse(result).active;
+                }
+                else {
+                    this.activeWorkspace = 0;
+                }
 
                 return resolve();
             });
@@ -31,16 +39,16 @@ class Loader {
     }
 
     ImplementFiles() {
-        if (this.files.length > 0) {
-            this.files.forEach(item => {
+        if (this.workspaces.find(item => item.id === this.activeWorkspace).files.length > 0) {
+            this.workspaces.find(item => item.id === this.activeWorkspace).files.forEach(item => {
                 let file = document.createElement('button');
                 file.classList.add('sidebar-file');
                 
                 file.innerHTML =
                 `
-                <div class="sidebar-file-type"><p class="sidebar-file-type-name">${item.split('.')[item.split('.').length - 1].toUpperCase()}</p></div>
+                <div class="sidebar-file-type"><p class="sidebar-file-type-name">${item.filename.split('.')[item.filename.split('.').length - 1].toUpperCase()}</p></div>
                 <div class="sidebar-file-marker"></div>
-                <p class="sidebar-file-name" id="file-name">${item.split('.')[0]}</p>
+                <p class="sidebar-file-name" id="file-name">${item.name}</p>
                 `
 
                 this.root.append(file);

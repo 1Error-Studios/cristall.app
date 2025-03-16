@@ -647,7 +647,9 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="sidebar-list-files"></div>
+                        <div class="sidebar-list-files">
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -780,7 +782,6 @@
             loader.SetRootElement(document.querySelector('.sidebar-list-files'));
 
             loader.LoadWebFiles().then(() => {
-                loader.ParseAllFiles();
                 loader.ImplementFiles();
             });
 
@@ -804,11 +805,70 @@
             });
 
             document.querySelector('#file').addEventListener('click', () => {
-                if (workspaces.DropActiveWorkspace() === null) {
-                    Alert('Error', 'Firstly - create the workspace in settings', 1500)
+                if (settings.GetProperty('use_workspaces')) {
+                    if (workspaces.DropActiveWorkspace() === null) {
+                        Alert('Error', 'Firstly - create the workspace in settings', 1500)
+                    }
+                    else {
+
+                    }
                 }
                 else {
+                    let fileHandler = document.createElement('div');
+                    fileHandler.classList.add('sidebar-file');
 
+                    let fileName = document.createElement('input');
+                    fileName.classList.add('sidebar-file-input');
+
+                    fileHandler.append(fileName);
+                    document.querySelector('.sidebar-list-files').append(fileHandler);
+
+                    if (document.querySelector('.sidebar-not-found')) {
+                        document.querySelector('.sidebar-not-found').style = 'display: none;';
+                    }
+
+                    fileName.focus();
+
+                    fileName.addEventListener('focusout', (event) => {
+                        if (fileName.value.length === 0) {
+                            Alert('HEY!', 'What are ya doing? Give name to file!', 1500);
+                            fileName.remove();
+
+                            if (document.querySelector('.sidebar-not-found')) {
+                                document.querySelector('.sidebar-not-found').style = '';
+                            }
+                        }
+                        else {
+                            let extension = fileName.value.split('.')[fileName.value.split('.').length - 1];
+                            let filename = fileName.value.split('.');
+                            filename.splice(fileName.value.split('.').length - 1, 1);
+                            filename = filename.join('.');
+
+                            if (!['md', 'umd', 'json']) {
+                                Alert('HEY!', 'Add to file correct extension. Supported: .md, .umd, .json', 1500);
+                                fileName.remove();
+
+                                if (document.querySelector('.sidebar-not-found')) {
+                                    document.querySelector('.sidebar-not-found').style = '';
+                                }
+                            }
+                            else {
+                                window.electronAPI.invoke('files:create-new', JSON.stringify({
+                                    id: 0,
+                                    name: filename,
+                                    filename: fileName.value
+                                })).then(() => {
+                                    fileHandler.remove();
+
+                                    document.querySelector('.sidebar-list-files').innerHTML = '';
+
+                                    loader.LoadWebFiles().then(() => {
+                                        loader.ImplementFiles();
+                                    });
+                                });
+                            }
+                        }
+                    });
                 }
             });
 

@@ -1,8 +1,9 @@
 const { Log } = require('../log/Log.js');
-const { FILES_PATH } = require('../misc/Structure.js');
+const { FILES_PATH, FOLDERS_PATH } = require('../misc/Structure.js');
 const fs = require('fs');
 
 let WORKSPACE_PATH = FILES_PATH.find(item => item.name === 'workspaces').path;
+let WORKSPACE_DIR = FOLDERS_PATH['workspaces'];
 
 class WorkspacesLoader {
     /**
@@ -40,6 +41,42 @@ class WorkspacesLoader {
         WorkspacesLoader.WriteChanges(workspaces);
 
         Log.MakeNewNote('WorkspacesLoader.ValidateFile()', 'SUCCESS: Validated workspaces file');
+    }
+
+    /**
+     * Create new file
+     * 
+     * @param {object} options
+     * @param {string} [options.name]
+     * @param {string} [options.filename]
+     * @param {number} [options.id]
+     */
+    static AddNewFile(options) {
+        let workspaces = JSON.parse(fs.readFileSync(WORKSPACE_PATH).toString());
+        let workspace = workspaces.content.find(item => item.id === options.id);
+
+        if (!workspace) {
+            Log.MakeNewNote('WorkspacesLoader.AddNewFile(options)', 'FATAL: workspace with id @options.id not found. SKIPPED');
+
+            return;
+        }
+
+        if (workspace.files.find(item => item.name === options.name)) {
+            Log.MakeNewNote('WorkspacesLoader.AddNewFile(options)', 'FATAL: file with name @options.name already exist. SKIPPED');
+
+            return;
+        }
+
+        fs.writeFileSync(`${WORKSPACE_DIR}/${workspace.name}/${options.filename}`, '');
+
+        workspace.files.push({
+            name: options.name,
+            filename: options.filename
+        });
+
+        Log.MakeNewNote('WorkspacesLoader.AddNewFile(options)', `SUCCESS: successfully create file at workspace with @id [${options.id}]`);
+
+        this.WriteChanges(workspaces);
     }
 }
 

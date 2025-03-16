@@ -205,6 +205,14 @@ tr {
     align-self: stretch;
 }
 
+.sidebar-file-input {
+    background: transparent;
+    border: unset;
+    outline: unset;
+    color: var(--txt-primary);
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+}
+
 .sidebar-file-name {
     display: -webkit-box;
     -webkit-box-orient: vertical;

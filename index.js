@@ -126,11 +126,15 @@ ipcMain.handle('log:make-note', (event, args) => {
 });
 
 ipcMain.handle('files:load-all', (event) => {
-    return Loader.LoadAllFiles();
+    return JSON.stringify(WorkspacesLoader.DropParsedFile());
 });
 
 ipcMain.handle('files:load-file', (event, filename) => {
     return Loader.LoadFile(filename);
+});
+
+ipcMain.handle('files:create-new', (event, options) => {
+    WorkspacesLoader.AddNewFile(JSON.parse(options));
 });
 
 ipcMain.handle('workspaces:load-all', (event) => {

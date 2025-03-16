@@ -13,13 +13,13 @@ class Loader {
         filename = filename.toLowerCase();
         filename = filename.replace(new RegExp(' ', 'ig'), '_');
 
-        if (!fs.existsSync(FOLDERS_PATH['files'] + `/${filename}`)) {
+        if (!fs.existsSync(FOLDERS_PATH['workspaces'] + `/${filename}`)) {
             Log.MakeNewNote('Loader.LoadFile(filename)', `WARNING: file with name ${filename} not found.`);
 
             return;
         }
 
-        let content = fs.readFileSync(FOLDERS_PATH['files'] + `/${filename}`).toString();
+        let content = fs.readFileSync(FOLDERS_PATH['workspaces'] + `/${filename}`).toString();
         let extention = filename.split('.')[filename.split('.').length - 1];
 
         return { filename, content, extention };
@@ -31,7 +31,7 @@ class Loader {
      * @returns {Array}
      */
     static LoadAllFiles() {
-        let files = fs.readdirSync(FOLDERS_PATH['files'], {
+        let files = fs.readdirSync(FOLDERS_PATH['workspaces'], {
             withFileTypes: true
         });
 

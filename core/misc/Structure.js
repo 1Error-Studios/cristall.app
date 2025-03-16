@@ -4,7 +4,8 @@ const FOLDERS_PATH = {
     'company': `${os.homedir()}/AppData/Roaming/1Error Studios`,
     'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall`,
     'plugins': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/plugins`,
-    'files': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces`
+    'workspaces': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces`,
+    'unworkspaced': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces/unworkspaced`
 }
 
 const FILES_PATH = [
@@ -18,7 +19,13 @@ const FILES_PATH = [
         path: `${FOLDERS_PATH.app}/workspaces.json`,
         default_content: JSON.stringify({
             active: null,
-            content: []
+            content: [
+                {
+                    id: 0,
+                    name: 'unworkspaced',
+                    files: []
+                }
+            ]
         }, null, '\t')
     },
     {
