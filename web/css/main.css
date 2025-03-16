@@ -792,6 +792,65 @@ tr {
     background-color: var(--bg-grouped);
 }
 
+.settings-system-table-frame {
+    -webkit-user-select: none;
+    display: flex;
+    padding: 0 10px;
+    gap: 20px;
+    width: 100%;
+    height: 64px;
+    align-items: center;
+}
+
+.settings-system-table-text-frame {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.settings-system-table-text-icon-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 128px;
+    height: 64px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-secondary);   
+}
+
+.settings-system-table-text {
+    display: flex;
+    padding: 10px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-primary);   
+}
+
+.settings-system-table-space-between {
+    justify-content: space-between;
+}
+
+.settings-system-table-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 122px;
+    height: 40px;
+    padding: 10px 0;
+    border-radius: 16px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-primary);
+    background-color: var(--bg-primary);
+    transition: all .33s ease;
+}
+
+.settings-system-table-button:hover {
+    background-color: var(--bg-grouped);
+}
+
 /* Some shit stuff */
 .control-island-button-active {
     background: var(--bg-primary);
