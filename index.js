@@ -186,3 +186,7 @@ ipcMain.handle('console:close', event => {
 ipcMain.handle('console:load-messages', event => {
     return JSON.stringify(Log.DropFile());
 });
+
+ipcMain.handle('console:command:invisible', (event, status) => {
+    window.DropWindow().webContents.send('invisible', status);
+});

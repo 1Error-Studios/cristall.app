@@ -220,6 +220,13 @@
 
                 AddNote(`ECHO: ${string}`);
             });
+
+            commandExecutor.AddCommand('/invisible', (command, options) => {
+                let status = options[0];
+
+                window.electronAPI.invoke('console:command:invisible', status);
+                AddNote(`LOGGED: invisible-mode turned to ${status}`);
+            });
         </script>
     </body>
 </html>

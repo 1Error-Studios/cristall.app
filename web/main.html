@@ -815,6 +815,19 @@
                 window.electronAPI.invoke('console:open');
             })
         </script>
+
+        <script>
+            window.electronAPI.on('invisible', (event, status) => {
+                if (status === 'on') {
+                    if (!document.querySelector('[href="css/killer.css"]')) {
+                        document.querySelector('head').innerHTML += '<link rel="stylesheet" href="css/killer.css">'
+                    }
+                }
+                else {
+                    document.querySelector('[href="css/killer.css"]').remove();
+                }
+            });
+        </script>
         <!-- FRONTEND-JS -->
     </body>
 </html>
