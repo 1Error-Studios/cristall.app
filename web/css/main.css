@@ -633,6 +633,7 @@ tr {
 }
 
 .settings-field-option-button {
+    -webkit-user-select: none;
     height: fit-content;
     background: var(--bg-grouped);
     border-radius: 16px;
