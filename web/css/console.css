@@ -53,10 +53,12 @@
 }
 
 .message-time-stamp {
+    min-width: 150px;
     padding: 10px 0;
     font-family: 'Outfit-Regular', 'Inter-Regular';
     font-size: 16px;
     color: var(--txt-secondary);
+    flex-shrink: 0;
 }
 
 .message-description {
