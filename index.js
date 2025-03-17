@@ -129,8 +129,8 @@ ipcMain.handle('files:load-all', (event) => {
     return JSON.stringify(WorkspacesLoader.DropParsedFile());
 });
 
-ipcMain.handle('files:load-file', (event, filename) => {
-    return Loader.LoadFile(filename);
+ipcMain.handle('files:load-file', (event, options) => {
+    return Loader.LoadFile(options.id, options.filename);
 });
 
 ipcMain.handle('files:create-new', (event, options) => {

@@ -675,7 +675,7 @@
 
                 <!-- Viewport -->
                 <div class="viewport">
-                    <div class="viewport-frame">
+                    <!-- <div class="viewport-frame">
                         <p class="viewport-title">This app is great!</p>
                         <div class="viewport-add-button-frame">
                             <button class="viewport-add-button">
@@ -729,7 +729,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -746,6 +746,7 @@
         <script src="./js/web.loader/Loader.js"></script>
         <script src="./js/web.workspaces/Workspaces.js"></script>
         <script src="./js/web.localisation/Localisation.js"></script>
+        <script src="./js/web.editor/Editor.js"></script>
 
         <!-- FRONTEND-JS -->
         <script>
@@ -753,6 +754,7 @@
             let workspaces = new Workspaces();
             let settings = new SettingsLoader();
             let localisation = new Localisation();
+            let editor = new Editor();
 
             let languageDropDown = new DropDown(
                 '[drop-down-id="language"]',
@@ -780,12 +782,16 @@
                 languageDropDown.LoadEntries(localisation.DropLanguagesList());
                 languageDropDown.ChangeActiveEntry(localisation.GetPackageName(localisation.DropActiveLanguage()));
                 languageDropDown.SetupEvents();
+
                 languageDropDown.SetupEventsForEntries((item) => {
                     languageDropDown.ChangeActiveEntry(item.getAttribute('entry-name'));
                     localisation.SetupActiveLanguage(item.getAttribute('entry-value'));
+
                     languageDropDown.CloseDropDown();
+
                     settings.ChangeProperty('language', item.getAttribute('entry-value'));
                     settings.DropSettingsToSystem();
+
                     localisation.LoadLocalisation();
                 })
             });
@@ -830,7 +836,7 @@
                         Alert('Error', 'Firstly - create the workspace in settings', 1500)
                     }
                     else {
-
+                        
                     }
                 }
                 else {

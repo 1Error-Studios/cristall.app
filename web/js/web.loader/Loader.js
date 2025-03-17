@@ -49,7 +49,15 @@ class Loader {
                 <div class="sidebar-file-type"><p class="sidebar-file-type-name">${item.filename.split('.')[item.filename.split('.').length - 1].toUpperCase()}</p></div>
                 <div class="sidebar-file-marker"></div>
                 <p class="sidebar-file-name" id="file-name">${item.name}</p>
-                `
+                `;
+
+                file.addEventListener('click', (event) => {
+                    editor.Initialize({
+                        workspaceId: this.activeWorkspace,
+                        name: item.name,
+                        filename: item.filename
+                    });
+                });
 
                 this.root.append(file);
             });
@@ -65,5 +73,9 @@ class Loader {
 
             this.root.append(notFound);
         }
+    }
+
+    GetActiveWorkspace() {
+        return this.activeWorkspace;
     }
 }
