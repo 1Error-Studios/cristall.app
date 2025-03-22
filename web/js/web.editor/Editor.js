@@ -24,7 +24,7 @@ class Editor {
     }
 
     LoadMD(content) {
-
+        console.log(marked.parse(content));
     }
 
     LoadJSON(content) {
