@@ -131,7 +131,7 @@
             }
 
             function AddNote(text) {
-                TakeNote('{USER.INPUT}', text);
+                TakeNote('{CONSOLE}.UserInput', text);
 
                 let message = document.createElement('div');
                 message.classList.add('message-frame');
@@ -190,6 +190,7 @@
                 window.electronAPI.invoke('console:load-messages').then(data => {
                     ClearLog();
                     HandleLogMessages(JSON.parse(data));
+                    document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
                 });
             });
 
