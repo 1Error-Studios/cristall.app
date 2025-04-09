@@ -136,6 +136,7 @@ tr {
     top: 0;
     left: 0;
     width: 260px;
+    min-width: 250px;
     height: 100%;
     padding: 10px;
     flex-direction: column;
@@ -150,6 +151,16 @@ tr {
     align-items: flex-start;
     gap: 10px;
     align-self: stretch;
+}
+
+.sidebar-resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    cursor: ew-resize;
+    user-select: none;
 }
 
 .sidebar-controls {

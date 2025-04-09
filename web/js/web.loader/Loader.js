@@ -47,7 +47,6 @@ class Loader {
                 file.innerHTML =
                 `
                 <div class="sidebar-file-type"><p class="sidebar-file-type-name">${item.filename.split('.')[item.filename.split('.').length - 1].toUpperCase()}</p></div>
-                <div class="sidebar-file-marker"></div>
                 <p class="sidebar-file-name" id="file-name">${item.name}</p>
                 `;
 
