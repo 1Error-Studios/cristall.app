@@ -93,20 +93,33 @@
                     messageTitle.classList.add('message-title');
                     messageTitle.textContent = item.title;
 
+                    let messageIcon = document.createElement('div');
+                    messageIcon.classList.add('message-icon');
+
                     if (item.message.includes('FATAL', 'ERROR', 'FAILED')) {
-                        messageTitle.classList.add('message-title-error')
+                        messageTitle.classList.add('message-title-error');
+
+                        messageIcon.innerHTML = ``;
                     }
                     else if (item.message.includes('INFO')) {
-                        messageTitle.classList.add('message-title-info')
+                        messageTitle.classList.add('message-title-info');
+
+                        messageIcon.innerHTML = ``;
                     }
                     else if (item.message.includes('SUCCESS')) {
-                        messageTitle.classList.add('message-title-success')
+                        messageTitle.classList.add('message-title-success');
+
+                        messageIcon.innerHTML = ``;
                     }
                     else if (item.message.includes('WARNING')) {
-                        messageTitle.classList.add('message-title-warning')
+                        messageTitle.classList.add('message-title-warning');
+
+                        messageIcon.innerHTML = ``;
                     }
                     else {
-                        messageTitle.classList.add('message-title-info')
+                        messageTitle.classList.add('message-title-info');
+
+                        messageIcon.innerHTML = ``;
                     }
 
                     let messageTimeStamp = document.createElement('p');
