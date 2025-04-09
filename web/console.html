@@ -93,6 +93,9 @@
                     messageTitle.classList.add('message-title');
                     messageTitle.textContent = item.title;
 
+                    let messageTitleFrame = document.createElement('div');
+                    messageTitleFrame.classList.add('message-title-frame');
+
                     let messageIcon = document.createElement('div');
                     messageIcon.classList.add('message-icon');
 
@@ -130,9 +133,12 @@
                     messageDescription.classList.add('message-description');
                     messageDescription.textContent = item.message;
 
+                    messageTitleFrame.append(messageIcon);
+                    messageTitleFrame.append(messageTitle);
+
                     messageAdditionalFrame.append(messageTimeStamp);
                     messageAdditionalFrame.append(messageDescription);
-                    message.append(messageTitle);
+                    message.append(messageTitleFrame);
                     message.append(messageAdditionalFrame);
 
                     document.querySelector('.console-messages-frame').append(message);
