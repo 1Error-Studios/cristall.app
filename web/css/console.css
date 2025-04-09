@@ -19,8 +19,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 10px;
-    gap: 6px;
+    padding: 16px 20px;
     background-color: var(--bg-secondary-opacity);
     border-radius: 16px;
 }
