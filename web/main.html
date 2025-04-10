@@ -13,6 +13,7 @@
         <script src="./js/web.notifications/Notifications.js"></script>
         <script src="./js/WebLoger.js"></script>
         <script src="./js/web.dropdown/DropDown.js"></script>
+        <script src="./js/web.broker/Broker.js"></script>
 
         <!-- <script src="./api/Document.js"></script>
         <script src="./api/Context.js"></script>
@@ -949,7 +950,9 @@
 
             document.querySelector('[control-id="open-console"]').addEventListener('click', (event) => {
                 window.electronAPI.invoke('console:open');
-            })
+            });
+
+            Broker.DEV_hide_loading_screen();
         </script>
 
         <script>

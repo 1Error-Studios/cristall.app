@@ -5,7 +5,8 @@ const FOLDERS_PATH = {
     'app': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall`,
     'plugins': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/plugins`,
     'workspaces': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces`,
-    'unworkspaced': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces/unworkspaced`
+    'unworkspaced': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/workspaces/unworkspaced`,
+    'sources': `${os.homedir()}/AppData/Roaming/1Error Studios/Cristall/sources`
 }
 
 const FILES_PATH = [
