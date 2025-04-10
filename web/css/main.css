@@ -863,6 +863,70 @@ tr {
     background-color: var(--bg-grouped);
 }
 
+/* Loader screen, man */
+.loader-screen {
+    background: var(--bg-primary);
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 64px);
+    top: 64px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logotype-text {
+    font-size: 26px;
+    color: var(--txt-primary);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    user-select: none;
+    text-align: center;
+}
+
+.loader-logotype {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-logotype-image {
+    width: 104px;
+    height: 104px;
+}
+
+.loader-progressbar {
+    width: 350px;
+    height: 15px;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.loader-progressbarview {
+    width: 20%;
+    height: 100%;
+    background: var(--cl-red);
+    border-radius: 10px;
+    transition: all .33s ease;
+}
+
+.loader-stateview {
+    margin-top: 10px;
+    color: var(--txt-primary);
+    font-size: 16px;
+}
+
 /* Some shit stuff */
 .control-island-button-active {
     background: var(--bg-primary);
