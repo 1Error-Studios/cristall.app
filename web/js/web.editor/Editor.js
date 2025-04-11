@@ -57,7 +57,7 @@ class Editor {
 
         this.content = updatedVersion;
 
-        console.log(this.content);
+        // console.log(this.content);
 
         this.ParseAndExecute();
     }
@@ -87,10 +87,6 @@ class Editor {
                 item.setAttribute('original-content', item.innerText);
                 this.UpdateCode();
             });
-
-            item.addEventListener('input', (event) => {
-                console.log('pidor')
-            })
         }
 
         this.elements.forEach(element => {

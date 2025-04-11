@@ -106,7 +106,7 @@ function HandleMDCode(code) {
         }
     });
 
-    console.log(result);
+    // console.log(result);
 
     return result;
 }
