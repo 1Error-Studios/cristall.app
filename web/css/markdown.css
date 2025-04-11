@@ -2,4 +2,41 @@
     font-family: 'Outfit-Regular', 'Inter-Regular';
     color: var(--txt-secondary);
     outline: none;
+    padding: 10px;
+    transition: all .33s ease;
+    border-radius: 12px;
+}
+
+.md-block:hover {
+    background: var(--bg-secondary);
+}
+
+.md-header-1, .md-header-2,
+.md-header-3, .md-header-4,
+.md-header-5, .md-header-6 {
+    color: var(--txt-primary);
+}
+
+.md-header-1 {
+    font-size: 22px;
+}
+
+.md-header-2 {
+    font-size: 20px;
+}
+
+.md-header-3 {
+    font-size: 18px;
+}
+
+.md-header-4 {
+    font-size: 16px;
+}
+
+.md-header-5 {
+    font-size: 14px;
+}
+
+.md-header-6 {
+    font-size: 12px;
 }

@@ -30,7 +30,6 @@ function HandleMDCode(code) {
                 headerItem.classList.add('md-block', `md-header-${headerSize}`);
                 headerItem.setAttribute('contenteditable', true);
                 headerItem.setAttribute('original-content', item);
-                headerItem.setAttribute('loaded-content', content);
                 headerItem.setAttribute('uuid', UUID());
                 headerItem.textContent = content;
 
@@ -53,7 +52,6 @@ function HandleMDCode(code) {
                 unorderedListItem.classList.add('md-block', 'md-unordered-list');
                 unorderedListItem.setAttribute('contenteditable', true);
                 unorderedListItem.setAttribute('original-content', item);
-                unorderedListItem.setAttribute('loaded-content', JSON.stringify(items));
                 unorderedListItem.setAttribute('uuid', UUID());
 
                 items.forEach(element => {
@@ -71,6 +69,6 @@ function HandleMDCode(code) {
     return result;
 }
 
-function originalToLoaded(element) {
+function OriginalToLoaded(element) {
 
 }

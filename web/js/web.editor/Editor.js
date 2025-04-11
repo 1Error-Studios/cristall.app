@@ -60,6 +60,27 @@ class Editor {
         this.elements.forEach(element => {
             document.querySelector('[interface-role-id="viewport"]').append(element);
         });
+
+        for (let i = 0; i < this.elements.length; i++) {
+            let item = this.elements[i];
+
+            item.addEventListener('focus', (event) => {
+                item.textContent = item.getAttribute('original-content');
+                item.setAttribute('class', 'md-block');
+            });
+
+            item.addEventListener('blur', (event) => {
+                OriginalToLoaded(item);
+            });
+
+            item.addEventListener('input', (event) => {
+                console.log('pidor')
+            })
+        }
+
+        this.elements.forEach(element => {
+            document.querySelector('[interface-role-id="viewport"]').append(element);
+        });
     }
 
     CleanUpContent(content) {
