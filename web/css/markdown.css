@@ -5,6 +5,7 @@
     padding: 10px;
     transition: all .33s ease;
     border-radius: 12px;
+    white-space: pre-wrap;
 }
 
 .md-block:hover {

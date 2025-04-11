@@ -2,10 +2,8 @@ function ValidateMDCode(code) {
 
 }
 
-function HandleMDCode(code) {
-    let result = []; // elements
+function CleanUpMD(code) {
     let splittedCode = code.split('\n');
-    let exclude = [];
 
     for (let i = 0; i < splittedCode.length; i++) {
         let item = splittedCode[i];
@@ -15,9 +13,14 @@ function HandleMDCode(code) {
         splittedCode[i] = item;
     }
 
-    splittedCode.forEach((item, index) => {
-        let line = index + 1;
+    return splittedCode;
+}
 
+function HandleMDCode(code) {
+    let result = []; // elements
+    let exclude = [];
+
+    code.forEach((item, index) => {
         if (item !== '' && !exclude.includes(index)) {
             if ((/#/i).test(item)) {
                 let prefix = item.split(' ')[0];
@@ -36,14 +39,16 @@ function HandleMDCode(code) {
                 result.push(headerItem);
             }
             else if ((/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(item)) {
+                let itemsWithoutEdit = [];
                 let items = [];
                 
-                for (let i = index; i < splittedCode.length; i++) {
-                    if (!(/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(splittedCode[i])) {
+                for (let i = index; i < code.length; i++) {
+                    if (!(/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(code[i])) {
                         break;
                     }
                     else {
-                        items.push(splittedCode[i].replace('- ', '').replace(/(\-|\*|\+|)/i,  ''));
+                        itemsWithoutEdit.push(code[i]);
+                        items.push(code[i].replace('- ', '').replace(/(\-|\*|\+|)/i,  ''));
                         exclude.push(i);
                     }
                 }
@@ -51,7 +56,7 @@ function HandleMDCode(code) {
                 let unorderedListItem = document.createElement('div');
                 unorderedListItem.classList.add('md-block', 'md-unordered-list');
                 unorderedListItem.setAttribute('contenteditable', true);
-                unorderedListItem.setAttribute('original-content', item);
+                unorderedListItem.setAttribute('original-content', itemsWithoutEdit.join('\n'));
                 unorderedListItem.setAttribute('uuid', UUID());
 
                 items.forEach(element => {
@@ -61,14 +66,47 @@ function HandleMDCode(code) {
 
                 result.push(unorderedListItem);
             }
+            else if ((/^\w+\.\s/i).test(item)) {
+                let itemsWithoutEdit = [];
+                let items = [];
+                
+                for (let i = index; i < code.length; i++) {
+                    if (!(/^\w+\.\s/i).test(code[i])) {
+                        break;
+                    }
+                    else {
+                        itemsWithoutEdit.push(code[i]);
+                        items.push(code[i].replace(/^\w+\.\s/i,  ''));
+                        exclude.push(i);
+                    }
+                }
+
+                let unorderedListItem = document.createElement('div');
+                unorderedListItem.classList.add('md-block', 'md-ordered-list');
+                unorderedListItem.setAttribute('contenteditable', true);
+                unorderedListItem.setAttribute('original-content', itemsWithoutEdit.join('\n'));
+                unorderedListItem.setAttribute('uuid', UUID());
+
+                items.forEach((element, id) => {
+                    unorderedListItem.innerHTML += `<p class="md-ordered-list-item">${id}. ${element}</p>`;
+                })
+
+                result.push(unorderedListItem);
+            }
+            else {
+                let textItem = document.createElement('div');
+                textItem.classList.add('md-block', `md-text`);
+                textItem.setAttribute('contenteditable', true);
+                textItem.setAttribute('original-content', item);
+                textItem.setAttribute('uuid', UUID());
+                textItem.textContent = item;
+
+                result.push(textItem);
+            }
         }
     });
 
     console.log(result);
 
     return result;
-}
-
-function OriginalToLoaded(element) {
-
 }

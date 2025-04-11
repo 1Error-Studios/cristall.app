@@ -26,26 +26,40 @@ class Editor {
     }
 
     LoadMD(content) {
-        // let parsedMarkdown = content.split('\n');
-        // parsedMarkdown = this.CleanUpContent(parsedMarkdown);
+        this.content = CleanUpMD(content);
 
-        // TakeNote('{WEB}.Editor.LoadMD(content)', `INFO: parsed markdown: ${JSON.stringify(parsedMarkdown)}`);
+        this.ParseAndExecute();
+    }
 
-        // parsedMarkdown.forEach(item => {
-        //     let element = marked.parse(item);
+    ParseAndExecute() {
+        document.querySelector('[interface-role-id="viewport"]').innerHTML = '';
 
-        //     console.log(element);
-
-        //     this.elements.push(element);
-        // });
-
-        // this.ImplementElements();
-
-        let result = HandleMDCode(content);
+        let result = HandleMDCode(this.content);
 
         this.elements = result;
 
         this.ImplementElements();
+    }
+
+    UpdateCode() {
+        let updatedVersion = [];
+
+        document.querySelectorAll('.md-block').forEach(item => {
+            if (!item.getAttribute('original-content').includes('\n')) {
+                updatedVersion.push(item.getAttribute('original-content'));
+            }
+            else {
+                updatedVersion = updatedVersion.concat(...(item.getAttribute('original-content').split('\n')));
+            }
+
+            updatedVersion.push("");
+        });
+
+        this.content = updatedVersion;
+
+        console.log(this.content);
+
+        this.ParseAndExecute();
     }
 
     LoadJSON(content) {
@@ -70,7 +84,8 @@ class Editor {
             });
 
             item.addEventListener('blur', (event) => {
-                OriginalToLoaded(item);
+                item.setAttribute('original-content', item.innerText);
+                this.UpdateCode();
             });
 
             item.addEventListener('input', (event) => {
@@ -81,17 +96,5 @@ class Editor {
         this.elements.forEach(element => {
             document.querySelector('[interface-role-id="viewport"]').append(element);
         });
-    }
-
-    CleanUpContent(content) {
-        let result = [];
-
-        for (let i = 0; i < content.length; i++) {
-            if (!['\r', '\n'].includes(content[i])) {
-                result.push(content[i]);
-            }
-        }
-
-        return result;
     }
 }
