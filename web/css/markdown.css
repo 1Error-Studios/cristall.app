@@ -71,3 +71,23 @@
 .md-link {
     color: var(--cl-red);
 }
+
+.md-unordered-list {
+    list-style: circle;
+    padding-left: 30px;
+}
+
+.md-italic {
+    font-style: italic;
+    display: inline-block;
+}
+
+.md-bold {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.md-strikethrough {
+    text-decoration: line-through;
+    display: inline-block;
+}

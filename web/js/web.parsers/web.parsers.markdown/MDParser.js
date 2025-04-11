@@ -52,7 +52,7 @@ function HandleMDCode(code) {
 
                 result.push(quoteItem);
             }
-            else if ((/---/i).test(item)) {
+            else if (item === '---') {
                 let content = item.split(' ');
                 content.splice(0, 1);
                 content = content.join(' ');
@@ -81,7 +81,7 @@ function HandleMDCode(code) {
                     }
                 }
 
-                let unorderedListItem = document.createElement('div');
+                let unorderedListItem = document.createElement('ul');
                 unorderedListItem.classList.add('md-block', 'md-unordered-list');
                 unorderedListItem.setAttribute('contenteditable', true);
                 unorderedListItem.setAttribute('original-content', itemsWithoutEdit.join('\n'));
@@ -89,7 +89,8 @@ function HandleMDCode(code) {
 
                 items.forEach(element => {
                     let tabs = (element.match(/\t/g) || []).length;
-                    unorderedListItem.innerHTML += `<p class="md-unordered-list-item" style="text-indent: ${tabs * 10}px">${element}</p>`;
+                    element = element.replace(/\t/ig, '');
+                    unorderedListItem.innerHTML += `<li class="md-unordered-list-item" style="margin-left: ${tabs * 20}px">${element}</li>`;
                 })
 
                 result.push(unorderedListItem);
@@ -154,6 +155,71 @@ function HandleMDCode(code) {
 
                         if (expresion_copy.length > 0) {
                             item = item.replace(expresion, `<a class="md-link" href="${expresion_copy_link}">${expresion_copy_title}</a>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/_(.*?)_/ig))) {
+                    let replaces = item.match(/_(.*?)_/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(1, expresion_copy.length - 1);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<p class="md-italic">${expresion_copy}</p>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/__(.*?)__/ig))) {
+                    let replaces = item.match(/__(.*?)__/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(2, expresion_copy.length - 2);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<p class="md-bold">${expresion_copy}</p>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/\*(.*?)\*/ig))) {
+                    let replaces = item.match(/\*(.*?)\*/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(1, expresion_copy.length - 1);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<p class="md-italic">${expresion_copy}</p>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/\*\*(.*?)\*\*/ig))) {
+                    let replaces = item.match(/\*\*(.*?)\*\*/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(2, expresion_copy.length - 2);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<p class="md-bold">${expresion_copy}</p>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/\~\~(.*?)\~\~/ig))) {
+                    let replaces = item.match(/\~\~(.*?)\~\~/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(2, expresion_copy.length - 2);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<p class="md-strikethrough">${expresion_copy}</p>`);
                         }
                     });
                 }
