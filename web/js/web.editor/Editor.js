@@ -26,18 +26,24 @@ class Editor {
     }
 
     LoadMD(content) {
-        let parsedMarkdown = content.split('\n');
-        parsedMarkdown = this.CleanUpContent(parsedMarkdown);
+        // let parsedMarkdown = content.split('\n');
+        // parsedMarkdown = this.CleanUpContent(parsedMarkdown);
 
-        TakeNote('{WEB}.Editor.LoadMD(content)', `INFO: parsed markdown: ${JSON.stringify(parsedMarkdown)}`);
+        // TakeNote('{WEB}.Editor.LoadMD(content)', `INFO: parsed markdown: ${JSON.stringify(parsedMarkdown)}`);
 
-        parsedMarkdown.forEach(item => {
-            let element = marked.parse(item);
+        // parsedMarkdown.forEach(item => {
+        //     let element = marked.parse(item);
 
-            console.log(element);
+        //     console.log(element);
 
-            this.elements.push(element);
-        });
+        //     this.elements.push(element);
+        // });
+
+        // this.ImplementElements();
+
+        let result = HandleMDCode(content);
+
+        this.elements = result;
 
         this.ImplementElements();
     }
@@ -52,16 +58,8 @@ class Editor {
         document.querySelector('[interface-role-id="viewport"]').innerHTML += `<h1 class="viewport-title">${this.title.length > 0 ? this.title : 'Unnamed'}</h1>`
 
         this.elements.forEach(element => {
-            document.querySelector('[interface-role-id="viewport"]').innerHTML += element;
+            document.querySelector('[interface-role-id="viewport"]').append(element);
         });
-
-        document.querySelector('[interface-role-id="viewport"]').childNodes.forEach((item, index) => {
-            if (item.tagName) {
-                if (item.tagName === 'P') {
-                    item.classList.add('viewport-text');
-                }
-            }
-        })
     }
 
     CleanUpContent(content) {

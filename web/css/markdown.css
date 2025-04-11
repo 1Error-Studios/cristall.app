@@ -1,0 +1,5 @@
+.md-block {
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    color: var(--txt-secondary);
+    outline: none;
+}
