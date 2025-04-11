@@ -137,6 +137,10 @@ ipcMain.handle('files:create-new', (event, options) => {
     WorkspacesLoader.AddNewFile(JSON.parse(options));
 });
 
+ipcMain.handle('files:save', (event, options) => {
+    WorkspacesLoader.UpdateFile(JSON.parse(options));
+});
+
 ipcMain.handle('workspaces:load-all', (event) => {
     return WorkspacesLoader.DropParsedFile();
 });

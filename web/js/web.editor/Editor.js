@@ -1,6 +1,8 @@
 class Editor {
     constructor() {
         this.title = null;
+        this.workspace = null;
+        this.filename = null;
 
         this.elements = [];
         this.content = [];
@@ -8,6 +10,8 @@ class Editor {
 
     Initialize(fileContent) {
         this.title = fileContent.name;
+        this.workspace = loader.GetActiveWorkspace();
+        this.filename = fileContent.filename;
 
         window.electronAPI.invoke('files:load-file', {
             id: loader.GetActiveWorkspace(),
@@ -39,6 +43,8 @@ class Editor {
         this.elements = result;
 
         this.ImplementElements();
+
+        this.SetupEvents();
     }
 
     UpdateCode() {
@@ -57,9 +63,9 @@ class Editor {
 
         this.content = updatedVersion;
 
-        // console.log(this.content);
-
         this.ParseAndExecute();
+
+        this.SaveFile();
     }
 
     LoadJSON(content) {
@@ -75,6 +81,33 @@ class Editor {
             document.querySelector('[interface-role-id="viewport"]').append(element);
         });
 
+        this.elements.forEach(element => {
+            document.querySelector('[interface-role-id="viewport"]').append(element);
+        });
+
+        let block = document.createElement('div');
+        block.classList.add('md-block');
+        block.setAttribute('contenteditable', true);
+        block.setAttribute('original-content', '');
+        block.setAttribute('uuid', UUID());
+
+        this.elements.push(block);
+        document.querySelector('[interface-role-id="viewport"]').append(block);
+    }
+
+    SaveFile() {
+        let self = this;
+
+        console.log()
+
+        window.electronAPI.invoke('files:save', JSON.stringify({
+            filename: self.filename,
+            id: self.workspace,
+            content: self.content.join('\n')
+        }));
+    }
+
+    SetupEvents() {
         for (let i = 0; i < this.elements.length; i++) {
             let item = this.elements[i];
 
@@ -87,10 +120,25 @@ class Editor {
                 item.setAttribute('original-content', item.innerText);
                 this.UpdateCode();
             });
-        }
 
-        this.elements.forEach(element => {
-            document.querySelector('[interface-role-id="viewport"]').append(element);
-        });
+            item.addEventListener('input', (event) => {
+                if (i === this.elements.length - 1) {
+                    if (item.innerText.length > 0) {
+                        let block = document.createElement('div');
+                        block.classList.add('md-block');
+                        block.setAttribute('contenteditable', true);
+                        block.setAttribute('original-content', '');
+                        block.setAttribute('uuid', UUID());
+
+                        this.elements.push(block);
+                        document.querySelector('[interface-role-id="viewport"]').append(block);
+                    }
+                    else {
+                        let removeable = this.elements.pop();
+                        document.querySelector(`[uuid="${removeable.getAttribute('uuid')}"]`).remove();
+                    }
+                }
+            });
+        }
     }
 }

@@ -78,6 +78,34 @@ class WorkspacesLoader {
 
         this.WriteChanges(workspaces);
     }
+
+    /**
+     * Create new file
+     * 
+     * @param {object} options
+     * @param {string} [options.filename]
+     * @param {number} [options.id]
+     * @param {string} [options.content]
+     */
+    static UpdateFile(options) {
+        let workspaces = JSON.parse(fs.readFileSync(WORKSPACE_PATH).toString());
+        let workspace = workspaces.content.find(item => item.id === options.id);
+        let file = workspace.files.find(item => item.filename === options.filename);
+
+        if (!workspace) {
+            Log.MakeNewNote('WorkspacesLoader.UpdateFile(options)', `FATAL: workspace with id ${options.id} not found. SKIPPED`);
+
+            return;
+        }
+
+        if (!file) {
+            Log.MakeNewNote('WorkspacesLoader.UpdateFile(options)', `FATAL: file with filename ${options.filename} not found. SKIPPED`);
+
+            return;
+        }
+
+        fs.writeFileSync(`${WORKSPACE_DIR}/${workspace.name}/${options.filename}`, options.content);
+    }
 }
 
 exports.WorkspacesLoader = WorkspacesLoader;
