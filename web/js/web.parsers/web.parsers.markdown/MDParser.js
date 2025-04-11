@@ -38,6 +38,34 @@ function HandleMDCode(code) {
 
                 result.push(headerItem);
             }
+            else if ((/\>/i).test(item)) {
+                let content = item.split(' ');
+                content.splice(0, 1);
+                content = content.join(' ');
+
+                let quoteItem = document.createElement('div');
+                quoteItem.classList.add('md-block', 'md-quote');
+                quoteItem.setAttribute('contenteditable', true);
+                quoteItem.setAttribute('original-content', item);
+                quoteItem.setAttribute('uuid', UUID());
+                quoteItem.textContent = content;
+
+                result.push(quoteItem);
+            }
+            else if ((/---/i).test(item)) {
+                let content = item.split(' ');
+                content.splice(0, 1);
+                content = content.join(' ');
+
+                let quoteItem = document.createElement('div');
+                quoteItem.classList.add('md-block', 'md-horizontal-line');
+                quoteItem.setAttribute('contenteditable', true);
+                quoteItem.setAttribute('original-content', item);
+                quoteItem.setAttribute('uuid', UUID());
+                quoteItem.innerHTML = '<div></div>';
+
+                result.push(quoteItem);
+            }
             else if ((/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(item)) {
                 let itemsWithoutEdit = [];
                 let items = [];
@@ -99,7 +127,38 @@ function HandleMDCode(code) {
                 textItem.setAttribute('contenteditable', true);
                 textItem.setAttribute('original-content', item);
                 textItem.setAttribute('uuid', UUID());
-                textItem.textContent = item;
+
+                if (Array.isArray(item.match(/`(.*?)`/ig))) {
+                    let replaces = item.match(/`(.*?)`/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        expresion_copy = expresion_copy.slice(1, expresion.length - 1);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<span class="md-text-inline-code">${expresion_copy}</span>`);
+                        }
+                    });
+                }
+
+                if (Array.isArray(item.match(/\[(.*?)\]\((.*?)\)/ig))) {
+                    let replaces = item.match(/\[(.*?)\]\((.*?)\)/ig);
+
+                    replaces.forEach(expresion => {
+                        let expresion_copy = String(expresion);
+                        let expresion_copy_title = expresion_copy.split('](')[0];
+                        let expresion_copy_link = expresion_copy.split('](')[1];
+
+                        expresion_copy_link = expresion_copy_link.slice(0, expresion_copy_link.length - 1);
+                        expresion_copy_title = expresion_copy_title.slice(1, expresion_copy_title.length);
+
+                        if (expresion_copy.length > 0) {
+                            item = item.replace(expresion, `<a class="md-link" href="${expresion_copy_link}">${expresion_copy_title}</a>`);
+                        }
+                    });
+                }
+
+                textItem.innerHTML = item;
 
                 result.push(textItem);
             }
