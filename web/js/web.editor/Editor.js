@@ -123,6 +123,8 @@ class Editor {
             let item = this.elements[i];
 
             item.addEventListener('focus', (event) => {
+                self.lastElement = item;
+
                 item.textContent = item.getAttribute('original-content');
                 item.setAttribute('class', 'md-block');
             });
@@ -157,7 +159,7 @@ class Editor {
     
                     document.execCommand('insertHTML', false,  '\t');
                 }
-                else if (event.which == 13 && !event.shiftKey)  {
+                else if (event.which == 13 && event.shiftKey)  {
                     event.preventDefault();
 
                     let block = document.createElement('div');
@@ -170,10 +172,9 @@ class Editor {
 
                     item.after(block);
 
-                    block.focus();
-                    this.lastElement = block;
+                    self.lastElement = block;
                 }
-                else if (event.which == 13 && event.shiftKey) {
+                else if (event.which == 13 && !event.shiftKey) {
                     event.preventDefault();
 
                     document.execCommand('insertHTML', false,  '\n');

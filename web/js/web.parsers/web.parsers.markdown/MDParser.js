@@ -122,9 +122,9 @@ function HandleMDCode(code) {
                 codeItem.setAttribute('language', assotiate[language] ? assotiate[language] : language);
                 codeItem.setAttribute('uuid', UUID());
 
-                items.forEach(element => {
+                items.forEach((element, i) => {
                     if (!element.includes('```')) {
-                        codeItem.innerHTML += `<div class="md-code-line">${htmlEscape(element)}</div>`;
+                        codeItem.innerHTML += `<div style="display: flex; align-items: center; gap: 10px;"><div class="md-code-number">${i}</div><div class="md-code-line">${htmlEscape(element)}</div></div>`;
                     }
                 });
 
@@ -275,7 +275,7 @@ function HighlightAllCode() {
     document.querySelectorAll('.md-code-line').forEach(item => {
         item.innerHTML = hljs.highlight(
             item.textContent,
-            { language: item.parentElement.getAttribute('language') }
+            { language: item.parentElement.parentElement.getAttribute('language') }
         ).value;
     });
 }

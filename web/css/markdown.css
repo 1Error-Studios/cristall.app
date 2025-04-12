@@ -91,3 +91,8 @@
     text-decoration: line-through;
     display: inline-block;
 }
+
+.md-code-number {
+    display: inline-block;
+    color: var(--txt-primary);
+}
