@@ -95,6 +95,41 @@ function HandleMDCode(code) {
 
                 result.push(unorderedListItem);
             }
+            else if ((/^\`\`\`(.*?)/i).test(item)) {
+                let itemsWithoutEdit = [];
+                let items = [];
+                
+                for (let i = index; i < code.length; i++) {
+                    itemsWithoutEdit.push(code[i]);
+                    items.push(code[i]);
+                    exclude.push(i);
+
+                    if (code[i] === '```') {
+                        break;
+                    }
+                }
+
+                let language = item.replace('```', '');
+
+                let assotiate = {
+                    'js': 'javascript'
+                }
+
+                let codeItem = document.createElement('div');
+                codeItem.classList.add('md-block', 'md-code-block');
+                codeItem.setAttribute('contenteditable', true);
+                codeItem.setAttribute('original-content', itemsWithoutEdit.join('\n'));
+                codeItem.setAttribute('language', assotiate[language] ? assotiate[language] : language);
+                codeItem.setAttribute('uuid', UUID());
+
+                items.forEach(element => {
+                    if (!element.includes('```')) {
+                        codeItem.innerHTML += `<div class="md-code-line">${htmlEscape(element)}</div>`;
+                    }
+                });
+
+                result.push(codeItem);
+            }
             else if ((/^\w+\.\s/i).test(item)) {
                 let itemsWithoutEdit = [];
                 let items = [];
@@ -234,4 +269,34 @@ function HandleMDCode(code) {
     // console.log(result);
 
     return result;
+}
+
+function HighlightAllCode() {
+    document.querySelectorAll('.md-code-line').forEach(item => {
+        item.innerHTML = hljs.highlight(
+            item.textContent,
+            { language: item.parentElement.getAttribute('language') }
+        ).value;
+    });
+}
+
+function htmlEscape(text) {
+    return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+}
+
+function TabFix() {
+    document.querySelectorAll('.md-block').forEach(item => {
+        $(item).on('keydown', function(e) {
+            if (e.which == 9) {
+                e.preventDefault();
+
+                document.execCommand('insertHTML', false,  '\t');
+            }
+        });
+    });
 }

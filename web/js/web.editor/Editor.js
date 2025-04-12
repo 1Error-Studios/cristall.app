@@ -44,6 +44,10 @@ class Editor {
 
         this.ImplementElements();
 
+        HighlightAllCode();
+
+        TabFix();
+
         this.SetupEvents();
     }
 
@@ -117,6 +121,7 @@ class Editor {
             });
 
             item.addEventListener('blur', (event) => {
+                item.innerHTML = item.innerHTML.replace(new RegExp('<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"></blockquote>', 'ig'), '\t');
                 item.setAttribute('original-content', item.innerText);
                 this.UpdateCode();
             });
