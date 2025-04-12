@@ -28,10 +28,32 @@ class CommandExecutor {
         this.DropLastExecuted();
     }
 
-    AddCommand(command, handler) {
+    /**
+     * Add command to list
+     * 
+     * @param {string} command 
+     * @param {string} description 
+     * @param {function} handler 
+     */
+    AddCommand(command, description, handler) {
         this.commands.push({
             command,
+            description,
             handler
+        });
+    }
+
+    /**
+     * Get list of commands
+     * 
+     * @returns {Array}
+     */
+    Help() {
+        return this.commands.map(item => {
+            return {
+                command: item.command,
+                description: item.description
+            }
         });
     }
 

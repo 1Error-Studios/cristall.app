@@ -60,10 +60,6 @@ function HandleLogMessages(data) {
             messageIcon.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M11 14.8958V10.0833" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M2.67665 14.1351V7.86508C2.67665 6.83842 3.22665 5.88504 4.11582 5.36254L9.56082 2.21838C10.45 1.70505 11.55 1.70505 12.4483 2.21838L17.8933 5.36254C18.7825 5.87588 19.3325 6.82925 19.3325 7.86508V14.1351C19.3325 15.1617 18.7825 16.1151 17.8933 16.6376L12.4483 19.7817C11.5592 20.2951 10.4592 20.2951 9.56082 19.7817L4.11582 16.6376C3.22665 16.1151 2.67665 15.1709 2.67665 14.1351Z" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M11 7.1499V7.05824" stroke="#007AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg>`;
         }
 
-        let messageTimeStamp = document.createElement('p');
-        messageTimeStamp.classList.add('message-time-stamp');
-        messageTimeStamp.textContent = TimeConverter(item.time);
-
         let messageDescription = document.createElement('p');
         messageDescription.classList.add('message-description');
         messageDescription.textContent = item.message;
@@ -71,7 +67,6 @@ function HandleLogMessages(data) {
         messageTitleFrame.append(messageIcon);
         messageTitleFrame.append(messageTitle);
 
-        messageAdditionalFrame.append(messageTimeStamp);
         messageAdditionalFrame.append(messageDescription);
         message.append(messageTitleFrame);
         message.append(messageAdditionalFrame);
