@@ -4,6 +4,8 @@ class Editor {
         this.workspace = null;
         this.filename = null;
 
+        this.lastElement = null;
+
         this.elements = [];
         this.content = [];
     }
@@ -46,7 +48,10 @@ class Editor {
 
         HighlightAllCode();
 
-        TabFix();
+        if (this.lastElement) {
+            this.lastElement.focus();
+            this.lastElement = null;
+        }
 
         this.SetupEvents();
     }
@@ -112,6 +117,8 @@ class Editor {
     }
 
     SetupEvents() {
+        let self = this;
+
         for (let i = 0; i < this.elements.length; i++) {
             let item = this.elements[i];
 
@@ -121,7 +128,6 @@ class Editor {
             });
 
             item.addEventListener('blur', (event) => {
-                item.innerHTML = item.innerHTML.replace(new RegExp('<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"></blockquote>', 'ig'), '\t');
                 item.setAttribute('original-content', item.innerText);
                 this.UpdateCode();
             });
@@ -142,6 +148,35 @@ class Editor {
                         let removeable = this.elements.pop();
                         document.querySelector(`[uuid="${removeable.getAttribute('uuid')}"]`).remove();
                     }
+                }
+            });
+
+            $(item).on('keypress', function(event) {
+                if (event.which == 9) {
+                    event.preventDefault();
+    
+                    document.execCommand('insertHTML', false,  '\t');
+                }
+                else if (event.which == 13 && !event.shiftKey)  {
+                    event.preventDefault();
+
+                    let block = document.createElement('div');
+                    block.classList.add('md-block');
+                    block.setAttribute('contenteditable', true);
+                    block.setAttribute('original-content', ' ');
+                    block.setAttribute('uuid', UUID());
+
+                    self.elements.splice(self.elements.indexOf(item), 0, block);
+
+                    item.after(block);
+
+                    block.focus();
+                    this.lastElement = block;
+                }
+                else if (event.which == 13 && event.shiftKey) {
+                    event.preventDefault();
+
+                    document.execCommand('insertHTML', false,  '\n');
                 }
             });
         }

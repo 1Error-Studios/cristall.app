@@ -38,7 +38,7 @@ function HandleMDCode(code) {
 
                 result.push(headerItem);
             }
-            else if ((/\>/i).test(item)) {
+            else if ((/^\>/i).test(item)) {
                 let content = item.split(' ');
                 content.splice(0, 1);
                 content = content.join(' ');
@@ -101,7 +101,7 @@ function HandleMDCode(code) {
                 
                 for (let i = index; i < code.length; i++) {
                     itemsWithoutEdit.push(code[i]);
-                    items.push(code[i]);
+                    items.push(code[i].length > 0 ? code[i] : '\n');
                     exclude.push(i);
 
                     if (code[i] === '```') {
@@ -287,16 +287,4 @@ function htmlEscape(text) {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#39;");
-}
-
-function TabFix() {
-    document.querySelectorAll('.md-block').forEach(item => {
-        $(item).on('keydown', function(e) {
-            if (e.which == 9) {
-                e.preventDefault();
-
-                document.execCommand('insertHTML', false,  '\t');
-            }
-        });
-    });
 }
