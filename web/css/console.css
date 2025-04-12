@@ -12,7 +12,7 @@
 }
 
 .console-messages-frame::-webkit-scrollbar {
-    display: none !important;
+    
 }
 
 .message-frame {
