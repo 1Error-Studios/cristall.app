@@ -1,15 +1,15 @@
 {
-  "name": "cristall.app",
-  "version": "0.0.0",
-  "description": "Writer app (no cloud)",
-  "main": "index.js",
-  "scripts": {
-    "dev": "electron ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "electron": "^33.2.1"
-  }
+    "name": "cristall.app",
+    "version": "0.0.0",
+    "description": "Writer app (no cloud)",
+    "main": "index.js",
+    "scripts": {
+        "dev": "electron ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "electron": "^33.2.1"
+    }
 }
