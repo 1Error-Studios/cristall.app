@@ -42,25 +42,76 @@
                 </button>
             </div>
         </div>
-        <div class="console-messages-frame">
+
+        <div class="console-body">
+            <div class="sidebar">
+                <div class="sidebar-panel">
+                    <div class="relative">
+                        <button class="button button-active" content-control-id="console">
+                            <div class="button-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.31592 8.25C7.21425 8.69917 7.98425 9.3775 8.54342 10.2208C8.86425 10.6975 8.86425 11.3117 8.54342 11.7883C7.98425 12.6225 7.21425 13.3008 6.31592 13.75" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11.9167 13.75H15.5834" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8.24992 20.1666H13.7499C18.3333 20.1666 20.1666 18.3333 20.1666 13.7499V8.24992C20.1666 3.66659 18.3333 1.83325 13.7499 1.83325H8.24992C3.66659 1.83325 1.83325 3.66659 1.83325 8.24992V13.7499C1.83325 18.3333 3.66659 20.1666 8.24992 20.1666Z" stroke="#FF3B30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                             
+                            </div>
+                            <p class="button-text">Console</p>
+                        </button>
+                        <div class="square" style="background-color: var(--cl-red) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                    </div>
+                    <div class="relative">
+                        <button class="button" content-control-id="log">
+                            <div class="button-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 8.25V18C20 21 18.21 22 16 22H8C5.79 22 4 21 4 18V8.25C4 5 5.79 4.25 8 4.25C8 4.87 8.24997 5.43 8.65997 5.84C9.06997 6.25 9.63 6.5 10.25 6.5H13.75C14.99 6.5 16 5.49 16 4.25C18.21 4.25 20 5 20 8.25Z" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 4.25C16 5.49 14.99 6.5 13.75 6.5H10.25C9.63 6.5 9.06997 6.25 8.65997 5.84C8.24997 5.43 8 4.87 8 4.25C8 3.01 9.01 2 10.25 2H13.75C14.37 2 14.93 2.25 15.34 2.66C15.75 3.07 16 3.63 16 4.25Z" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 13H12" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 17H16" stroke="#5856D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>                              
+                            </div>
+                            <p class="button-text">Log</p>
+                        </button>
+                    <div class="square" style="background-color: var(--cl-indigo) !important; width: 20px !important; height: 20px !important; top: 15px !important; left: 18px !important;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="content-block" content-id="console">
+                    <div class="block-messages-field">
+
+                    </div>
+                    <div class="block-messages-input">
+                        <div class="input-pre-wrap">
+                            <input class="console-input" placeholder="Enter command...">
+                            <button class="console-button" control-id="refresh">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.8901 5.0799C14.0201 4.8199 13.0601 4.6499 12.0001 4.6499C7.21008 4.6499 3.33008 8.5299 3.33008 13.3199C3.33008 18.1199 7.21008 21.9999 12.0001 21.9999C16.7901 21.9999 20.6701 18.1199 20.6701 13.3299C20.6701 11.5499 20.1301 9.8899 19.2101 8.5099" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.1302 5.32L13.2402 2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.1298 5.32007L12.7598 7.78007" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <button class="console-button" control-id="execute">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.40018 6.31991L15.8902 3.48991C19.7002 2.21991 21.7702 4.29991 20.5102 8.10991L17.6802 16.5999C15.7802 22.3099 12.6602 22.3099 10.7602 16.5999L9.92018 14.0799L7.40018 13.2399C1.69018 11.3399 1.69018 8.22991 7.40018 6.31991Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.1099 13.6501L13.6899 10.0601" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="input-advice"><span class="color-red">/help</span> will show all command to you</p>
+                    </div>
+                </div>
+                <div class="content-block" content-id="log" style="display: none;">Log</div>
+            </div>
+        </div>
+
+        <!-- <div class="console-messages-frame">
             
-        </div>
-        <div class="console-input-frame">
-            <input class="console-input" placeholder="Command...">
-            <button class="console-button" control-id="refresh">
-                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.3351 7.6201C21.0301 7.2301 19.5901 6.9751 18.0001 6.9751C10.8151 6.9751 4.99512 12.7951 4.99512 19.9801C4.99512 27.1801 10.8151 33.0001 18.0001 33.0001C25.1851 33.0001 31.0051 27.1801 31.0051 19.9951C31.0051 17.3251 30.1951 14.8351 28.8151 12.7651" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M24.1949 7.98L19.8599 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M24.1951 7.97998L19.1401 11.67" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                        
-            </button>
-            <button class="console-button" control-id="execute">
-                <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.1 9.47999L23.835 5.23499C29.55 3.32999 32.655 6.44999 30.765 12.165L26.52 24.9C23.67 33.465 18.99 33.465 16.14 24.9L14.88 21.12L11.1 19.86C2.53502 17.01 2.53502 12.345 11.1 9.47999Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15.165 20.4751L20.535 15.0901" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                        
-            </button>
-        </div>
+        </div> -->
+
+        <!-- <div class="console-input-frame">
+            
+        </div> -->
 
         <script src="./js/console.web.js"></script>
         <script src="./js/commands.web.js"></script>

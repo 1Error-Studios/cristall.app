@@ -131,17 +131,17 @@ document.querySelectorAll('[data-channel]').forEach(element => {
     });
 });
 
-window.electronAPI.invoke('console:load-messages').then(data => {
-    HandleLogMessages(JSON.parse(data));
-});
+// window.electronAPI.invoke('console:load-messages').then(data => {
+//     HandleLogMessages(JSON.parse(data));
+// });
 
-document.querySelector('[control-id="refresh"]').addEventListener('click', () => {
-    window.electronAPI.invoke('console:load-messages').then(data => {
-        ClearLog();
-        HandleLogMessages(JSON.parse(data));
-        document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
-    });
-});
+// document.querySelector('[control-id="refresh"]').addEventListener('click', () => {
+//     window.electronAPI.invoke('console:load-messages').then(data => {
+//         ClearLog();
+//         HandleLogMessages(JSON.parse(data));
+//         document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
+//     });
+// });
 
 function ExecuteCommand() {
     let command = document.querySelector('.console-input').value;
@@ -153,9 +153,9 @@ function ExecuteCommand() {
     }
 }
 
-document.querySelector('[control-id="execute"]').addEventListener('click', () => {
-    ExecuteCommand();
-});
+// document.querySelector('[control-id="execute"]').addEventListener('click', () => {
+//     ExecuteCommand();
+// });
 
 document.addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
@@ -177,4 +177,22 @@ document.addEventListener('keyup', (event) => {
             document.querySelector('.console-input').value = command;
         }
     }
+});
+
+let activeTab = 'console';
+
+function ChangeTab(tabId) {
+    document.querySelector(`[content-control-id="${activeTab}"]`).classList.remove('button-active');
+    document.querySelector(`[content-id="${activeTab}"]`).style = 'display: none;';
+
+    activeTab = tabId;
+
+    document.querySelector(`[content-control-id="${activeTab}"]`).classList.add('button-active');
+    document.querySelector(`[content-id="${activeTab}"]`).style = '';
+}
+
+document.querySelectorAll('[content-control-id]').forEach(item => {
+    item.addEventListener('click', event => {
+        ChangeTab(item.getAttribute('content-control-id'));
+    });
 });

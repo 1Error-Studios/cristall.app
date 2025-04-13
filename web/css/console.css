@@ -103,10 +103,240 @@
     color: var(--txt-secondary);
 }
 
-.console-button {
-    width: 56px;
-    height: 56px;
+/* Colour squares */
+.relative {
+    position: relative;
+    z-index: 2;
+}
+
+.square {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: -1;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cl-blue);
+}
+
+/* Settings */
+.main-body {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 64px);
+}
+
+.sidebar {
+    position: relative;
+    display: flex;
+    top: 0;
+    width: 260px;
+    height: 100%;
     padding: 10px;
+    flex-direction: column;
+    background: var(--bg-secondary);
+}
+
+.sidebar-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.button {
+    -webkit-user-select: none;
+    display: flex;
+    width: 240px;
+    height: 50px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(30px);
+    background-color: var(--bg-secondary);
+}
+
+.button-disabled > .button-icon > svg > path {
+    stroke: var(--txt-secondary);
+}
+
+.button-text {
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    font-size: 16px;
+    color: var(--txt-secondary);     
+}
+
+.field {
+    width: 100%;
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.field-frame {
+    padding: 10px;
+    gap: 10px;
+}
+
+.field-title-frame {
+    -webkit-user-select: none;
+    padding: 10px;
+}
+
+.field-title {
+    font-family: 'Outfit-Bold', 'Inter-Bold';
+    font-size: 14px;
+    color: var(--txt-primary);
+}
+
+.field-option-frame {
     display: flex;
     align-items: center;
+    padding: 0px 10px;
+    gap: 10px;
+}
+
+.field-option-wrapper {
+    position: relative;
+}
+
+.field-option-wrapper-icon {
+    width: 64px;
+    height: 64px;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(24px);
+    background-color: var(--bg-secondary-opacity);
+}
+
+.field-option-container {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field-option-text {
+    -webkit-user-select: none;
+    padding: 10px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+}
+
+.field-option-button {
+    -webkit-user-select: none;
+    height: fit-content;
+    background: var(--bg-grouped);
+    border-radius: 16px;
+    width: 120px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    color: var(--txt-primary);
+    transition: all .33s ease;
+}
+
+.button-icon {
+    position: absolute;
+    display: flex;
+    left: 16px;
+    width: 22px;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.button, .settings-button-text {
+    transition: all .33s ease;
+}
+
+.button-active {
+    background-color: var(--bg-grouped-opacity);
+}
+
+.button-active > .button-text {
+    color: var(--txt-primary);
+}
+
+.button:not(.button-disabled):hover {
+    background-color: var(--bg-grouped-opacity);
+}
+
+.button:not(.button-disabled):hover > .settings-button-text {
+    color: var(--txt-primary);
+}
+
+.console-body {
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 64px);
+    display: flex;
+}
+
+.content {
+    width: calc(100% - 260px);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.content-block {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px 0;
+}
+
+.block-messages-input {
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-pre-wrap {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-top: 0;
+    padding-right: 0;
+}
+
+.console-input {
+    height: 40px;
+    font-size: 16px;
+    color: var(--txt-primary);
+}
+
+.input-advice {
+    color: var(--cl-blue);
+    font-size: 16px;
+    font-family: 'Outfit-Regular', 'Inter-Regular';
+    padding: 10px;
+    padding-top: 0;
+    user-select: none;
+}
+
+.color-red {
+    color: var(--cl-red);
+}
+
+.console-button {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 5px;
+}
+
+.console-button:hover > svg > path {
+    stroke: var(--txt-secondary);
+    transition: all .33s ease;
 }
