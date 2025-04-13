@@ -16,8 +16,6 @@ class Loader {
         let workspaces = JSON.parse(fs.readFileSync(WORKSPACES_PATH).toString());
         let workspace = workspaces.content.find(item => item.id === workspaceId);
 
-        console.log(workspace)
-
         if (!workspace) {
             Log.MakeNewNote('Loader.LoadFile(filename)', `FATAL: workspace with @id [${workspaceId}] not found. SKIPPED.`);
 
