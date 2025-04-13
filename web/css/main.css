@@ -878,26 +878,54 @@ tr {
     font-family: 'Outfit-Regular', 'Inter-Regular';
 }
 
+.loader-logotype {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logotype-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logotype-wrapper {
+    background: var(--bg-grouped-opacity);
+    backdrop-filter: blur(60px);
+    border-radius: 26px;
+    padding: 10px;
+}
+
+.logotype-squre {
+    position: absolute;
+    z-index: -100;
+    background: var(--cl-red);
+    width: 30px;
+    height: 30px;
+}
+
 .loader-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
-.logotype-text {
-    font-size: 26px;
+.text-programm-name {
+    font-size: 18px;
     color: var(--txt-primary);
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    text-align: center;
+    user-select: none;
+}
+
+.text-powered-by {
+    font-size: 14px;
+    color: var(--txt-secondary);
     user-select: none;
     text-align: center;
-}
-
-.loader-logotype {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .loader-logotype-image {
@@ -908,9 +936,9 @@ tr {
 }
 
 .loader-progressbar {
-    width: 350px;
-    height: 15px;
-    border-radius: 10px;
+    width: 500px;
+    height: 8px;
+    border-radius: 6px;
     background: var(--bg-secondary);
     overflow: hidden;
 }
@@ -918,15 +946,15 @@ tr {
 .loader-progressbarview {
     width: 20%;
     height: 100%;
-    background: var(--cl-red);
-    border-radius: 10px;
+    background: var(--txt-primary);
+    border-radius: 6px;
     transition: all .33s ease;
 }
 
 .loader-stateview {
     margin-top: 10px;
-    color: var(--txt-primary);
-    font-size: 16px;
+    color: var(--txt-secondary);
+    font-size: 14px;
     user-select: none;
 }
 

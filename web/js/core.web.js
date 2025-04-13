@@ -182,4 +182,4 @@ document.querySelector('[control-id="open-console"]').addEventListener('click', 
     window.electronAPI.invoke('console:open');
 });
 
-Broker.DEV_hide_loading_screen();
+// Broker.DEV_hide_loading_screen();
