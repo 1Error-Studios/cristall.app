@@ -1,4 +1,13 @@
 let commandExecutor = new CommandExecutor();
+let cristallConsole = new CristallConsole();
+
+cristallConsole.Initialize(
+    document.querySelector('.console-input'),
+    document.querySelector('.console-button'),
+    document.querySelector('.block-messages-field')
+);
+
+cristallConsole.SetupEvents();
 
 function TimeConverter(UNIX_timestamp){
     let input = new Date(UNIX_timestamp);
@@ -134,50 +143,6 @@ document.querySelectorAll('[data-channel]').forEach(element => {
 // window.electronAPI.invoke('console:load-messages').then(data => {
 //     HandleLogMessages(JSON.parse(data));
 // });
-
-// document.querySelector('[control-id="refresh"]').addEventListener('click', () => {
-//     window.electronAPI.invoke('console:load-messages').then(data => {
-//         ClearLog();
-//         HandleLogMessages(JSON.parse(data));
-//         document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
-//     });
-// });
-
-function ExecuteCommand() {
-    let command = document.querySelector('.console-input').value;
-
-    if (command.length > 0) {
-        commandExecutor.Execute(command);
-        document.querySelector('.console-input').value = '';
-        document.querySelector('.console-messages-frame').scrollTo(0, document.querySelector('.console-messages-frame').scrollHeight);
-    }
-}
-
-// document.querySelector('[control-id="execute"]').addEventListener('click', () => {
-//     ExecuteCommand();
-// });
-
-document.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        ExecuteCommand();
-    }
-    else if (event.key === 'ArrowUp') {
-        commandExecutor.DownLastIndex();
-        let command = commandExecutor.GetLastExecuted();
-        
-        if (command) {
-            document.querySelector('.console-input').value = command;
-        }
-    }
-    else if (event.key === 'ArrowDown') {
-        commandExecutor.UpLastIndex();
-        let command = commandExecutor.GetLastExecuted();
-        
-        if (command) {
-            document.querySelector('.console-input').value = command;
-        }
-    }
-});
 
 let activeTab = 'console';
 

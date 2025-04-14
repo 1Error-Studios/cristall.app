@@ -380,4 +380,5 @@
     font-size: 16px;
     color: var(--txt-primary);
     padding: 10px;
+    white-space: pre-wrap;
 }

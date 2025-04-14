@@ -19,13 +19,14 @@ class CommandExecutor {
         let foundedCommand = this.commands.find(item => item.command === commandInNature);
 
         if (foundedCommand) {
-            foundedCommand.handler(commandInNature, splitted);
+            return {
+                command: foundedCommand,
+                arguments: splitted
+            };
         }
         else {
-            AddNote(`WARNING: Unknown command - ${command}`);
+            cristallConsole.SendMessage('console', `WARNING: Unknown command - ${command}`);
         }
-
-        this.DropLastExecuted();
     }
 
     /**
