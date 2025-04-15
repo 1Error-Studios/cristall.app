@@ -2,8 +2,8 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: bug, closed, documentation, duplicate, enhancement, In Work
-assignees: maksim-ruletov
+labels: bug
+assignees: maksim-ruletov, Ural-Letov
 
 ---
 
