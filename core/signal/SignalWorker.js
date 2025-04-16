@@ -118,3 +118,5 @@ class SignalWorker {
         return this.signals[signalName];
     }
 }
+
+exports.SignalWorker = SignalWorker;
