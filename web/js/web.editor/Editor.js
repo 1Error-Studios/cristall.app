@@ -107,8 +107,6 @@ class Editor {
     SaveFile() {
         let self = this;
 
-        console.log()
-
         window.electronAPI.invoke('files:save', JSON.stringify({
             filename: self.filename,
             id: self.workspace,
@@ -153,32 +151,31 @@ class Editor {
                 }
             });
 
-            $(item).on('keypress', function(event) {
-                if (event.which == 9) {
+            item.addEventListener('keypress', (event) => {
+                if (event.keyCode == 13)  {
                     event.preventDefault();
     
-                    document.execCommand('insertHTML', false,  '\t');
+                    if (event.shiftKey) {
+                        let block = document.createElement('div');
+                        block.classList.add('md-block');
+                        block.setAttribute('contenteditable', true);
+                        block.setAttribute('original-content', ' ');
+                        block.setAttribute('uuid', UUID());
+    
+                        self.elements.splice(self.elements.indexOf(item), 0, block);
+    
+                        item.after(block);
+    
+                        self.lastElement = block;
+                    }
+                    else {
+                        document.execCommand('insertHTML', false,  '\n');
+                    }
                 }
-                else if (event.which == 13 && event.shiftKey)  {
-                    event.preventDefault();
+            })
 
-                    let block = document.createElement('div');
-                    block.classList.add('md-block');
-                    block.setAttribute('contenteditable', true);
-                    block.setAttribute('original-content', ' ');
-                    block.setAttribute('uuid', UUID());
-
-                    self.elements.splice(self.elements.indexOf(item), 0, block);
-
-                    item.after(block);
-
-                    self.lastElement = block;
-                }
-                else if (event.which == 13 && !event.shiftKey) {
-                    event.preventDefault();
-
-                    document.execCommand('insertHTML', false,  '\n');
-                }
+            $(item).on('keypress', (event) => {
+                
             });
         }
     }

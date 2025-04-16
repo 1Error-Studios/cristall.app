@@ -797,6 +797,20 @@
         <script src="./js/web.editor/Editor.js"></script>
         <script src="./js/ResizeScript.js"></script>
 
+        <script>
+            $(document).keydown((e) => {
+                let keycode1 = (e.keyCode ? e.keyCode : e.which);
+                if (keycode1 == 0 || keycode1 == 9) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (document.activeElement.classList.contains('md-block')) {
+                        document.execCommand('insertHTML', false,  '\t');
+                    }
+                }
+            });
+        </script>
+
         <!-- FRONTEND-JS -->
         <script src="./js/core.web.js"></script>
 
