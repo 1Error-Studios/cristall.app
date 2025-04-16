@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { FILES_PATH } = require('../misc/Structure.js');
 const { Settings } = require('../settings/Settings.js');
+const { signalWorker } = require('../signal/SignalWorker.js')
 
 let LOG_PATH = FILES_PATH.find(item => item.name === 'log_file').path;
 
@@ -23,6 +24,12 @@ class Log {
             });
 
             fs.writeFileSync(LOG_PATH, JSON.stringify(liveStack, null, '\t'));
+
+            if (signalWorker.Check('isConsoleOpenned')) {
+                consoleWindow.DropWindow().webContents.send('update-log', JSON.stringify({
+                    title, message
+                }));
+            }
         }
     }
 

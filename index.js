@@ -10,6 +10,7 @@ const { PluginManager } = require('./core/plugin/PluginManager.js');
 const { Loader } = require('./core/filesystem/Loader.js');
 const { Settings } = require('./core/settings/Settings.js');
 const { WorkspacesLoader } = require('./core/workspaces/Loader.js');
+const { signalWorker } = require('./core/signal/SignalWorker.js');
 
 Checker.CheckFoldersExist(Object.values(FOLDERS_PATH));
 Checker.CheckFilesExist(FILES_PATH);
@@ -23,8 +24,7 @@ WorkspacesLoader.ValidateFile();
 
 const window = new Window();
 let consoleWindow;
-let pluginManager = new PluginManager();
-let isConsoleOpenned = false;
+const pluginManager = new PluginManager();
 
 pluginManager.CheckPlugins();
 
@@ -169,9 +169,9 @@ ipcMain.handle('localisation:load-prebuilt', (event) => {
 });
 
 ipcMain.handle('console:open', (event) => {
-    if (!isConsoleOpenned) {
+    if (!signalWorker.Check('isConsoleOpenned')) {
         OpenConsole();
-        isConsoleOpenned = true;
+        signalWorker.On('isConsoleOpenned');
     }
     else {
         consoleWindow.DropWindow().focus();
@@ -188,7 +188,7 @@ ipcMain.handle('console:maximize', event => {
 
 ipcMain.handle('console:close', event => {
     consoleWindow.DropWindow().close();
-    isConsoleOpenned = false;
+    signalWorker.Off('isConsoleOpenned');
 });
 
 ipcMain.handle('console:load-messages', event => {

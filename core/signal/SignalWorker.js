@@ -10,26 +10,26 @@ class SignalWorker {
      */
     Append(signalName) {
         if (!signalName) {
-            Log.MakeNewNote('SignalWorker.Append(signalName)', 'ERROR: @signalName not found. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Append(signalName)', 'ERROR: @signalName not found. SKIPPED');
 
             return;
         }
 
         if (typeof signalName !== 'string') {
-            Log.MakeNewNote('SignalWorker.Append(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Append(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
 
             return;
         }
 
         if (this.signals[signalName]) {
-            Log.MakeNewNote('SignalWorker.Append(signalName)', `WARNING: signal with @signalName [${signalName}] already exist. SKIPPED`);
+            // Log.MakeNewNote('SignalWorker.Append(signalName)', `WARNING: signal with @signalName [${signalName}] already exist. SKIPPED`);
 
             return;
         }
 
         this.signals[signalName] = false;
 
-        Log.MakeNewNote('SignalWorker.Append(signalName)', `SUCCESS: applied new signal: ${signalName}`);
+        // Log.MakeNewNote('SignalWorker.Append(signalName)', `SUCCESS: applied new signal: ${signalName}`);
     }
 
     /**
@@ -39,26 +39,26 @@ class SignalWorker {
      */
     On(signalName) {
         if (!signalName) {
-            Log.MakeNewNote('SignalWorker.On(signalName)', 'ERROR: @signalName not found. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.On(signalName)', 'ERROR: @signalName not found. SKIPPED');
 
             return;
         }
 
         if (typeof signalName !== 'string') {
-            Log.MakeNewNote('SignalWorker.On(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.On(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
 
             return;
         }
 
         if (!this.signals[signalName]) {
-            Log.MakeNewNote('SignalWorker.On(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
+            // Log.MakeNewNote('SignalWorker.On(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
         }
 
         this.signals[signalName] = true;
 
-        Log.MakeNewNote('SignalWorker.On(signalName)', `SUCCESS: signal [${signalName}] was enabled`);
+        // Log.MakeNewNote('SignalWorker.On(signalName)', `SUCCESS: signal [${signalName}] was enabled`);
     }
 
     /**
@@ -68,26 +68,26 @@ class SignalWorker {
      */
     Off(signalName) {
         if (!signalName) {
-            Log.MakeNewNote('SignalWorker.Off(signalName)', 'ERROR: @signalName not found. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Off(signalName)', 'ERROR: @signalName not found. SKIPPED');
 
             return;
         }
 
         if (typeof signalName !== 'string') {
-            Log.MakeNewNote('SignalWorker.Off(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Off(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
 
             return;
         }
 
         if (!this.signals[signalName]) {
-            Log.MakeNewNote('SignalWorker.Off(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
+            // Log.MakeNewNote('SignalWorker.Off(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
         }
 
         this.signals[signalName] = false;
 
-        Log.MakeNewNote('SignalWorker.Off(signalName)', `SUCCESS: signal [${signalName}] was disabled`);
+        // Log.MakeNewNote('SignalWorker.Off(signalName)', `SUCCESS: signal [${signalName}] was disabled`);
     }
 
     /**
@@ -98,19 +98,19 @@ class SignalWorker {
      */
     Check(signalName) {
         if (!signalName) {
-            Log.MakeNewNote('SignalWorker.Check(signalName)', 'ERROR: @signalName not found. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Check(signalName)', 'ERROR: @signalName not found. SKIPPED');
 
             return;
         }
 
         if (typeof signalName !== 'string') {
-            Log.MakeNewNote('SignalWorker.Check(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
+            // Log.MakeNewNote('SignalWorker.Check(signalName)', 'ERROR: @signalName isn\'t string. SKIPPED');
 
             return;
         }
 
         if (!this.signals[signalName]) {
-            Log.MakeNewNote('SignalWorker.Check(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
+            // Log.MakeNewNote('SignalWorker.Check(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
         }
@@ -119,4 +119,8 @@ class SignalWorker {
     }
 }
 
-exports.SignalWorker = SignalWorker;
+const signalWorker = new SignalWorker();
+
+signalWorker.Append('isConsoleOpenned');
+
+exports.signalWorker = signalWorker;
