@@ -1,25 +1,30 @@
 :root {
     /*Backgrounds*/
     /* --bg-primary: none; */
-    --bg-primary: #1C1C1C;
+    --bg-primary: var(--bg-primary-bt);
+    --bg-primary-bt: #1C1C1C;
     --bg-primary-wt: #E3E3E3;
     --bg-primary-opacity: rgba(255, 255, 255, 0.3);
     /* --bg-secondary: none; */
-    --bg-secondary: #212121;
+    --bg-secondary: var(--bg-secondary-bt);
+    --bg-secondary-bt: #212121;
     --bg-secondary-wt: #DEDEDE;
     --bg-secondary-opacity: rgba(33, 33, 33, 0.7);
     --bg-secondary-opacity2: rgba(33, 33, 33, 0.4);
     /* --bg-grouped: none; */
-    --bg-grouped: #2e2e2e;
+    --bg-grouped: var(--bg-grouped-bt);
+    --bg-grouped-bt: #2e2e2e;
     --bg-grouped-wt: #D1D1D1;
     --bg-grouped-opacity: rgba(46, 46, 46, 0.25);
     
     /*Texts and Icons*/
     /* --txt-primary: none; */
-    --txt-primary: #FFF;
+    --txt-primary: var(--txt-primary-bt);
+    --txt-primary-bt: #FFF;
     --txt-primary-wt: #000;
     /* --txt-secondary: none; */
-    --txt-secondary: #999;
+    --txt-secondary: var(--txt-secondary-bt);
+    --txt-secondary-bt: #999;
     --txt-secondary-wt: #666;
 
     /* Stroke */

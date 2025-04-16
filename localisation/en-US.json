@@ -20,9 +20,24 @@
         "You know, I'm something of a file editor."
     ],
     "settings.sidebar.buttons.appearence": "Appearence",
+
     "settings.sidebar.buttons.system": "System",
+
     "settings.sidebar.buttons.workspaces": "Workspaces",
+
     "settings.sidebar.buttons.plugins": "Plugins",
+
     "settings.sidebar.buttons.development": "Development",
-    "settings.sidebar.buttons.about": "About program"
+    "settings.development.utilities": "Utilities",
+    "settings.development.console": "Open developer console",
+    "settings.development.console.description": "If you want to execute any command or see errors.",
+    "settings.development.open": "Open",
+
+    "settings.sidebar.buttons.about": "About program",
+    "settings.about.application.version": "Application version",
+    "settings.about.application.authors": "Application's authors",
+    "settings.about.general.information": "General information",
+    "settings.about.fun.section": "Fun. Take some fun",
+    "settings.about.session.quote": "Quote of this session",
+    "settings.about.quote.button": "New quote"
 }

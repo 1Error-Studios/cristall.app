@@ -13,16 +13,31 @@
         "Ну и что ты здесь выискиваешь?",
         "Ты - аномалия, опухоль миров.",
         "Парень открывает свой файл и получает отредактированную версию, - вы думаете это про меня? Нет. Я и есть тот, кто редактирует.",
-        "Правильное слово в неверном месте может изменить весь файл",
-        "Если плагин даёт тебе ошибки, не делай баг-репорты, заставь плагин забрать из обратно.",
+        "Правильное слово в неверном месте может изменить весь файл.",
+        "Если плагин даёт тебе ошибки, не делай баг-репорты, заставь плагин забрать их обратно.",
         "Когда-то я тоже был разработчиком плагинов, как ты, пока не получил критическую ошибку в логе.",
-        "Файлы. Файлы никогда не находятся",
+        "Файлы. Файлы никогда не находятся.",
         "Знаете, я тоже своего рода файловый редактор."
     ],
     "settings.sidebar.buttons.appearence": "Внешний вид",
+
     "settings.sidebar.buttons.system": "Система",
+
     "settings.sidebar.buttons.workspaces": "Рабочие среды",
+
     "settings.sidebar.buttons.plugins": "Плагины",
+
     "settings.sidebar.buttons.development": "Разработка",
-    "settings.sidebar.buttons.about": "О программе"
+    "settings.development.utilities": "Утилиты",
+    "settings.development.console": "Консоль разработчика",
+    "settings.development.console.description": "Консоль нужна для выполнения команд и просмотра журнала отладки.",
+    "settings.development.open": "Открыть",
+
+    "settings.sidebar.buttons.about": "О программе",
+    "settings.about.application.version": "Версия программы",
+    "settings.about.application.authors": "Авторы программы",
+    "settings.about.general.information": "Основная информация",
+    "settings.about.fun.section": "Немного развлечений",
+    "settings.about.session.quote": "Случайная смешная цитата",
+    "settings.about.quote.button": "Новая цитата"
 }
