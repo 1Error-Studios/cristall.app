@@ -122,7 +122,12 @@ ipcMain.handle('plugins:load:script', (event, args) => {
 });
 
 ipcMain.handle('log:make-note', (event, args) => {
-    Log.MakeNewNote(args.title, args.message);
+    if (Log.MakeNewNote(args.title, args.message) === 'UPDATE_LOG') {
+        consoleWindow.DropWindow().webContents.send('update-log', JSON.stringify({
+            title: args.title,
+            message: args.message
+        }));
+    }
 });
 
 ipcMain.handle('files:load-all', (event) => {

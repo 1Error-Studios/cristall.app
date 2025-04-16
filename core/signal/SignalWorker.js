@@ -21,7 +21,7 @@ class SignalWorker {
             return;
         }
 
-        if (this.signals[signalName]) {
+        if (this.signals[signalName] != undefined) {
             // Log.MakeNewNote('SignalWorker.Append(signalName)', `WARNING: signal with @signalName [${signalName}] already exist. SKIPPED`);
 
             return;
@@ -50,7 +50,7 @@ class SignalWorker {
             return;
         }
 
-        if (!this.signals[signalName]) {
+        if (this.signals[signalName] == undefined) {
             // Log.MakeNewNote('SignalWorker.On(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
@@ -79,7 +79,7 @@ class SignalWorker {
             return;
         }
 
-        if (!this.signals[signalName]) {
+        if (this.signals[signalName] == undefined) {
             // Log.MakeNewNote('SignalWorker.Off(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
@@ -109,11 +109,12 @@ class SignalWorker {
             return;
         }
 
-        if (!this.signals[signalName]) {
+        if (this.signals[signalName] == undefined) {
             // Log.MakeNewNote('SignalWorker.Check(signalName)', `ERROR: signal with @signalName [${signalName}] doesn't exist. SKIPPED`);
 
             return;
         }
+
 
         return this.signals[signalName];
     }

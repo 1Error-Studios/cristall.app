@@ -24,11 +24,9 @@ class Log {
             });
 
             fs.writeFileSync(LOG_PATH, JSON.stringify(liveStack, null, '\t'));
-
+            
             if (signalWorker.Check('isConsoleOpenned')) {
-                consoleWindow.DropWindow().webContents.send('update-log', JSON.stringify({
-                    title, message
-                }));
+                return 'UPDATE_LOG';
             }
         }
     }

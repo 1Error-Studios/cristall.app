@@ -45,6 +45,8 @@ class CristallConsole {
         }
 
         this.inputElement.value = '';
+
+        this.messagesViewport.scrollTo(0, this.messagesViewport.scrollHeight);
     }
 
     SetupEvents() {
