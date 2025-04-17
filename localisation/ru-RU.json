@@ -20,6 +20,16 @@
         "Знаете, я тоже своего рода файловый редактор."
     ],
     "settings.sidebar.buttons.appearence": "Внешний вид",
+    "settings.sidebar.appearence.theme-section.title": "Настройки темы",
+    "settings.sidebar.appearence.use-system-theme.title": "Системная тема",
+    "settings.sidebar.appearence.use-system-theme.description": "Пока эта опция активна, приложение будет подстраиваться под тему вашей системы",
+    "settings.sidebar.appearence.application-theme.title": "Тема",
+    "settings.sidebar.appearence.application-theme.description": "Выберите тему или скачайте новую в разделе <span style=\"color: var(--cl-red);\">плагинов</span>",
+    "settings.sidebar.appearence.interface-section.title": "Настройки интерфейса",
+    "settings.sidebar.appearence.application-font.title": "Шрифт",
+    "settings.sidebar.appearence.application-font.description": "Выберете шрифт или скачайте новый в разделе <span style=\"color: var(--cl-red);\">плагинов</span>. Мне кажется, или вы уже читали это? Хм. Должно быть показалось...",
+    "settings.sidebar.appearence.application-main-color.title": "Акцентный цвет",
+    "settings.sidebar.appearence.application-main-color.description": "Можете изменить. Да, сегодня можно.",
 
     "settings.sidebar.buttons.system": "Система",
 

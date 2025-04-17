@@ -69,7 +69,7 @@ class Localisation {
         document.querySelectorAll('[translation-key]').forEach(item => {
             let key = item.getAttribute('translation-key');
 
-            item.textContent = this.languagePackages.find(item => item.languageCode === this.activeLanguage).package[key] ?? 'Localisation not found';
+            item.innerHTML = this.languagePackages.find(item => item.languageCode === this.activeLanguage).package[key] ?? 'Localisation not found';
         });
 
         TakeNote('{WEB}.Localisation.LoadLocalisation()', 'SUCCESS: Loaded fully localisation.');

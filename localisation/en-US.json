@@ -20,6 +20,16 @@
         "You know, I'm something of a file editor."
     ],
     "settings.sidebar.buttons.appearence": "Appearence",
+    "settings.sidebar.appearence.theme-section.title": "Theme",
+    "settings.sidebar.appearence.use-system-theme.title": "Use system theme",
+    "settings.sidebar.appearence.use-system-theme.description": "You can use theme, based on your's system theme.",
+    "settings.sidebar.appearence.application-theme.title": "Application theme",
+    "settings.sidebar.appearence.application-theme.description": "Select application theme or download new in <span style=\"color: var(--cl-red);\">plugins</span> field",
+    "settings.sidebar.appearence.interface-section.title": "Interface",
+    "settings.sidebar.appearence.application-font.title": "Application font",
+    "settings.sidebar.appearence.application-font.description": "Select application font or download new in <span style=\"color: var(--cl-red);\">plugins</span> field",
+    "settings.sidebar.appearence.application-main-color.title": "Application main color",
+    "settings.sidebar.appearence.application-main-color.description": "Select application main color",
 
     "settings.sidebar.buttons.system": "System",
 
