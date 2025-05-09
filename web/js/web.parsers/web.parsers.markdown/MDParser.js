@@ -66,17 +66,17 @@ function HandleMDCode(code) {
 
                 result.push(quoteItem);
             }
-            else if ((/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(item)) {
+            else if ((/^([ \t]*)(\-|\*|\+)\s/i).test(item)) {
                 let itemsWithoutEdit = [];
                 let items = [];
                 
                 for (let i = index; i < code.length; i++) {
-                    if (!(/^(\-|\*|\+|\t\-|\t\*|\t\+)\s/i).test(code[i])) {
+                    if (!(/^(\-|\*|\+)/i).test(item.replace(/^([ \t]*)/i, ''))) {
                         break;
                     }
                     else {
                         itemsWithoutEdit.push(code[i]);
-                        items.push(code[i].replace('- ', '').replace(/(\-|\*|\+|)/i,  ''));
+                        items.push(code[i].replace(/^(\-|\*|\+)/i, ''));
                         exclude.push(i);
                     }
                 }

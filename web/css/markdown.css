@@ -1,21 +1,12 @@
 .md-block {
     font-family: 'Outfit-Regular', 'Inter-Regular';
-    color: var(--txt-secondary);
+    background: var(--bg-grouped-markdown);
     outline: none;
     padding: 10px;
-    transition: background .33s ease;
-    border-radius: 12px;
+    border-radius: 16px;
     white-space: pre-wrap;
-}
-
-.md-block:hover {
-    background: var(--bg-secondary);
-}
-
-.md-block.md-quote:hover {
-    background: var(--bg-secondary);
-    border-radius: 10px;
-    border: unset;
+    color: var(--txt-secondary);
+    margin: 10px 0;
 }
 
 .md-header-1, .md-header-2,
@@ -55,9 +46,9 @@
 }
 
 .md-quote {
-    padding-left: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-left: 2px solid var(--st-primary);
     border-radius: 0;
 }
